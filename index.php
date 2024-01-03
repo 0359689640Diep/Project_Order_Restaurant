@@ -1,4 +1,4 @@
 <?php
-header("Location: User/index.php");
+header("Location: public/index.php");
 
 ?>

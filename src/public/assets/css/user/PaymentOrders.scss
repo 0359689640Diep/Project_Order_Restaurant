@@ -1,0 +1,276 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root {
+    --color: #131313;
+    --color1: #282828;
+    --color2: #393939;
+    --color3: #585353;
+    --color4: #CA0910;
+    --color5: #F7C427;
+    --color6: #FFFFFF;
+    --color7: #2E2C2C;
+}
+html{
+    font-size: 14px;
+}
+
+.page{
+    width: 1470px;
+    height: 2498px;
+    display: grid;
+    background-color: var(--color);
+    grid-template-columns: 100%;
+    grid-template-rows: 100%;
+    grid-template-areas: "main" ;
+    margin: 0 auto;
+
+    main{
+        width: 100%;
+        height: 100%;
+        background-color: var(--color);
+        grid-area: main;
+        padding: 0 5%;
+
+        .titleMain{
+            width: 100%;
+            height: 10%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--color6);
+
+            h1{
+                color: var(--color6);
+                font-family: Inter;
+                font-size: 4rem;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;                
+            }
+        }
+        .containerMain{
+            margin-top: 5%;
+            width: 100%;
+            height: 80%;
+            display: flex;
+            justify-content: space-between;
+
+            .customerInformation{
+                width: 45%;
+                height: 100%;
+                border-radius: 10px;
+            
+                .titleCustomerInformation{
+                    width: 100%;
+                    height: 7%;
+                    background-color: var(--color3);
+                    padding: 0 5%;
+                    color: var(--color6);
+                    display: flex;
+                    align-items: center;
+                    border-radius: 10px;
+                    
+                    h1{
+                        font-size:2rem ;
+                        font-family: Inter;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: normal;                        
+                    }
+                }
+
+                form{
+                    width: 100%;
+                    height: 93%;
+                    border: 2px solid white;
+                    border-radius: 10px;
+                    padding: 10% 6%;
+
+                    label{
+                        color:var(--color6);
+                        font-family: Inter;
+                        font-size: 0.8rem;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: normal;
+                        margin: 2% 0;
+                    }
+                    input{
+                        width: 100%;
+                        height: 9%;
+                        margin: 5% 0;
+                        border-radius: 64.5px;
+                        border: none;
+                        font-size: 1rem;
+                        padding-left:5% ;
+                    }
+                    input:focus{
+                        outline:  none;
+                    }
+                    input:last-child{
+                        background: linear-gradient(265deg, #F7C427 27.42%, #CA0910 97.16%);
+                        width: 70%;
+                        height: 8%;
+                        color: var(--color);
+                        font-family: Inter;
+                        font-size: 2rem;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: normal;                       
+                    }
+                }
+            }
+            .yourInvoice{
+                width: 45%;
+                height: 50%;
+                background-color: var(--color2);
+                border-radius: 30px;
+            
+                .titleYourInvoice{
+                    width: 100%;
+                    height: 20%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: var(--color6);
+
+                    h1{
+                        font-family: Inter;
+                        font-size: 2rem;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: normal;                        
+                    }
+                    
+                }
+                .contentProductYourInvoice{
+                    width: 100%;
+                    height: 34%;
+                    overflow: auto;
+
+                    table{
+                        width: 100%;
+                        table-layout: fixed;
+                        border-collapse: collapse;
+                        text-align: center;
+                        border-bottom: 2px solid var(--color3);
+
+                        th{
+                            padding: 20px;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            color: var(--color6);
+                            font-family: Inter;
+                            font-size: 1rem;
+                            font-style: normal;
+                            font-weight: 700;
+                            line-height: normal;  
+                            border-bottom: 2px solid var(--color3);                          
+                        }
+
+                        td{
+                            color: var(--color6);
+                            font-family: Inter;
+                            font-size: 1rem;
+                            font-style: normal;
+                            font-weight: 700;
+                            line-height: normal;
+                            padding: 20px;
+                        }
+                    }
+                }
+                .contentPlaceOrderYourInvoice{
+                    width: 100%;
+                    height: 40%;
+                    padding: 0 18%;
+
+                    .total{
+                        width: 100%;
+                        height: 20%;
+
+                        display: flex;
+                        align-items: center;
+
+                        h1{
+                            color: var(--color6);
+                            font-family: Inter;
+                            font-size: 1rem;
+                            font-style: normal;
+                            font-weight: 700;
+                            line-height: normal;                            
+                        }
+                        h1:last-child{
+                            font-size: 2rem;
+                            margin-left: 77%;
+
+                        }
+
+                    }
+                    .pay{
+                        width: 100%;
+                        height: 50%;
+
+
+                        .paymentCash, .bankCardPayment{
+                            width: 100%;
+                            height: 50%;
+                             display: flex;
+
+                            input[type = "radio"]{
+                                width: 10%;
+                                height: 65%;
+                            }
+                            label{
+                                color: var(--color6);
+                                font-family: Inter;
+                                font-size: 1rem;
+                                font-style: normal;
+                                font-weight: 700;
+                                line-height: normal;  
+                                
+                                p{
+                                    color: var(--color6);
+                                    font-family: Inter;
+                                    font-size: 0.9rem;
+                                    font-style: normal;
+                                    font-weight: 500;
+                                    line-height: normal;  
+                                    display: none;                                  
+                                }
+                            }
+                            
+                        }
+                        
+                    }
+                    .placeOrder{
+                        width: 100%;
+                        height: 30%;
+
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        button{
+                            width: 60%;
+                            height: 100%;
+                            background-color: var(--color4);
+                            color: var(--color6);
+                            border-radius: 15px;
+                            font-family: Inter;
+                            font-size: 1.5rem;
+                            font-style: normal;
+                            font-weight: 700;
+                            line-height: normal;                            
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+    
+}

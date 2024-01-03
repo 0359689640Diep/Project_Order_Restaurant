@@ -1,0 +1,107 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+html {
+  font-size: 14px;
+}
+
+.ThongTinKhachHang {
+  width: 1470px;
+  margin: 0 auto;
+  height: 1100px;
+  background-color: #131313;
+  display: flex;
+  justify-content: space-between;
+}
+.ThongTinKhachHang .card {
+  padding-top: 80px;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+}
+.ThongTinKhachHang .card .content {
+  width: 70%;
+  height: 60%;
+  box-shadow: inset 5px;
+  background-color: #393939;
+  border-radius: 45px;
+  text-align: center;
+  color: white;
+}
+.ThongTinKhachHang .card .content .img_center {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.ThongTinKhachHang .card .content .img_center .img {
+  display: flex;
+  justify-content: center;
+  width: 40%;
+  border-radius: 50%;
+  overflow: hidden;
+  align-items: center;
+}
+.ThongTinKhachHang .card .content .img_center .img img {
+  width: 100%;
+}
+.ThongTinKhachHang .card .content > h3 {
+  font-size: 55px;
+  font-weight: bold;
+}
+.ThongTinKhachHang .card .content ul {
+  margin: 20px 0;
+  margin-top: 60px;
+  list-style: none;
+}
+.ThongTinKhachHang .card .content ul li {
+  text-decoration: none;
+  margin: 15px;
+}
+.ThongTinKhachHang .card .content ul li a {
+  font-size: 40px;
+  color: white;
+  text-decoration: none;
+}
+.ThongTinKhachHang .info {
+  width: 60%;
+  padding-top: 80px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+}
+.ThongTinKhachHang .info .content_info {
+  width: 80%;
+  color: white;
+}
+.ThongTinKhachHang .info .content_info > h1 {
+  font-size: 60px;
+  margin-bottom: 40px;
+}
+.ThongTinKhachHang .info .content_info p {
+  font-size: 30px;
+}
+.ThongTinKhachHang .info .content_info input {
+  margin-bottom: 30px;
+  width: 70%;
+  border: none;
+  border-radius: 64.5px;
+  padding: 20px 30px;
+  background-color: #D9D9D9;
+  font-size: 35px;
+}
+.ThongTinKhachHang .info .content_info input:focus {
+  outline: none;
+}
+.ThongTinKhachHang .info .content_info button {
+  margin-bottom: 30px;
+  width: 77%;
+  font-size: 35px;
+  border: none;
+  border-radius: 64.5px;
+  padding: 20px 30px;
+  border-radius: 40px;
+  background: linear-gradient(265deg, #F7C427 27.42%, #CA0910 97.16%);
+  font-size: 35px;
+}/*# sourceMappingURL=ThongTinKhachHang.css.map */

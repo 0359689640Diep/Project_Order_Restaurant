@@ -1,0 +1,180 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+:root {
+  --color: #131313;
+  --color1: #282828;
+  --color2: #393939;
+  --color3: #585353;
+  --color4: #CA0910;
+  --color5: #F7C427;
+  --color6: #FFFFFF;
+  --color7: #2E2C2C;
+}
+
+html {
+  font-size: 14px;
+}
+
+.page {
+  width: 1470px;
+  height: 960px;
+  margin: 0 auto;
+}
+.page main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 5%;
+}
+.page main .containerMain {
+  width: 60%;
+  height: 100%;
+}
+.page main .containerMain .listProduct {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  margin-top: 5%;
+}
+.page main .containerMain .listProduct .selectAllProducts {
+  width: 100%;
+  height: 8%;
+  background-color: var(--color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 7%;
+}
+.page main .containerMain .listProduct .selectAllProducts input[type=checkbox] {
+  width: 20px;
+  height: 20px;
+}
+.page main .containerMain .listProduct .selectAllProducts h5 {
+  color: var(--color6);
+}
+.page main .containerMain .listProduct .selectAllProducts .ti-trash {
+  color: var(--color6);
+  font-size: 2rem;
+}
+.page main .containerMain .listProduct .selectAllProducts .ti-trash:active {
+  color: var(--color3);
+}
+.page main .containerMain .listProduct table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+.page main .containerMain .listProduct table th {
+  padding: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--color5);
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Bitter;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.page main .containerMain .listProduct table td {
+  border-bottom: 5px solid var(--color6);
+  padding: 20px;
+  text-align: center;
+  word-wrap: break-word;
+  color: var(--color6);
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Bitter;
+  font-style: 1rem;
+  font-weight: 700;
+  line-height: normal;
+}
+.page main .containerMain .listProduct table td input[type=checkbox] {
+  width: 20px;
+  height: 20px;
+}
+.page main .containerMain .listProduct table td img {
+  width: 100%;
+  height: 100%;
+}
+.page main .containerMain .listProduct table td input[type=number] {
+  width: 70px;
+  height: 25px;
+  text-align: center;
+  font-size: 1rem;
+}
+.page main .containerMain .listProduct table td input[type=number]:focus {
+  outline: none;
+}
+.page main .containerMain .listProduct table td .ti-trash {
+  color: var(--color6);
+  font-size: 2rem;
+}
+.page main .containerMain .listProduct table td .ti-trash:active {
+  color: var(--color3);
+}
+.page main .containerMain .listProduct:hover {
+  overflow-x: auto;
+}
+.page main .containerMain .listProduct::-webkit-scrollbar {
+  background-color: transparent;
+}
+.page main .containerMain .listProduct::-webkit-scrollbar-thumb {
+  background-color: var(--color3);
+  width: 1px;
+  border-radius: 100px;
+}
+.page main aside {
+  width: 30%;
+  max-height: 100%;
+  padding: 2%;
+}
+.page main aside .mainAside {
+  border-bottom: 2px solid var(--color3);
+  width: 100%;
+  max-height: 80%;
+  overflow-x: auto;
+}
+.page main aside .mainAside h1 {
+  color: var(--color6);
+  font-size: 2rem;
+  margin: 10% 0;
+}
+.page main aside .mainAside ul {
+  width: 100%;
+  height: 100%;
+}
+.page main aside .mainAside ul li {
+  list-style-type: none;
+  color: var(--color6);
+  font-size: 1rem;
+  margin: 5% 0;
+}
+.page main aside .footerAside {
+  width: 100%;
+  height: 20%;
+}
+.page main aside .footerAside h1 {
+  color: var(--color6);
+  font-size: 1.5rem;
+  margin: 3% 0;
+}
+.page main aside .footerAside button {
+  width: 50%;
+  height: 35%;
+  margin: 5% 25%;
+  font-size: 1rem;
+}
+.page main aside .footerAside button:focus {
+  outline: none;
+}
+.page main aside .footerAside button:hover {
+  background-color: var(--color3);
+  color: var(--color6);
+  transition: 1s linear;
+}/*# sourceMappingURL=Cart.css.map */

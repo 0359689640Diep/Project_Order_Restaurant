@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 14px;
+}
+
+.box_login {
+  margin: 0 auto;
+  max-width: 1470px;
+  height: 700px;
+  background-image: url("../../img/html/snapedit_1701874861222.png");
+  background-size: 100%;
+  padding-bottom: 50px;
+}
+.box_login .layer {
+  width: 100%;
+  margin: 0 auto;
+  height: 100px;
+}
+.box_login .login {
+  margin: 0 auto;
+  margin-top: 40px;
+  max-width: 90%;
+  height: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box_login .login .content_login {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 350px;
+  background-color: white;
+}
+.box_login .login .content_login h1 {
+  text-align: center;
+  color: #f7c427;
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+.box_login .login .content_login p {
+  margin-top: 9px;
+  color: black;
+  margin-left: 20px;
+}
+.box_login .login .content_login p {
+  align-self: flex-start;
+}
+.box_login .login .content_login input {
+  padding: 6px;
+  width: 90%;
+}
+.box_login .login .content_login a {
+  margin-top: 5px;
+  text-decoration: none;
+  margin-right: 20px;
+}
+.box_login .login .content_login a {
+  align-self: flex-end;
+}
+.box_login .login .content_login a:hover {
+  text-decoration: underline;
+}
+.box_login .login .content_login button {
+  margin-top: 15px;
+  width: 90%;
+  background: linear-gradient(265deg, #F7C427 27.42%, #CA0910 97.16%);
+  border: none;
+  font-size: 20px;
+  border-radius: 5px;
+  padding: 8px;
+}
+.box_login .login .content_login .option {
+  display: flex;
+  width: 100%;
+  height: 10%;
+  justify-content: space-between;
+  padding: 0 5%;
+}
+.box_login .login .content_login .option a {
+  margin-top: 5px;
+  text-decoration: none;
+  color: black;
+  margin-right: 20px;
+}
+.box_login .login .content_login .option a {
+  align-self: flex-end;
+}
+.box_login .login .content_login .option a:hover {
+  text-decoration: underline;
+}
+.box_login .login .img_login {
+  width: 65%;
+  height: 100%;
+}
+.box_login .login .img_login img {
+  width: 100%;
+  height: 100%;
+  -o-object-position: center;
+     object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+}/*# sourceMappingURL=LoginThuong.css.map */

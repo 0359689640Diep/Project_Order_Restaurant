@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 14px;
+}
+
+.header {
+  position: fixed;
+  margin: 0 auto;
+  width: 100%;
+  background-color: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+.header .logo {
+  margin: 8px 0;
+  margin-left: 13px;
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+.header .logo .logo_link img {
+  width: 90px;
+  height: auto;
+  margin-right: 10px;
+}
+.header .logo ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header .logo ul li {
+  margin: 0 10px;
+  list-style: none;
+}
+.header .logo ul li a {
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
+}
+.header .logo ul li a:hover {
+  color: #F7C427;
+  text-decoration: underline;
+}
+.header .information {
+  display: flex;
+  margin-right: 13px;
+  justify-content: center;
+  align-items: center;
+}
+.header .information a {
+  margin: 0 10px;
+}
+.header .information a img {
+  width: 40px;
+}
+.header .information a .avatar {
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.header .information a .avatar img {
+  width: 100%;
+}
+.header .information .login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header .information .login .button_login {
+  box-sizing: border-box;
+  margin-left: 13px;
+  flex-shrink: 0;
+  height: 40px;
+  background-color: inherit;
+  border: white 1px solid;
+  border-radius: 3px;
+  transition: background-color 1s;
+}
+.header .information .login .button_login:hover {
+  background-color: #F7C427;
+  border-color: transparent;
+}
+.header .information .login .button_login:hover a {
+  color: black;
+}
+.header .information .login .button_login a {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+}/*# sourceMappingURL=Header.css.map */

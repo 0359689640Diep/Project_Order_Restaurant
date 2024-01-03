@@ -1,0 +1,124 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+html {
+  font-size: 14px;
+}
+
+.danh_sach_san_pham {
+  margin: 0 auto;
+  max-width: 1470px;
+  background-image: url("../../img/html/snapedit_1701874861222.png");
+  background-size: 100%;
+  padding-bottom: 50px;
+}
+.danh_sach_san_pham .layer {
+  width: 100%;
+  margin: 0 auto;
+  height: 100px;
+}
+.danh_sach_san_pham .slideshow {
+  max-width: 100%;
+  margin: auto;
+}
+.danh_sach_san_pham .slideshow .mySlides {
+  display: none;
+}
+.danh_sach_san_pham .slideshow .mySlides img {
+  width: 100%;
+  height: 500px;
+  -o-object-position: center;
+     object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.danh_sach_san_pham .timkiem {
+  width: 70%;
+  margin: 0 auto;
+  margin: 30px 0;
+  margin-bottom: 25px;
+  margin-left: 30px;
+}
+.danh_sach_san_pham .timkiem input {
+  font-size: 20px;
+  background-color: #fdfafa;
+  border: 1px solid white;
+  padding: 5px;
+}
+.danh_sach_san_pham .timkiem select {
+  margin: 0 10px;
+  background-color: #fdfafa;
+  border: 1px solid white;
+  padding: 5px;
+  font-size: 20px;
+}
+.danh_sach_san_pham .timkiem button {
+  border-radius: 5px;
+  border: none;
+  background-color: #f7c427;
+  padding: 10px;
+  font-size: 20px;
+}
+.danh_sach_san_pham .Slideshow_Product {
+  display: flex;
+  max-width: 95%;
+  margin: 0 auto;
+  height: -moz-fit-content;
+  height: fit-content;
+  justify-content: space-around;
+  background-repeat: no-repeat;
+  background-image: none;
+  align-items: center;
+  border-radius: 10px;
+  flex-wrap: wrap;
+}
+.danh_sach_san_pham .Slideshow_Product .content_pro {
+  background-color: white;
+  width: 20%;
+  border-radius: 15px;
+  height: 375px;
+  transition: transform 0.5s ease-in-out;
+  margin: 15px;
+}
+.danh_sach_san_pham .Slideshow_Product .content_pro h2 {
+  margin-top: 7px;
+  margin-bottom: 4px;
+  padding-left: 10px;
+}
+.danh_sach_san_pham .Slideshow_Product .content_pro h3 {
+  text-decoration: underline;
+  padding-left: 10px;
+  font-weight: normal;
+  margin: 5px 0;
+}
+.danh_sach_san_pham .Slideshow_Product .content_pro p {
+  padding-left: 10px;
+  height: 80px;
+}
+.danh_sach_san_pham .Slideshow_Product .content_pro img {
+  width: 100%;
+  border-radius: 15px 15px 0 0;
+  height: 200px;
+  text-align: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.danh_sach_san_pham .Slideshow_Product .content_pro .button_div {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.danh_sach_san_pham .Slideshow_Product .content_pro .button_div button {
+  padding: 7px;
+  background-color: #f7c427;
+  border-radius: 7%;
+  font-size: 12px;
+  text-transform: uppercase;
+  border: none;
+  color: black;
+}/*# sourceMappingURL=ProductPortfolio.css.map */

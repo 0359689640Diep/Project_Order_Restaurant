@@ -1,0 +1,104 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+html{
+    font-size: 14px;
+}
+
+footer{
+    margin: 0 auto;
+    width: 1470px;
+    height: fit-content;
+    padding-top: 20px;
+    background-color: #282828;
+    
+    .head_footer{
+        width: 90%;
+        margin:0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+        margin-left: 20px !important;
+        .email{
+            margin-right: 40px;
+            h3{
+                font-size: 32px;
+                margin-bottom: 20px;
+            }
+            form{
+                display: flex;
+                >input{
+                    background-color: transparent;
+                    display: block;
+                    border: 1px solid white;
+                    padding: 10px;
+                    width: 443px;
+                    color: white;
+                    font-size: 15px;
+                    
+                    &:focus{
+                        outline: none;
+                    }
+                    &::placeholder{
+                        color: white;
+                        font-size: 15px;
+                    }
+                }
+                button{
+                    background-color: #F7C427;
+                    font-size: 15px;
+                    margin-left: 20px;
+                    color: black;
+                    padding: 10px;
+                    border: none;
+                }
+    
+    
+            }
+            p{
+                margin-top: 15px;
+                font-size: 14px;
+            }
+        }
+        .logo_content{
+            width: 40%;
+            display: flex;
+            margin-left: 30px;
+            align-items: center;
+            img{
+                width: 40%;
+            }
+
+            .content{
+                margin-left: 60px;
+                h3{
+                    font-size: 40px;
+                    margin-bottom: 40px;    
+                }
+                .info{
+                    margin: 20px 0;
+                }
+            }
+        }
+    }
+
+    .end_footer{
+        margin-top: 40px;
+        width: 100%;
+    
+    hr{
+     border: 0;
+     border-top: 1px dashed white;
+    }
+
+    .content_end{
+        margin: 0 auto;
+        color: white;
+        margin-top: 30px ;
+        width: 90%;
+    }
+    }
+}

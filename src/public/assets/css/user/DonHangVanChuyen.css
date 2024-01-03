@@ -1,0 +1,75 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+html {
+  font-size: 14px;
+}
+
+.DonHangVanChuyen {
+  width: 1470px;
+  margin: 0 auto;
+  background-color: #131313;
+  padding-bottom: 80px;
+}
+.DonHangVanChuyen > h1 {
+  padding: 53px 0;
+  padding-bottom: 30px;
+  color: white;
+  font-size: 60px;
+  text-align: center;
+}
+.DonHangVanChuyen .donhang {
+  margin: 0 auto;
+  width: 80%;
+  background-color: #393939;
+  height: 400px;
+  padding: 40px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+.DonHangVanChuyen .donhang::-webkit-scrollbar {
+  background-color: transparent;
+}
+.DonHangVanChuyen .donhang::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 100px;
+}
+.DonHangVanChuyen .donhang > h2 {
+  font-size: 40px;
+  color: white;
+}
+.DonHangVanChuyen .donhang .bang_so_luong {
+  color: white;
+  width: 100%;
+}
+.DonHangVanChuyen .donhang .bang_so_luong th, .DonHangVanChuyen .donhang .bang_so_luong td {
+  padding: 8px;
+}
+.DonHangVanChuyen .tinhtien {
+  margin: 0 auto;
+  width: 80%;
+  background-color: #393939;
+  padding: 40px;
+  overflow-y: auto;
+  margin-bottom: 100px;
+}
+.DonHangVanChuyen .tinhtien table {
+  color: white;
+  width: 100%;
+}
+.DonHangVanChuyen .tinhtien table th, .DonHangVanChuyen .tinhtien table td {
+  padding: 8px;
+}
+.DonHangVanChuyen .tinhtien table .total_th_left {
+  font-size: 40px;
+  text-align: left;
+}
+.DonHangVanChuyen .tinhtien table .total_th_right {
+  font-size: 40px;
+  text-align: right;
+}
+.DonHangVanChuyen .tinhtien table .total {
+  text-align: right;
+}/*# sourceMappingURL=DonHangVanChuyen.css.map */
