@@ -4,28 +4,28 @@
  *                               USER
  * ================================================================================
  */
-$img_Path ="../assets/img/html/";
+$img_Path ="./../public/assets/img/html/";
 $userAction= '../user/UserController.php?act=';
-$userStyle='../assets/css/user/';
+$userStyle= './../public/assets/css/user/';
 $userAction = 'UserController.php?act=';
 $onlineAction = 'OnlineController.php?act=';
-$imgPathAdmin = "../assets/img/admin/";
+$imgPathAdmin = "./../public/assets/img/admin/";
+$imgUpload = "./../public/assets/img/upload/";
 
 /**
  * ================================================================================
  *                               ADMIN
  * ================================================================================
  */
-$adminStyle ='../../assets/css/admin/';
-$adminJavaScript = '../../assets/js/';
-$adminImg = '../assets/img/admin/';
-$adminSideBarMenu='../assets/global/Admin_SideBarmenu.php';
+$adminStyle ='.././../public/assets/css/admin/';
+$adminJavaScript = '.././../public/assets/js/';
+$adminImg = './../public/assets/img/admin/';
+$adminSideBarMenu='./../public/assets/global/Admin_SideBarmenu.php';
 $adminAction='AdminController.php?act=';
 /**
  * ================================================================================
  *                               GLOBAL
  * ================================================================================
  */
-$ThongBao='../assets/global/ThongBao.php';
-$SideBarMenu='../assets/global/Admin_SideBarMenu.php';
-
+$ThongBao='./../public/assets/global/ThongBao.php';
+$SideBarMenu='./../public/assets/global/Admin_SideBarMenu.php';

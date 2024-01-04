@@ -9,6 +9,7 @@ class Router
 {
     public static $routes = [];
     public $request;
+
     public function __construct()
     {
         $this->request = new Request();
@@ -35,20 +36,25 @@ class Router
     {
         $path = $this->getPath();
         $method = $this->getMethod();
-        $handler = static::$routes[$method][$path] ?? false;
-        if (!$handler) {
-            http_response_code(404);
-            die("404 Not Found");
-        }
-        if (is_array($handler)) {
-            $controller = $handler[0];
-            $method = $handler[1];
-        } else {
-            list($controller, $method) = explode('@', $handler);
+        $callback = false;
+        if (isset(static::$routes[$method][$path])) {
+            $callback = static::$routes[$method][$path];
         }
 
-        $controller = $controller;
-        $controllerInstance = new $controller;
-        echo call_user_func([$controllerInstance, $method], $this->request);
+        if ($callback === false) {
+            echo "404 FILE NOT found!";
+            return 0;
+        }
+
+        if (is_callable($callback)) {
+            return $callback();
+        }
+
+        if (is_array($callback)) {
+            [$class, $action] = $callback;
+            $class = new $class;
+            return call_user_func([$class, $action], $this->request);
+        }
     }
+
 }
