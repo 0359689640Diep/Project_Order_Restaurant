@@ -42,7 +42,7 @@ class Router
         }
 
         if ($callback === false) {
-            echo "404 FILE NOT found!";
+            echo "404 FILE NOT found1!";
             return 0;
         }
 

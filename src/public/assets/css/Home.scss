@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; // Đảm bảo rằng padding và border không làm tăng kích thước thực của phần tử
+    box-sizing: border-box; 
     text-decoration: none;
 
   }
@@ -21,13 +21,13 @@
   
   .home {
     margin: 0 auto;
-    max-width: 1470px; // Sử dụng max-width thay vì width để tránh tràn màn hình trên các thiết bị nhỏ
+    max-width: 1470px; 
   
     .banner {
       display: flex;
       justify-content: center;
       align-items: center;
-      background-image: url("../../img/html/snapedit_1701831780769.png");
+      background-image: url("./../img/html/snapedit_1701831780769.png");
       height: 700px;
       border-bottom: 1px solid white;
   
@@ -96,7 +96,7 @@
   
     .content {
       padding-top: 80px;
-      background-image: url("../../img/html/snapedit_1701874861222.png");
+      background-image: url("./../img/html/snapedit_1701874861222.png");
       background-size: 100%;
       height: fit-content;
       padding-bottom: 65px;

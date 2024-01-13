@@ -2,6 +2,8 @@
 
 namespace App\app;
 
+use stdClass;
+
 class Request
 {
     public function getBody()

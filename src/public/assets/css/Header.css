@@ -17,6 +17,7 @@ html {
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
+  top: 2%;
 }
 .header .logo {
   margin: 8px 0;

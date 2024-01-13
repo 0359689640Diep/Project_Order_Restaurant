@@ -1,0 +1,54 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+$color: #131313;
+$color1: #282828;
+$color2: #393939;
+$color3: #585353;
+$color4: #CA0910;
+$color5: #F7C427;
+$color6: #FFFFFF;
+$color7: #2E2C2C;
+$pathImage: "../img/html/snapedit_1701874861222.png";
+
+html {
+    font-size: 14px;
+}
+
+@mixin flexCenter($justify, $align) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+@mixin test {
+    border: 2px solid white;
+}
+
+@mixin borderRadius {
+    border-radius: 100px;
+    border: none;
+    background-color: #F7B829;
+    color: #0a101e;
+    font-weight: 650;
+}
+
+@mixin buttonHover {
+    cursor: pointer;
+    transition: 0.1s linear;
+    background: linear-gradient(265deg, #F7C427 27.42%, #CA0910 97.16%);
+}
+@mixin widthHeight($width, $height) {
+    width: $width;
+    height: $height;
+}

@@ -1,12 +1,9 @@
 <?php
-include_once "./../public/assets/global/Header.php";
-include_once "./../public/assets/global/url_Path.php";
-// echo "<pre>";
-// var_dump($data["getNewTwoProduct"][0]); die();
+include_once $_ENV['header_Path'];
 
 ?>
 <div class="home">
-    <link rel="stylesheet" href="<?= $userStyle ?>Home.css">
+    <link rel="stylesheet" href="<?=$_ENV["userStyle"] ?>Home.css">
     <!-- BANNER-->
     <div class="banner">
         <div class="content_banner">
@@ -21,7 +18,7 @@ include_once "./../public/assets/global/url_Path.php";
             <a href="OnlineController.php?act=DanhMucSanPham&idCategory=">
                 <button>khám Phá Ngay</button>
             </a>
-            <img class="footer_banner" src="<?= $img_Path ?>snapedit_1701874146870.png" alt="">
+            <img class="footer_banner" src="<?=$_ENV["img_Path"] ?>snapedit_1701874146870.png" alt="img">
         </div>
     </div>
     <!-- Introduce -->
@@ -30,7 +27,7 @@ include_once "./../public/assets/global/url_Path.php";
         <div class="intro">
             <div class="intro1">
                 <div class="img">
-                    <img src="<?= $imgUpload . $data["getNewTwoProduct"][0]["ImageProduct"] ?>"
+                    <img src="<?=$_ENV["imgUpload"] . $data["getNewTwoProduct"][0]["ImageProduct"] ?>"
                         alt="<?= "ImageProduct" ?>">
                 </div>
                 <div class="content_intro1">
@@ -67,7 +64,7 @@ include_once "./../public/assets/global/url_Path.php";
                     </div>
                 </div>
                 <div class="img">
-                    <img src="<?= $imgUpload . $data["getNewTwoProduct"][1]["ImageProduct"] ?>"
+                    <img src="<?=$_ENV["imgUpload"] . $data["getNewTwoProduct"][1]["ImageProduct"] ?>"
                         alt="<?= "ImageProduct" ?>">
                 </div>
             </div>
@@ -78,18 +75,19 @@ include_once "./../public/assets/global/url_Path.php";
             foreach ($data["Product"] as $itemProduct) {
                 echo "
                     <div class='content_pro'>       
-                        <img src='$imgUpload{$itemProduct['ImageProduct']} ' alt='img'>
+                        <img src='" . $_ENV['imgUpload'] . $itemProduct['ImageProduct'] . "' alt='img'>
                         <article class='titile'>
-                          <h1> {$itemProduct['NameProduct']} </h1>
+                        <h1>" . $itemProduct['NameProduct'] . "</h1>
                         </article>
                         <article class='description'>
-                          <p> {$itemProduct['ProductDetails']} </p>
+                        <p>" . $itemProduct['ProductDetails'] . "</p>
                         </article>
-                        <a href='?act=LoadChiTietSanPham&id={$itemProduct['IdProduct']}' class='button_div'>
+                        <a href='?act=LoadChiTietSanPham&id=" . $itemProduct['IdProduct'] . "' class='button_div'>
                             <button>Chi tiết sản phẩm</button>
                         </a>
                     </div>
-                    ";
+                ";
+
             }
             ?>
         </div>
@@ -125,24 +123,24 @@ include_once "./../public/assets/global/url_Path.php";
             </div>
         </form>
         <div class="three_icon_div">
-            <img src="<?= $img_Path ?>snapedit_1701911483904.png" alt="">
+            <img src="<?=$_ENV["img_Path"] ?>snapedit_1701911483904.png" alt="">
             <div class="content_certificate">
                 <h1>Chứng Nhận</h1>
                 <div class="certificate">
                     <div class="content">
-                        <img src="<?= $img_Path ?>1CircleIcon.png" alt="">
+                        <img src="<?=$_ENV["img_Path"] ?>1CircleIcon.png" alt="">
                         <h2>Chất Lượng Cao</h2>
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora voluptates laudantium
                             quod nemo quo quos illum nihil possimus iure pariatur?</p>
                     </div>
                     <div class="content">
-                        <img src="<?= $img_Path ?>2CircleIcon.png" alt="">
+                        <img src="<?=$_ENV["img_Path"]  ?>2CircleIcon.png" alt="">
                         <h2>Chất Lượng Cao</h2>
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora voluptates laudantium
                             quod nemo quo quos illum nihil possimus iure pariatur?</p>
                     </div>
                     <div class="content">
-                        <img src="<?= $img_Path ?>CircleIcon.png" alt="">
+                        <img src="<?=$_ENV["img_Path"] ?>CircleIcon.png" alt="">
                         <h2>Chất Lượng Cao</h2>
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora voluptates laudantium
                             quod nemo quo quos illum nihil possimus iure pariatur?</p>
@@ -205,3 +203,6 @@ setInterval(nextSlide, 3000); // Change slide every 2 seconds
 </script>
 
 </html>
+<?php
+include_once $_ENV['footer_Path'];
+?>

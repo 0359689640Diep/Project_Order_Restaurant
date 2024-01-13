@@ -1,20 +1,13 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; // Đảm bảo rằng padding và border không làm tăng kích thước thực của phần tử
-  }
-  
-  html {
-    font-size: 14px;
-  }
-  
+@import "./mixin.scss";
+
   .box_login {
     margin: 0 auto;
     max-width: 1470px;
     height: 700px;
-    background-image: url("../../img/html/snapedit_1701874861222.png");
+    background-image: url($pathImage);
     background-size: 100%;
     padding-bottom: 50px;
+
     .layer {
       width: 100%;
       margin: 0 auto;
@@ -26,10 +19,10 @@
       margin-top: 40px;
       max-width: 90%;
       height: 450px;
-      // background-color: red;
       display: flex;
       justify-content: center;
       align-items: center;
+
       .content_login {
         width: 35%;
         display: flex;
@@ -37,27 +30,27 @@
         justify-content: center;
         align-items: center;
         height: 350px;
-        background-color: white;
-        h1 {
-          text-align: center;
-          color: #f7c427;
-          font-size: 40px;
-          margin-bottom: 10px;
+        color: white;
+
+        h2{
+          color: $color6;
+          font-size: 2rem;
         }
   
-        p {
-          margin-top: 9px;
-          color: black;
-          & {
-            align-self: flex-start; // Áp dụng align-self cho thẻ p
-          }
-          margin-left: 20px;
-        }
         input {
-          padding: 6px;
           width: 90%;
+          height: 10%;
+          margin: 5% 0;
+          outline: none;
+          border: none;
+          color: $color6;
+          font-size: 1.5rem;
+          border-bottom: 2px solid;
+          background-color: transparent;
+          padding-left: 6px;
         }
         a {
+          color: $color3  ;
           margin-top: 5px;
           text-decoration: none;
           & {
@@ -70,14 +63,17 @@
         }
         button {
           margin-top: 15px;
-          width: 90%;
-          background: linear-gradient(265deg, #F7C427 27.42%, #CA0910 97.16%);
+          width: 40%;
           border: none;
           font-size: 20px;
           border-radius: 5px;
           padding: 8px;
+          background: $color5;
+          transition: 1s linear;
         }
-
+        button:hover{
+          @include buttonHover;
+        }
         .option{
             display: flex;
             width: 100%;
@@ -88,7 +84,7 @@
             a {
                 margin-top: 5px;
                 text-decoration: none;
-                color: black;
+                color: $color6;
                 & {
                   align-self: flex-end;
                 }
@@ -107,6 +103,7 @@
           height: 100%;
           object-position: center;
           object-fit: cover;
+          
         }
       }
     }

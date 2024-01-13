@@ -1,6 +1,6 @@
 * {
-  margin: 0;
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 
@@ -12,7 +12,7 @@ html {
   margin: 0 auto;
   max-width: 1470px;
   height: 700px;
-  background-image: url("../../img/html/snapedit_1701874861222.png");
+  background-image: url("../img/html/snapedit_1701874861222.png");
   background-size: 100%;
   padding-bottom: 50px;
 }
@@ -37,27 +37,26 @@ html {
   justify-content: center;
   align-items: center;
   height: 350px;
-  background-color: white;
+  color: white;
 }
-.box_login .login .content_login h1 {
-  text-align: center;
-  color: #f7c427;
-  font-size: 40px;
-  margin-bottom: 10px;
-}
-.box_login .login .content_login p {
-  margin-top: 9px;
-  color: black;
-  margin-left: 20px;
-}
-.box_login .login .content_login p {
-  align-self: flex-start;
+.box_login .login .content_login h2 {
+  color: #FFFFFF;
+  font-size: 2rem;
 }
 .box_login .login .content_login input {
-  padding: 6px;
   width: 90%;
+  height: 10%;
+  margin: 5% 0;
+  outline: none;
+  border: none;
+  color: #FFFFFF;
+  font-size: 1.5rem;
+  border-bottom: 2px solid;
+  background-color: transparent;
+  padding-left: 6px;
 }
 .box_login .login .content_login a {
+  color: #585353;
   margin-top: 5px;
   text-decoration: none;
   margin-right: 20px;
@@ -70,12 +69,18 @@ html {
 }
 .box_login .login .content_login button {
   margin-top: 15px;
-  width: 90%;
-  background: linear-gradient(265deg, #F7C427 27.42%, #CA0910 97.16%);
+  width: 40%;
   border: none;
   font-size: 20px;
   border-radius: 5px;
   padding: 8px;
+  background: #F7C427;
+  transition: 1s linear;
+}
+.box_login .login .content_login button:hover {
+  cursor: pointer;
+  transition: 0.1s linear;
+  background: linear-gradient(265deg, #F7C427 27.42%, #CA0910 97.16%);
 }
 .box_login .login .content_login .option {
   display: flex;
@@ -87,7 +92,7 @@ html {
 .box_login .login .content_login .option a {
   margin-top: 5px;
   text-decoration: none;
-  color: black;
+  color: #FFFFFF;
   margin-right: 20px;
 }
 .box_login .login .content_login .option a {
@@ -107,4 +112,4 @@ html {
      object-position: center;
   -o-object-fit: cover;
      object-fit: cover;
-}/*# sourceMappingURL=LoginThuong.css.map */
+}/*# sourceMappingURL=Login.css.map */
