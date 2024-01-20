@@ -51,9 +51,19 @@ html {
   border: none;
   color: #FFFFFF;
   font-size: 1.5rem;
-  border-bottom: 2px solid;
+  border-bottom: 2px solid #FFFFFF;
   background-color: transparent;
   padding-left: 6px;
+}
+.box_login .login .content_login input:-webkit-autofill,
+.box_login .login .content_login input:-webkit-autofill:hover,
+.box_login .login .content_login input:-webkit-autofill:focus,
+.box_login .login .content_login input:-webkit-autofill:active {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #FFFFFF;
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
+  box-shadow: inset 0 0 20px 20px transparent;
 }
 .box_login .login .content_login a {
   color: #585353;

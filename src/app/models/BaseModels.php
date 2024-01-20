@@ -115,7 +115,6 @@ class BaseModels  extends Connection
             "message" => self::$message,
             "status" => self::$status
         );
-
     }
 
     public static function con_return($data)

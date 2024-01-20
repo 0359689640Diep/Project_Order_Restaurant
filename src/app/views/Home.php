@@ -1,9 +1,8 @@
 <?php
 include_once $_ENV['header_Path'];
-
 ?>
 <div class="home">
-    <link rel="stylesheet" href="<?=$_ENV["userStyle"] ?>Home.css">
+    <link rel="stylesheet" href="<?= $_ENV["userStyle"] ?>Home.css">
     <!-- BANNER-->
     <div class="banner">
         <div class="content_banner">
@@ -15,10 +14,10 @@ include_once $_ENV['header_Path'];
                 <p>Nơi Hội Tụ Của Sự Sáng Tạo và Hương Vị Truyền Thống</p>
                 <p>Mỗi Bữa Ăn Là Một Hành Trình Đặc Sắc</p>
             </div>
-            <a href="OnlineController.php?act=DanhMucSanPham&idCategory=">
+            <a href="OnlineController.php?act=DanhMucSanPham?idCategory=">
                 <button>khám Phá Ngay</button>
             </a>
-            <img class="footer_banner" src="<?=$_ENV["img_Path"] ?>snapedit_1701874146870.png" alt="img">
+            <img class="footer_banner" src="<?= $_ENV["img_Path"] ?>snapedit_1701874146870.png" alt="img">
         </div>
     </div>
     <!-- Introduce -->
@@ -27,8 +26,7 @@ include_once $_ENV['header_Path'];
         <div class="intro">
             <div class="intro1">
                 <div class="img">
-                    <img src="<?=$_ENV["imgUpload"] . $data["getNewTwoProduct"][0]["ImageProduct"] ?>"
-                        alt="<?= "ImageProduct" ?>">
+                    <img src="<?= $_ENV["imgUpload"] . $data["getNewTwoProduct"][0]["ImageProduct"] ?>" alt="<?= "ImageProduct" ?>">
                 </div>
                 <div class="content_intro1">
                     <h1> <?= $data["getNewTwoProduct"][0]["NameProduct"] ?> </h1>
@@ -39,8 +37,7 @@ include_once $_ENV['header_Path'];
                         <?= $data["getNewTwoProduct"][0]["ProductDescription"] ?>
                     </p>
                     <div class="button_intro1">
-                        <a href='?act=LoadChiTietSanPham&id=<?= $data["getNewTwoProduct"][0]["IdProduct"] ?>&index=1'
-                            class='button_div'>
+                        <a href='productDetails?id=<?= $data["getNewTwoProduct"][0]["IdProduct"] ?>' class='button_div'>
                             <button>Chi tiết sản phẩm</button>
                         </a>
                     </div>
@@ -57,15 +54,13 @@ include_once $_ENV['header_Path'];
                         <?= $data["getNewTwoProduct"][1]["ProductDescription"] ?>
                     </p>
                     <div class="button_intro2">
-                        <a href='?act=LoadChiTietSanPham&id=<?= $data["getNewTwoProduct"][1]["IdProduct"] ?>&index=1'
-                            class='button_div'>
+                        <a href='productDetails?id=<?= $data["getNewTwoProduct"][1]["IdProduct"] ?>' class='button_div'>
                             <button>Chi tiết sản phẩm</button>
                         </a>
                     </div>
                 </div>
                 <div class="img">
-                    <img src="<?=$_ENV["imgUpload"] . $data["getNewTwoProduct"][1]["ImageProduct"] ?>"
-                        alt="<?= "ImageProduct" ?>">
+                    <img src="<?= $_ENV["imgUpload"] . $data["getNewTwoProduct"][1]["ImageProduct"] ?>" alt="<?= "ImageProduct" ?>">
                 </div>
             </div>
         </div>
@@ -82,12 +77,11 @@ include_once $_ENV['header_Path'];
                         <article class='description'>
                         <p>" . $itemProduct['ProductDetails'] . "</p>
                         </article>
-                        <a href='?act=LoadChiTietSanPham&id=" . $itemProduct['IdProduct'] . "' class='button_div'>
+                        <a href='productDetails?id=" . $itemProduct['IdProduct'] . "' class='button_div'>
                             <button>Chi tiết sản phẩm</button>
                         </a>
                     </div>
                 ";
-
             }
             ?>
         </div>
@@ -123,24 +117,24 @@ include_once $_ENV['header_Path'];
             </div>
         </form>
         <div class="three_icon_div">
-            <img src="<?=$_ENV["img_Path"] ?>snapedit_1701911483904.png" alt="">
+            <img src="<?= $_ENV["img_Path"] ?>snapedit_1701911483904.png" alt="">
             <div class="content_certificate">
                 <h1>Chứng Nhận</h1>
                 <div class="certificate">
                     <div class="content">
-                        <img src="<?=$_ENV["img_Path"] ?>1CircleIcon.png" alt="">
+                        <img src="<?= $_ENV["img_Path"] ?>1CircleIcon.png" alt="">
                         <h2>Chất Lượng Cao</h2>
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora voluptates laudantium
                             quod nemo quo quos illum nihil possimus iure pariatur?</p>
                     </div>
                     <div class="content">
-                        <img src="<?=$_ENV["img_Path"]  ?>2CircleIcon.png" alt="">
+                        <img src="<?= $_ENV["img_Path"]  ?>2CircleIcon.png" alt="">
                         <h2>Chất Lượng Cao</h2>
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora voluptates laudantium
                             quod nemo quo quos illum nihil possimus iure pariatur?</p>
                     </div>
                     <div class="content">
-                        <img src="<?=$_ENV["img_Path"] ?>CircleIcon.png" alt="">
+                        <img src="<?= $_ENV["img_Path"] ?>CircleIcon.png" alt="">
                         <h2>Chất Lượng Cao</h2>
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora voluptates laudantium
                             quod nemo quo quos illum nihil possimus iure pariatur?</p>
@@ -175,31 +169,31 @@ include_once $_ENV['header_Path'];
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
 <script>
-let currentIndex = 0;
-const slides = document.querySelectorAll('.content_pro');
-const totalSlides = slides.length;
-const slideshow = document.getElementById('slideshow');
+    let currentIndex = 0;
+    const slides = document.querySelectorAll('.content_pro');
+    const totalSlides = slides.length;
+    const slideshow = document.getElementById('slideshow');
 
-function showSlide(index) {
-    slides.forEach((slide, i) => {
-        const offset = (i - index) * 280; // 300px width + 40px margin
-        slide.style.transform = `translateX(${offset}px)`;
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            const offset = (i - index) * 280; // 300px width + 40px margin
+            slide.style.transform = `translateX(${offset}px)`;
+        });
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        showSlide(currentIndex);
+    }
+
+    const mc = new Hammer(slideshow);
+    mc.on('swipeleft', nextSlide);
+    mc.on('swiperight', () => {
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        showSlide(currentIndex);
     });
-}
 
-function nextSlide() {
-    currentIndex = (currentIndex + 1) % totalSlides;
-    showSlide(currentIndex);
-}
-
-const mc = new Hammer(slideshow);
-mc.on('swipeleft', nextSlide);
-mc.on('swiperight', () => {
-    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-    showSlide(currentIndex);
-});
-
-setInterval(nextSlide, 3000); // Change slide every 2 seconds
+    setInterval(nextSlide, 3000); // Change slide every 2 seconds
 </script>
 
 </html>

@@ -3,7 +3,10 @@
 use App\public\assets\global\Notification;
 
 if (isset($path) && !empty($path) && isset($message) && !empty($message) && $message === true) {
-    header("Location: " . $_ENV["baseUrl"] . $path);
+    if ($path === "KH") header("Location: " . $_ENV["baseUrl"]);
+    else {
+        header("Location: " . $_ENV["baseUrl"] . $path);
+    }
 } elseif (isset($message) && !empty($message)) {
     new Notification($message);
 }

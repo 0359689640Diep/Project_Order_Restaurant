@@ -1,18 +1,28 @@
-<link rel="stylesheet" href="../assets/css/user/ForgotPassword.css">
-<div class="Login_thuong">
-    <div class="img"><img src="<?= $img_Path?>Login.png" alt=""></div>
-    <div class="content_login_thuong">
-        <form action="OnlineController.php?act=VerificationAccount&gmail=<?= $_GET['gmail'] ?>" method="POST">
-            <h2 style="font-size: 65px;">Nhập mật khẩu mới</h2>
-            <p>Nhập mã xác nhận</p>
-            <input type="text"  required placeholder="" name="Verification">
-            <p>Nhập mật khẩu mới</p>
-            <input type="password"  required placeholder="" name="newPassword">
+<?php
+
+use App\public\assets\global\Notification;
+
+if (isset($path) && !empty($path) && isset($message) && !empty($message) && $message === true) {
+    header("Location: " . $_ENV["baseUrl"] . $path);
+} elseif (isset($message) && !empty($message)) {
+    new Notification($message);
+}
+?>
+<link rel="stylesheet" href="<?= $_ENV["userStyle"] ?>Login.css">
+<div class="box_login">
+    <div class="layer"></div>
+    <div class="login">
+        <form action="<?= $_ENV["basePath"] ?>verifyAccount" method="POST" class="content_login">
+            <h2>Xác Nhận Tài Khoản</h2>
+            <input type="text" required title="Không được để trống" placeholder="Mật Khẩu" name="codeVerify">
             <button type="submit">Xác nhận</button>
+            <div class="option">
+                <a href="<?= $_ENV["baseUrl"] ?>signIn">Đăng ký</a>
+                <a href="<?= $_ENV["baseUrl"] ?>login">Đăng nhập</a>
+            </div>
         </form>
-        <nav class="navication">
-            <a href="OnlineController.php?act=dangnhap">Đăng nhập</a>
-            <a href="OnlineController.php?act=ForgotPassword">Bạn đã quên mật khẩu ?</a>
-        </nav>
+        <div class="img_login">
+            <img src="<?= $_ENV["img_Path"] ?>OnePotPastamitBratwurstbällchenKleinesKulinarium.png" width="100%" alt="">
+        </div>
     </div>
 </div>

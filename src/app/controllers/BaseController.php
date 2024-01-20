@@ -144,7 +144,7 @@ class SendGmail {
             $mail->Host = "smtp.gmail.com";
             $mail->SMTPAuth = true;
             $mail->Username = "VuDiep0359@gmail.com";
-            $mail->Password = ' dllx epph jetj hndr';
+            $mail->Password = 'mytn idbn yzzl kzrp';
             $mail->SMTPSecure = 'ssl';
             $mail->Port = 465;
             $mail->setFrom("VuDiep0359@gmail.com", "Terrace Restaurant");
@@ -165,6 +165,8 @@ class SendGmail {
             $mail->send();
             return true;
         } catch (Exception $e) {
+            // echo "<pre>";
+            // var_dump($e);
             return false;
         }
     }
