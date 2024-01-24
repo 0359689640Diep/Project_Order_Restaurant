@@ -10,6 +10,9 @@ class BaseModels  extends Connection
 {
     private static $message = null;
     private static $status = null;
+    protected $sqlBuilder = "";
+    protected $tableName;
+
 
     /**
      * Thực thi câu lệnh sql thao tác dữ liệu (INSERT, UPDATE, DELETE)
@@ -117,6 +120,102 @@ class BaseModels  extends Connection
         );
     }
 
+    // Phương thức lấy ra toàn bộ dữ liệu của bảng
+    public static function con_getAll($params = null)
+    {
+        $model = new static;
+        if ($params === null)
+            $model->sqlBuilder = "SELECT * FROM $model->tableName";
+        else {
+            // Chuyển mảng thành chuỗi
+            $column = implode(",", $params);
+            $model->sqlBuilder = "SELECT $column FROM $model->tableName";
+        }
+        $model->con_QueryReadAll($model->sqlBuilder);
+    }
+    // Phương thức lấy cập nhật dữ liệu của bảng
+    /**
+     * Method update: Dùng để cập nhật dữ liệu
+     * id: giá trị của khóa chính
+     * data: mảng dữ liệu cần cập nhât, phải được thết kế có key và value
+     * key phải là tên cột
+     */
+    public function con_update($id, $data)
+    {
+        $model = new static;
+
+        $model->sqlBuilder = "UPDATE $model->tableName SET ";
+        foreach ($data as $column => $value) {
+            $model->sqlBuilder .= "`{$column} = :$column, `";
+        }
+        // xoa, loai bo dau ,
+        $model->sqlBuilder = rtrim($model->sqlBuilder, ", ");
+        // nối câu lệnh điều kiện
+        $model->sqlBuilder .= " WHERE  id = :id";
+        // đưa id vào trong mảng
+        $data["id"] = $id;
+
+        $model->con_QueryRUD($model->sqlBuilder, $data);
+    }
+    /**
+     * Phương thức find: Dùng để tìm dữ liệu theo yêu cầu
+     * 
+     */
+    public static function con_find($nameRequest, $request)
+    {
+        $model = new static;
+        $model->sqlBuilder = "SELECT * FROM $model->tableName WHERE $nameRequest = $request";
+        $model->con_QueryReadAll($model->sqlBuilder);
+    }
+
+    /**
+     * Xử lý câu lệnh có điều kiện
+     * $column là tên cột
+     * $codition điều kiện (>, <, =, ...)
+     * $value giá trị
+     */
+
+    public static function con_where($column, $codition, $value)
+    {
+        $model = new static;
+        $model->sqlBuilder = "SELECT * FROM $model->tableName WHERE `$column` $codition `$value`";
+        return $model;
+    }
+    // thêm điều kiện and cho hàm trên
+    public function andWhere($column, $codition, $value)
+    {
+        $this->sqlBuilder .= " AND `$column` $codition, '$value'";
+        return $this;
+    }
+    public function orWhere($column, $codition, $value)
+    {
+        $this->sqlBuilder .= " OR `$column` $codition, '$value'";
+        return $this;
+    }
+    // Xóa dữ liệu
+    public static function con_delete($id)
+    {
+        $model = new static;
+        $model->sqlBuilder = "DELETE FROM $model->tableName WHERE id = :id";
+        $model->con_QueryRUD($model->sqlBuilder, $id);
+    }
+    // thêm dữ liệu
+    public static function con_insert($data)
+    {
+        $model = new static;
+        $model->sqlBuilder = "INSERT INTO $model->tableName(";
+
+        // lưu lại value của câu lệnh sql
+        $value = " VALUES(";
+        // lặp để lấy ey (tên cột của bảng) trong data
+        foreach ($data as $column => $value) {
+            $model->sqlBuilder .= "`{$column}, `";
+            $value .= ":$column";
+            // Xóa dâu , ơ bên phải chuỗi
+            $model->sqlBuilder .= ")" . $value . ")";
+            $model->con_QueryRUD($model->sqlBuilder, $data);
+        }
+    }
     public static function con_return($data)
     {
         if ($data["status"] === 400) {

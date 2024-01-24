@@ -1,7 +1,14 @@
 <?php
+
+use App\public\assets\global\Notification;
+
 include_once $_ENV['header_Path'];
-// test($Top3ProductById);
 $dataSize = json_encode($SizeByIdProduct);
+
+if (isset($message) && !empty($message)) {
+    new Notification($message);
+}
+
 ?>
 <link rel="stylesheet" href="<?= $_ENV["userStyle"] ?>ProductDetails.css">
 <div class="chitietsanpham">
@@ -10,11 +17,13 @@ $dataSize = json_encode($SizeByIdProduct);
         <div class="anh">
             <img src="<?= $_ENV["imgUpload"] ?>" id="sizeImage" height="100%">
         </div>
-        <form action="<?= $_ENV["basePath"] ?>?id=<?= $_GET['id'] ?>" method="post" class="content">
+        <form action="<?= $_ENV["basePath"] ?>productDetails?id=<?= $_GET['id'] ?>" method="post" class="content">
             <h1><?= $ProductById['NameProduct'] ?></h1>
             <div class="hr"></div>
             <ul>
-                <li>Giá: <input name="price" id="price" value="" readonly /> VNĐ</li>
+                <li>Giá: <input name="price" id="price" value="" readonly />
+                    <span id="SEO"></span> VNĐ
+                </li>
                 <li><?= $ProductById['ProductDetails'] ?></li>
                 <li><?= $ProductById['ProductDescription'] ?></li>
             </ul>
@@ -23,8 +32,7 @@ $dataSize = json_encode($SizeByIdProduct);
                     <p>Số lượng mua&nbsp;&nbsp;</p>
                     <button type="button" id="decrease">-</button>
 
-                    <input required type="number" value="1" name="Quantity" id="quantity" min="1"
-                        max="<?= $ProductById["QuantityProduct"] ?>">
+                    <input required type="number" value="1" name="Quantity" id="quantity" min="1" max="<?= $ProductById["QuantityProduct"] ?>">
 
                     <button type="button" id="increase" value="<?= $QuantityProduct ?>">+</button>
                 </div>
@@ -34,16 +42,16 @@ $dataSize = json_encode($SizeByIdProduct);
                     <select name="SizeProduct" id="selectSize">
                         <option value="" id="optionSizeDefault"></option>
                         <?php foreach ($ListSizeByIdProduct as $i) : ?>
-                        <option value="<?= $i['IdSizeDefault'] ?>">
-                            <?= $i['SizeDefault'] ?>
-                        </option>
+                            <option value="<?= $i['IdSizeDefault'] ?>">
+                                <?= $i['SizeDefault'] ?>
+                            </option>
                         <?php endforeach ?>
 
                     </select>
                 </div>
             </div>
-            <button class="order" name="add_to_cart">Thêm Giỏ Hàng</button>
-            <button class="order" name="pay_now">Mua Ngay</button>
+            <button class="order" type="submit" name="add_to_cart">Thêm Giỏ Hàng</button>
+            <button class="order" type="submit" name="pay_now">Mua Ngay</button>
         </form>
     </div>
     <div class="list">
@@ -104,7 +112,7 @@ $dataSize = json_encode($SizeByIdProduct);
 <script src="<?= $_ENV["javaScript"] ?>ProductDetails.js">
 </script>
 <script>
-renderSizeAndImage(<?= $dataSize ?>);
+    renderSizeAndImage(<?= $dataSize ?>);
 </script>
 <?php
 include_once $_ENV['footer_Path'];

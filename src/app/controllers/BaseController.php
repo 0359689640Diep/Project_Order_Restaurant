@@ -30,10 +30,12 @@ class BaseController
             echo $this->view;
     }
 
-    public function authentication()
+    public function authentication($type)
     {
-        if (isset($_SESSION["email"]) == false) {
-            header("location:index.php?controller=login");
+        if (isset($_SESSION[$type]) == false) {
+            header("location: login");
+        } else {
+            return $_SESSION[$type];
         }
     }
 }
@@ -125,7 +127,8 @@ class Validate
     }
 }
 
-class SendGmail {
+class SendGmail
+{
     /**
      * Hàm có tác dụng gửi gmail , hàm trả về true = thành công, false = thất bại
      * $recipientGmail: gmail của người nhận
