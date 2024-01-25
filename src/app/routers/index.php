@@ -5,6 +5,7 @@ namespace App\app\routers;
 use App\app\routers\HomeRouter;
 use App\app\routers\AuthRouter;
 use App\app\routers\ProductDetailsRouter;
+use App\app\routers\CartRouter;
 
 class index
 {
@@ -13,5 +14,6 @@ class index
         new HomeRouter;
         new AuthRouter;
         new ProductDetailsRouter;
+        new CartRouter;
     }
 }

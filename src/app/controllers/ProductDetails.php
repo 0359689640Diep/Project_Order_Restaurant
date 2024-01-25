@@ -71,7 +71,7 @@ class ProductDetails extends BaseController
                 "ListCommentByIdProduct" => $this->modelComment->getAllComment($Id),
                 "Category" => $this->modelCategory->getCategory(),
             ];
-            $this->loadView("ProductDetails.php", $this->data);
+            $this->loadView("clients\ProductDetails.php", $this->data);
         } else {
             // 404
         }

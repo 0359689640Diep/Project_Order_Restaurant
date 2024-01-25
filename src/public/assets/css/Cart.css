@@ -5,17 +5,6 @@
   text-decoration: none;
 }
 
-:root {
-  --color: #131313;
-  --color1: #282828;
-  --color2: #393939;
-  --color3: #585353;
-  --color4: #CA0910;
-  --color5: #F7C427;
-  --color6: #FFFFFF;
-  --color7: #2E2C2C;
-}
-
 html {
   font-size: 14px;
 }
@@ -24,6 +13,7 @@ html {
   width: 1470px;
   height: 960px;
   margin: 0 auto;
+  background-image: url("../img/html/snapedit_1701874861222.png");
 }
 .page main {
   width: 100%;
@@ -45,25 +35,25 @@ html {
 .page main .containerMain .listProduct .selectAllProducts {
   width: 100%;
   height: 8%;
-  background-color: var(--color);
+  background-color: #131313;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 7%;
 }
 .page main .containerMain .listProduct .selectAllProducts input[type=checkbox] {
-  width: 20px;
+  width: 2G0px;
   height: 20px;
 }
 .page main .containerMain .listProduct .selectAllProducts h5 {
-  color: var(--color6);
+  color: #FFFFFF;
 }
 .page main .containerMain .listProduct .selectAllProducts .ti-trash {
-  color: var(--color6);
+  color: #FFFFFF;
   font-size: 2rem;
 }
 .page main .containerMain .listProduct .selectAllProducts .ti-trash:active {
-  color: var(--color3);
+  color: #585353;
 }
 .page main .containerMain .listProduct table {
   width: 100%;
@@ -75,7 +65,7 @@ html {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: var(--color5);
+  color: #F7C427;
   font-feature-settings: "clig" off, "liga" off;
   font-family: Bitter;
   font-style: normal;
@@ -83,11 +73,11 @@ html {
   line-height: normal;
 }
 .page main .containerMain .listProduct table td {
-  border-bottom: 5px solid var(--color6);
+  border-bottom: 5px solid #FFFFFF;
   padding: 20px;
   text-align: center;
   word-wrap: break-word;
-  color: var(--color6);
+  color: #FFFFFF;
   font-feature-settings: "clig" off, "liga" off;
   font-family: Bitter;
   font-style: 1rem;
@@ -95,7 +85,7 @@ html {
   line-height: normal;
 }
 .page main .containerMain .listProduct table td input[type=checkbox] {
-  width: 20px;
+  width: 15px;
   height: 20px;
 }
 .page main .containerMain .listProduct table td img {
@@ -103,20 +93,21 @@ html {
   height: 100%;
 }
 .page main .containerMain .listProduct table td input[type=number] {
-  width: 70px;
+  width: 53px;
   height: 25px;
   text-align: center;
   font-size: 1rem;
-}
-.page main .containerMain .listProduct table td input[type=number]:focus {
+  background: transparent;
+  border: none;
   outline: none;
+  color: #FFFFFF;
 }
 .page main .containerMain .listProduct table td .ti-trash {
-  color: var(--color6);
+  color: #FFFFFF;
   font-size: 2rem;
 }
 .page main .containerMain .listProduct table td .ti-trash:active {
-  color: var(--color3);
+  color: #585353;
 }
 .page main .containerMain .listProduct:hover {
   overflow-x: auto;
@@ -125,7 +116,7 @@ html {
   background-color: transparent;
 }
 .page main .containerMain .listProduct::-webkit-scrollbar-thumb {
-  background-color: var(--color3);
+  background-color: transparent;
   width: 1px;
   border-radius: 100px;
 }
@@ -135,13 +126,13 @@ html {
   padding: 2%;
 }
 .page main aside .mainAside {
-  border-bottom: 2px solid var(--color3);
+  border-bottom: 2px solid #585353;
   width: 100%;
   max-height: 80%;
   overflow-x: auto;
 }
 .page main aside .mainAside h1 {
-  color: var(--color6);
+  color: #FFFFFF;
   font-size: 2rem;
   margin: 10% 0;
 }
@@ -151,7 +142,7 @@ html {
 }
 .page main aside .mainAside ul li {
   list-style-type: none;
-  color: var(--color6);
+  color: #FFFFFF;
   font-size: 1rem;
   margin: 5% 0;
 }
@@ -160,7 +151,7 @@ html {
   height: 20%;
 }
 .page main aside .footerAside h1 {
-  color: var(--color6);
+  color: #FFFFFF;
   font-size: 1.5rem;
   margin: 3% 0;
 }
@@ -169,12 +160,13 @@ html {
   height: 35%;
   margin: 5% 25%;
   font-size: 1rem;
-}
-.page main aside .footerAside button:focus {
+  border: none;
   outline: none;
+  transition: 1s linear;
 }
 .page main aside .footerAside button:hover {
-  background-color: var(--color3);
-  color: var(--color6);
+  background-color: #585353;
+  color: #FFFFFF;
   transition: 1s linear;
+  border-radius: 10px;
 }/*# sourceMappingURL=Cart.css.map */

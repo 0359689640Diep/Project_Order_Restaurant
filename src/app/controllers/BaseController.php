@@ -12,9 +12,9 @@ use PHPMailer\PHPMailer\SMTP;
 
 class BaseController
 {
-    public $view = null;
-    public $layoutPath = null;
-    public function loadView($viePath, $data = null)
+    protected $view = null;
+    protected $layoutPath = null;
+    protected function loadView($viePath, $data = null)
     {
         if (file_exists("../../src/app/views/$viePath")) {
             ob_start();
@@ -30,9 +30,9 @@ class BaseController
             echo $this->view;
     }
 
-    public function authentication($type)
+    protected function authentication($type)
     {
-        if (isset($_SESSION[$type]) == false) {
+        if (isset($_SESSION[$type]) === false) {
             header("location: login");
         } else {
             return $_SESSION[$type];

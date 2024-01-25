@@ -34,7 +34,7 @@
             </div>
             <div class="information">
                 <?php if (!empty($_SESSION['KH'])) { ?>
-                    <a href="OnlineController.php?act=GioHang"><img src="<?= $_ENV["img_Path"]  ?>Vector.png" alt=""></a>
+                    <a href="<?= $_ENV['basePath'] ?>cart"><img src="<?= $_ENV["img_Path"]  ?>Vector.png" alt=""></a>
                     <a href="OnlineController.php?act=billthanhtoan"><img src="<?= $_ENV["img_Path"]  ?>Glyph_ undefined.png" alt=""></a>
                     <a href="OnlineController.php?act=dangxuat"><img src="<?= $_ENV["img_Path"]  ?>out.png" alt=""></a>
                     <a href="/login">

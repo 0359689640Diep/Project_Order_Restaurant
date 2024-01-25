@@ -43,7 +43,7 @@ class AuthController extends BaseController
             }
         }
 
-        $this->loadView("Login.php", $this->message);
+        $this->loadView("clients\Login.php", $this->message);
     }
 
     public function signIn()
@@ -94,7 +94,7 @@ class AuthController extends BaseController
                 $this->handleValidationErrors($nameValidation,  $gmailValidation, $PasswordValidation, $confirmPasswordValidation);
             }
         }
-        $this->loadView("signIn.php", $this->message);
+        $this->loadView("clients\signIn.php", $this->message);
     }
 
     public function verifyAccount()
@@ -122,7 +122,7 @@ class AuthController extends BaseController
                 }
             }
 
-            $this->loadView("VerificationAccount.php", $this->message);
+            $this->loadView("clients\VerificationAccount.php", $this->message);
         } else {
             http_response_code(500);
             header("Location: signIn");

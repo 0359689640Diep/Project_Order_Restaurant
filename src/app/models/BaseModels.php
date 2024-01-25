@@ -12,7 +12,8 @@ class BaseModels  extends Connection
     private static $status = null;
     protected $sqlBuilder = "";
     protected $tableName;
-
+    protected $subTableName = [];
+    protected $data;
 
     /**
      * Thực thi câu lệnh sql thao tác dữ liệu (INSERT, UPDATE, DELETE)

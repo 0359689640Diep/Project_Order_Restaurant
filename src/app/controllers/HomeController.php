@@ -31,6 +31,6 @@ class HomeController extends BaseController
             "Tables" => $this->modelTables->getTables(),
             "MaxNumberPeopleTables" => $this->modelTables->getMaxNumberPeopleTables(),
         ];
-        $this->loadView("Home.php", $this->data);
+        $this->loadView("clients\Home.php", $this->data);
     }
 }
