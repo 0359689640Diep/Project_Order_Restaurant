@@ -1,13 +1,14 @@
 <?php
+
 use App\public\assets\global\Notification;
-if(isset($message) && !empty($message)) {
+
+if (isset($message) && !empty($message)) {
     // test($message);
     // extract($message);
     new Notification($message);
-
 }
 ?>
-<link rel="stylesheet" href="<?= $_ENV["userStyle"] ?>SignIn.css">
+<link rel="stylesheet" href="<?= $_ENV["clientsStyle"] ?>SignIn.css">
 <section class="page">
     <section class="main">
         <article class="headerMain">
@@ -29,8 +30,7 @@ if(isset($message) && !empty($message)) {
 
             <input placeholder="Mật khẩu" title="Không được để trống" type="password" id="password" name="Password">
 
-            <input placeholder="Nhập Lại Mật khẩu" title="Không được để trống" type="password" id="confirmPassword"
-                name="confirmPassword">
+            <input placeholder="Nhập Lại Mật khẩu" title="Không được để trống" type="password" id="confirmPassword" name="confirmPassword">
 
             <input type="submit" value="Đăng Ký">
         </form>

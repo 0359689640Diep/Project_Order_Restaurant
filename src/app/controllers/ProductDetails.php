@@ -31,26 +31,26 @@ class ProductDetails extends BaseController
     public function eventHandling()
     {
         $dataAuthor = $this->authentication("KH");
+        if (is_array($dataAuthor)) {
+            $data = [
+                "IdAccount" => $dataAuthor["IdAccount"],
+                "IdProduct" => $_GET["id"],
+                "IdSizeDefault" => $_POST["SizeProduct"],
+                "QuantityCardProduct" => $_POST["Quantity"],
+                "price" => $_POST["price"],
+                "message" => "",
+            ];
 
-        $data = [
-            "IdAccount" => $dataAuthor["IdAccount"],
-            "IdProduct" => $_GET["id"],
-            "IdSizeDefault" => $_POST["SizeProduct"],
-            "QuantityCardProduct" => $_POST["Quantity"],
-            "price" => $_POST["price"],
-            "message" => "",
-        ];
+            if (isset($_POST["pay_now"])) {
+                $_SESSION["cart_pay_now"] = $data;
+                header("Location: /payNow");
+            } else {
+                $addToCartResult = $this->modelProductDetails->AddToCart($data);
+                $this->data["message"] = $addToCartResult  === true ? "Thêm giỏ hàng thành công" : $addToCartResult;
+            }
 
-        if (isset($_POST["pay_now"])) {
-            // test($data);
-            $_SESSION["cart_pay_now"] = $data;
-            header("Location: /payNow");
-        } else {
-            $addToCartResult = $this->modelProductDetails->AddToCart($data);
-            $this->data["message"] = $addToCartResult  === true ? "Thêm giỏ hàng thành công" : $addToCartResult;
+            $this->index($this->data);
         }
-
-        $this->index($this->data);
     }
 
     public function index($data = [])

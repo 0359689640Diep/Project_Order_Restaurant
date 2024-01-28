@@ -1,14 +1,4 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; 
-    text-decoration: none;
-
-  }
-  
-  html {
-    font-size: 14px;
-  }
+@import "./mixin.scss";
   
   @keyframes gradientMove {
     0% {
@@ -27,7 +17,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background-image: url("./../img/html/snapedit_1701831780769.png");
+      background-image: url($pathImage);
       height: 700px;
       border-bottom: 1px solid white;
   
@@ -96,7 +86,7 @@
   
     .content {
       padding-top: 80px;
-      background-image: url("./../img/html/snapedit_1701874861222.png");
+      background-image: url($basePathImage+"snapedit_1701874861222.png");
       background-size: 100%;
       height: fit-content;
       padding-bottom: 65px;

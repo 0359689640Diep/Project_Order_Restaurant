@@ -11,7 +11,7 @@ if (isset($path) && !empty($path) && isset($message) && !empty($message) && $mes
     new Notification($message);
 }
 ?>
-<link rel="stylesheet" href="<?= $_ENV["userStyle"] ?>Login.css">
+<link rel="stylesheet" href="<?= $_ENV["clientsStyle"] ?>Login.css">
 <div class="box_login">
     <div class="layer"></div>
     <div class="login">

@@ -10,7 +10,7 @@ if (isset($message) && !empty($message)) {
 }
 
 ?>
-<link rel="stylesheet" href="<?= $_ENV["userStyle"] ?>ProductDetails.css">
+<link rel="stylesheet" href="<?= $_ENV["clientsStyle"] ?>ProductDetails.css">
 <div class="chitietsanpham">
     <div class="layer"></div>
     <div class="product_detail">

@@ -20,11 +20,12 @@ class BaseModels  extends Connection
      * */
     public static function con_QueryRUD($sql, $params)
     {
+
         $conn = self::connectDatabase();
         try {
             $stmt = $conn->prepare($sql);
             foreach ($params as $key => &$value) {
-                $stmt->bindParam(':' . $key, $value);
+                $stmt->bindParam(':' . $key, $value, \PDO::PARAM_INT);
             }
             $stmt->execute();
             self::$message = true;
@@ -132,7 +133,7 @@ class BaseModels  extends Connection
             $column = implode(",", $params);
             $model->sqlBuilder = "SELECT $column FROM $model->tableName";
         }
-        $model->con_QueryReadAll($model->sqlBuilder);
+        return $model;
     }
     // Phương thức lấy cập nhật dữ liệu của bảng
     /**
@@ -141,32 +142,35 @@ class BaseModels  extends Connection
      * data: mảng dữ liệu cần cập nhât, phải được thết kế có key và value
      * key phải là tên cột
      */
-    public function con_update($id, $data)
+    public function con_update($nameId, $id, $data)
     {
-        $model = new static;
-
-        $model->sqlBuilder = "UPDATE $model->tableName SET ";
+        $this->sqlBuilder = "UPDATE $this->tableName SET ";
         foreach ($data as $column => $value) {
-            $model->sqlBuilder .= "`{$column} = :$column, `";
+            $this->sqlBuilder .= "{$column} = :$column,";
         }
         // xoa, loai bo dau ,
-        $model->sqlBuilder = rtrim($model->sqlBuilder, ", ");
+        $this->sqlBuilder = rtrim($this->sqlBuilder, ", ");
         // nối câu lệnh điều kiện
-        $model->sqlBuilder .= " WHERE  id = :id";
+        $this->sqlBuilder .= " WHERE  $nameId = :$nameId";
         // đưa id vào trong mảng
-        $data["id"] = $id;
+        $data[$nameId] = $id;
 
-        $model->con_QueryRUD($model->sqlBuilder, $data);
+        return $this->con_QueryRUD($this->sqlBuilder, $data);
     }
     /**
      * Phương thức find: Dùng để tìm dữ liệu theo yêu cầu
      * 
      */
-    public static function con_find($nameRequest, $request)
+    public static function con_find($nameRequest, $request, $params = null)
     {
         $model = new static;
-        $model->sqlBuilder = "SELECT * FROM $model->tableName WHERE $nameRequest = $request";
-        $model->con_QueryReadAll($model->sqlBuilder);
+        if ($params !== null) {
+            $column  = implode(",", $params);
+            $model->sqlBuilder = "SELECT $column FROM $model->tableName WHERE $nameRequest = $request";
+        } else {
+            $model->sqlBuilder = "SELECT * FROM $model->tableName WHERE $nameRequest = $request";
+        }
+        return $model;
     }
 
     /**
@@ -179,26 +183,42 @@ class BaseModels  extends Connection
     public static function con_where($column, $codition, $value)
     {
         $model = new static;
-        $model->sqlBuilder = "SELECT * FROM $model->tableName WHERE `$column` $codition `$value`";
+        $model->sqlBuilder = "SELECT * FROM $model->tableName WHERE $column $codition $value";
         return $model;
     }
     // thêm điều kiện and cho hàm trên
     public function andWhere($column, $codition, $value)
     {
-        $this->sqlBuilder .= " AND `$column` $codition, '$value'";
+        $this->sqlBuilder .= " AND `$column` $codition '$value'";
         return $this;
     }
     public function orWhere($column, $codition, $value)
     {
-        $this->sqlBuilder .= " OR `$column` $codition, '$value'";
+        $this->sqlBuilder .= " OR `$column` $codition '$value'";
         return $this;
     }
     // Xóa dữ liệu
-    public static function con_delete($id)
+    public static function con_delete($tableName, $column, $id)
     {
         $model = new static;
-        $model->sqlBuilder = "DELETE FROM $model->tableName WHERE id = :id";
-        $model->con_QueryRUD($model->sqlBuilder, $id);
+        $conn = self::connectDatabase();
+        try {
+            $model->sqlBuilder = "DELETE FROM $tableName WHERE $column = $id";
+            $stmt = $conn->prepare($model->sqlBuilder);
+            $stmt->execute();
+            self::$message = true;
+            self::$status = 200;
+        } catch (PDOException $e) {
+            http_response_code(400);
+            self::$status = 400;
+            self::$message = $e->getMessage();
+        } finally {
+            unset($conn);
+        }
+        return array(
+            "message" => self::$message,
+            "status" => self::$status
+        );
     }
     // thêm dữ liệu
     public static function con_insert($data)

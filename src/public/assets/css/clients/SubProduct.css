@@ -1,0 +1,17 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+html {
+  font-size: 14px;
+}
+
+.main_subProduct {
+  width: 100%;
+  height: 650px;
+  background-image: url("../../img/html/snapedit_1701874861222.png");
+  overflow-x: auto;
+}/*# sourceMappingURL=SubProduct.css.map */

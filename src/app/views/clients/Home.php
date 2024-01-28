@@ -2,7 +2,7 @@
 include_once $_ENV['header_Path'];
 ?>
 <div class="home">
-    <link rel="stylesheet" href="<?= $_ENV["userStyle"] ?>Home.css">
+    <link rel="stylesheet" href="<?= $_ENV["clientsStyle"] ?>Home.css">
     <!-- BANNER-->
     <div class="banner">
         <div class="content_banner">

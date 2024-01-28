@@ -13,17 +13,32 @@ html {
   width: 1470px;
   height: 960px;
   margin: 0 auto;
-  background-image: url("../img/html/snapedit_1701874861222.png");
+  background-image: url("../../img/html/snapedit_1701874861222.png");
+  position: relative;
+}
+.page .headerProduct {
+  width: 600px;
+  height: 50px;
+  top: 78px;
+  left: 10px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.page .headerProduct h1 {
+  color: #FFFFFF;
+  font-size: 1.5rem;
 }
 .page main {
   width: 100%;
-  height: 100%;
+  height: 70%;
   display: flex;
   justify-content: space-between;
   padding: 5%;
 }
 .page main .containerMain {
-  width: 60%;
+  width: 100%;
   height: 100%;
 }
 .page main .containerMain .listProduct {
@@ -73,7 +88,7 @@ html {
   line-height: normal;
 }
 .page main .containerMain .listProduct table td {
-  border-bottom: 5px solid #FFFFFF;
+  border-bottom: 2px solid #FFFFFF;
   padding: 20px;
   text-align: center;
   word-wrap: break-word;
@@ -102,12 +117,32 @@ html {
   outline: none;
   color: #FFFFFF;
 }
-.page main .containerMain .listProduct table td .ti-trash {
+.page main .containerMain .listProduct table td i {
   color: #FFFFFF;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
-.page main .containerMain .listProduct table td .ti-trash:active {
+.page main .containerMain .listProduct table td i:active {
   color: #585353;
+}
+.page main .containerMain .listProduct table td input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  border-bottom: 2px solid #FFFFFF;
+  caret-color: #FFFFFF;
+  color: #FFFFFF;
+}
+.page main .containerMain .listProduct table td input:-webkit-autofill,
+.page main .containerMain .listProduct table td input:-webkit-autofill:hover,
+.page main .containerMain .listProduct table td input:-webkit-autofill:focus,
+.page main .containerMain .listProduct table td input:-webkit-autofill:active {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #FFFFFF;
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
+  box-shadow: inset 0 0 20px 20px transparent;
 }
 .page main .containerMain .listProduct:hover {
   overflow-x: auto;
@@ -120,53 +155,61 @@ html {
   width: 1px;
   border-radius: 100px;
 }
-.page main aside {
-  width: 30%;
-  max-height: 100%;
-  padding: 2%;
-}
-.page main aside .mainAside {
-  border-bottom: 2px solid #585353;
+.page aside {
   width: 100%;
-  max-height: 80%;
-  overflow-x: auto;
+  height: 40%;
+  padding: 0 4%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-image: url("../../img/html/snapedit_1701874861222.png");
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.page main aside .mainAside h1 {
+.page aside .mainAside {
+  width: 50%;
+  height: 100%;
+}
+.page aside .mainAside h1 {
   color: #FFFFFF;
   font-size: 2rem;
   margin: 10% 0;
 }
-.page main aside .mainAside ul {
+.page aside .mainAside ul {
   width: 100%;
   height: 100%;
 }
-.page main aside .mainAside ul li {
+.page aside .mainAside ul li {
   list-style-type: none;
   color: #FFFFFF;
   font-size: 1rem;
-  margin: 5% 0;
+  margin: 4% 0;
 }
-.page main aside .footerAside {
-  width: 100%;
-  height: 20%;
+.page aside .footerAside {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
-.page main aside .footerAside h1 {
+.page aside .footerAside h1 {
   color: #FFFFFF;
   font-size: 1.5rem;
   margin: 3% 0;
 }
-.page main aside .footerAside button {
-  width: 50%;
-  height: 35%;
-  margin: 5% 25%;
+.page aside .footerAside button {
+  width: 35%;
+  height: 25%;
   font-size: 1rem;
   border: none;
   outline: none;
   transition: 1s linear;
 }
-.page main aside .footerAside button:hover {
+.page aside .footerAside button:hover {
   background-color: #585353;
   color: #FFFFFF;
   transition: 1s linear;
   border-radius: 10px;
+  cursor: pointer;
 }/*# sourceMappingURL=Cart.css.map */

@@ -14,6 +14,7 @@ class BaseController
 {
     protected $view = null;
     protected $layoutPath = null;
+    protected $data = [];
     protected function loadView($viePath, $data = null)
     {
         if (file_exists("../../src/app/views/$viePath")) {
@@ -37,6 +38,21 @@ class BaseController
         } else {
             return $_SESSION[$type];
         }
+    }
+
+    protected function checkParam($param, $from)
+    {
+        if (isset($_GET[$param]) && !empty($_GET[$param])) {
+            return $_GET[$param];
+        } else {
+            header("location: " . $from);
+        }
+    }
+
+    protected function nextPage($nameSection, $data, $from)
+    {
+        $_SESSION[$nameSection] = $data;
+        header("location: " . $from);
     }
 }
 

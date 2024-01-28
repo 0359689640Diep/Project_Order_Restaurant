@@ -13,7 +13,7 @@ html {
   margin: 0 auto;
   max-width: 1470px;
   height: 700px;
-  background-image: url("../img/html/snapedit_1701874861222.png");
+  background-image: url("../../img/html/snapedit_1701874861222.png");
   background-size: 100%;
   padding-bottom: 50px;
 }
@@ -55,6 +55,7 @@ html {
   border-bottom: 2px solid #FFFFFF;
   background-color: transparent;
   padding-left: 6px;
+  caret-color: #FFFFFF;
 }
 .box_login .login .content_login input:-webkit-autofill,
 .box_login .login .content_login input:-webkit-autofill:hover,

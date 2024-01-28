@@ -1,0 +1,7 @@
+@import "./mixin.scss";
+
+.main_subProduct{
+    @include widthHeight(100%, 650px);
+    background-image: url($pathImage);
+    overflow-x: auto;
+}

@@ -8,12 +8,12 @@ if (isset($message) && !empty($message)) {
 }
 ?>
 <link rel="stylesheet" href="<?= $_ENV["clientsStyle"] ?>Cart.css">
-<form action="<?= $_ENV["basePath"] ?>cart" method="post" class="page" id="formCart">
+<form action="<?= $_ENV["basePath"] ?>cart?IdSubCart=<?= $_GET['IdSubCart'] ?>" method="post" class="page"
+    id="formCart">
     <section class="headerProduct">
-        <h1>Giỏ hàng</h1>
+        <h1>Các món ăn đi kèm với sản phẩm của bạn</h1>
     </section>
     <main>
-
         <section class="containerMain">
             <section class="listProduct">
                 <table>
@@ -21,39 +21,29 @@ if (isset($message) && !empty($message)) {
                         <th><input type="checkbox" name="" id="checkAll"></th>
                         <th>Ảnh </th>
                         <th>Tên </th>
-                        <th>Kích cỡ</th>
                         <th>Giá</th>
                         <th>Số lượng </th>
-                        <th>Ghi chú</th>
-                        <th>Chức năng</th>
                     </tr>
                     <?php
-                    foreach ($dataCart as $valuesCart) {
+                    foreach ($dataSubProduct as $valuesSubProduct) {
                         echo "
                         <tr>
-                            <td><input type='checkbox' name = 'IdCart' value = {$valuesCart['IdCart']}  class='rowCheckbox' data-quantity-id='{$valuesCart['IdCart']}'></td>
-                            <td><img src='$_ENV[imgUpload]{$valuesCart['ImageSize']}' alt='img'></td>
-                            <td>{$valuesCart['NameProduct']}</td>
-                            <td>{$valuesCart['SizeDefault']}</td>
-                            <td>{$valuesCart['PriceSize']}</td>
+                            <td>
+                                <input type='checkbox' 
+                                name='IdSubProduct' 
+                                class='rowCheckbox' 
+                                value='$valuesSubProduct[IdSubProduct]'
+                                data-quantity-id='{$valuesSubProduct['IdSubProduct']}'>
+                            </td>
+                            <td><img src='$_ENV[imgUpload]{$valuesSubProduct['ImageSubProduct']}' alt='img'></td>
+                            <td>{$valuesSubProduct['NameSubProduct']}</td>
+                            <td>{$valuesSubProduct['PriceSubProduct']}</td>
                             <td>
                                 <input type='number' 
                                         name='quantity'
-                                        min=1 max={$valuesCart['QuantityProduct']}' 
-                                        value='{$valuesCart['QuantityCardProduct']}' 
-                                        id='quantity{$valuesCart['IdCart']}'>
-                            </td>
-                            <td>
-                                <input autofocus name='node' />
-                            </td>
-                            <td>
-                                <a href='$_ENV[basePath]cart?delete={$valuesCart['IdCart']}'>
-                                    <i class='ti-trash'></i>
-                                </a>
-                                <a href='$_ENV[basePath]getSubProduct?IdProduct={$valuesCart['IdProduct']}&IdSubCart={$valuesCart['IdSubCart']}'>
-                                    <i class='ti-pencil-alt'></i>
-                                </a>
-
+                                        min=0 max={$valuesSubProduct['QuantilySubProduct']}' 
+                                        value='1' 
+                                        id='quantity{$valuesSubProduct['IdSubProduct']}'>
                             </td>
                         </tr>";
                     }
@@ -75,7 +65,7 @@ if (isset($message) && !empty($message)) {
         </section>
         <section class="footerAside">
             <h1>Giá phải trả: <?= $bill['PayThePrice'] ?> VND</h1>
-            <button id="submit" type="submit" name="SelectTable" disabled>Chọn Bàn</button>
+            <button id="submit" type="submit" name="SubProduct" disabled>Thêm vào giỏ hàng</button>
         </section>
     </aside>
 </form>

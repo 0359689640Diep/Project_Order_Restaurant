@@ -18,6 +18,7 @@ contentTables.forEach(table => {
                 table.style.backgroundColor = '#F7C427';
                 table.style.color = '#FFFFFF';
                 selectedTable = table;
+                document.getElementById("submit").disabled = false;
 
                 // Vô hiệu hóa tất cả các .contentTable khác
                 contentTables.forEach(otherTable => {

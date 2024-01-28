@@ -1,5 +1,4 @@
 <footer>
-    <link rel="stylesheet" href="../css/Footer.css">
     <div class="head_footer">
         <div class="logo_content">
             <img src="<?= $_ENV["img_Path"] ?>LogoTest-removebg-preview.png" alt="">

@@ -10,5 +10,6 @@ class CartRouter
     public function __construct()
     {
         Router::get("/cart", [CartController::class, "getProduct"]);
+        Router::post("/cart", [CartController::class, "postProduct"]);
     }
 }
