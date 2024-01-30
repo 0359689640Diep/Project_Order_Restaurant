@@ -1,9 +1,11 @@
 <?php
 
-namespace App\app\controllers;
+namespace App\app\controllers\clients;
 
 use App\app\models\CategoryModels;
 use App\app\models\ChooseTableModels;
+use App\app\controllers\BaseController;
+
 
 
 class ChooseTableController extends BaseController

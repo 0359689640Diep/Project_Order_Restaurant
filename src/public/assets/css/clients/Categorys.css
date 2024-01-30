@@ -1,6 +1,6 @@
 * {
-  margin: 0;
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
   text-decoration: none;
 }
@@ -35,6 +35,7 @@ html {
      object-position: center;
   -o-object-fit: cover;
      object-fit: cover;
+  margin-top: 2%;
 }
 .danh_sach_san_pham .timkiem {
   width: 70%;
@@ -46,8 +47,9 @@ html {
 .danh_sach_san_pham .timkiem input {
   font-size: 20px;
   background-color: #fdfafa;
-  border: 1px solid white;
   padding: 5px;
+  border: none;
+  outline: none;
 }
 .danh_sach_san_pham .timkiem select {
   margin: 0 10px;
@@ -121,4 +123,30 @@ html {
   text-transform: uppercase;
   border: none;
   color: black;
-}/*# sourceMappingURL=ProductPortfolio.css.map */
+}
+.danh_sach_san_pham .Slideshow_Product .content_pro .button_div button:hover {
+  cursor: pointer;
+  transition: 0.1s linear;
+  background: linear-gradient(265deg, #F7C427 27.42%, #CA0910 97.16%);
+}
+.danh_sach_san_pham .buttonPage {
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.danh_sach_san_pham .buttonPage a {
+  width: auto;
+  padding: 1%;
+  margin: 0 1%;
+  color: #2E2C2C;
+  background-color: #F7C427;
+  text-align: center;
+  align-items: center;
+}
+.danh_sach_san_pham .buttonPage a:hover {
+  cursor: pointer;
+  transition: 0.1s linear;
+  background: linear-gradient(265deg, #F7C427 27.42%, #CA0910 97.16%);
+}/*# sourceMappingURL=Categorys.css.map */

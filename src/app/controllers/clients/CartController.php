@@ -1,6 +1,6 @@
 <?php
 
-namespace App\app\controllers;
+namespace App\app\controllers\clients;
 
 use App\app\controllers\BaseController;
 use App\app\models\CategoryModels;

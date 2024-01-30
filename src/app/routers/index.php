@@ -2,13 +2,16 @@
 
 namespace App\app\routers;
 
-use App\app\routers\HomeRouter;
-use App\app\routers\AuthRouter;
-use App\app\routers\ProductDetailsRouter;
-use App\app\routers\CartRouter;
-use App\app\routers\SubProductRouter;
-use App\app\routers\ChooseTableRouter;
-use App\app\routers\MethodOnlineRouter;
+use App\app\routers\clients\HomeRouter;
+use App\app\routers\clients\AuthRouter;
+use App\app\routers\clients\ProductDetailsRouter;
+use App\app\routers\clients\CartRouter;
+use App\app\routers\clients\SubProductRouter;
+use App\app\routers\clients\ChooseTableRouter;
+use App\app\routers\clients\MethodOnlineRouter;
+use App\app\routers\clients\CategoryRouter;
+
+use App\app\routers\admin\HomeRouter as AdminHomeRouter;
 
 class index
 {
@@ -21,5 +24,8 @@ class index
         new SubProductRouter;
         new ChooseTableRouter;
         new MethodOnlineRouter;
+        new CategoryRouter;
+
+        new AdminHomeRouter;
     }
 }

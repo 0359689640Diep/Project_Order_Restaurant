@@ -12,6 +12,12 @@ class TablesModels
             select * from tables where StatusTable = 1
         "));
     }
+    public function getTablesById($id)
+    {
+        return BaseModels::con_return(BaseModels::con_QueryReadAll("
+            select * from tables where StatusTable = 1 and IdTables = $id
+        "));
+    }
     public function getMaxNumberPeopleTables()
     {
         return BaseModels::con_return(BaseModels::con_QueryReadOne("

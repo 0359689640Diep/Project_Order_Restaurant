@@ -1,9 +1,10 @@
 <?php
 
-namespace App\app\controllers;
+namespace App\app\controllers\clients;
 
 use App\app\models\AuthModels;
 use App\app\controllers\BaseController;
+use App\app\controllers\SendGmail;
 use App\app\controllers\Validate;
 use DateInterval;
 use DateTime;

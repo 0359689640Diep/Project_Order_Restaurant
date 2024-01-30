@@ -1,9 +1,9 @@
 <?php
 
-namespace App\app\routers;
+namespace App\app\routers\clients;
 
 use App\app\routers\Router;
-use App\app\controllers\AuthController;
+use App\app\controllers\clients\AuthController;
 
 class AuthRouter
 {

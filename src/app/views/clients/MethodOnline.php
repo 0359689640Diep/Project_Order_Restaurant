@@ -1,3 +1,6 @@
+<?php
+include_once $_ENV['header_Path'];
+?>
 <link rel="stylesheet" href="<?= $_ENV["clientsStyle"] ?>MethodOnline.css">
 <form action="" method="post" class="page">
     <section class="bill">
@@ -11,53 +14,41 @@
                         <th>Tên sản phẩm</th>
                         <th>Số lượng</th>
                         <th>Giá</th>
+                        <th>Kích cỡ</th>
+                        <th>Tên sản phẩm phụ</th>
+                        <th>Số lượng </th>
                     </tr>
                     <?php
-                    // if (isset($listOrderUser) && !empty($listOrderUser)) {
-                    //     foreach ($listOrderUser as $dataListOrderUser) {
-                    //         echo "
-                    //         <tr>
-                    //             <td>
-                    //                 <img src='../assets/img/admin/{$dataListOrderUser['ImageProduct']}' alt=''>    
-                    //                 {$dataListOrderUser['NameProduct']}
-                    //             </td>
-                    //             <td>{$dataListOrderUser['QuantityCard']}</td>
-                    //             <td>{$dataListOrderUser['PriceProduct']}VND</td>
-                    //         </tr>
+                    foreach ($dataCart as $dataListOrderUser) {
+                        echo "
+                            <tr>
+                                <td>{$dataListOrderUser['NameProduct']}</td>
+                                <td>{$dataListOrderUser['QuantityCardProduct']}</td>
+                                <td>{$dataListOrderUser['PriceSize']}VND</td>
+                                <td>{$dataListOrderUser['SizeDefault']}</td>
+                                <td>{$dataListOrderUser['NameSubProduct']}</td>
+                                <td>{$dataListOrderUser['QuantitySubCardProduct']}</td>
+                            </tr>
 
-                    //         ";
-                    //     }
-                    // } else {
-                    //     echo "<h1>Không có sản phẩm nào</h1>";
-                    // }
+                            ";
+                    }
                     ?>
                 </table>
             </section>
-            <article class="footerBill">
-                <?php
-                // if (isset($listOrderUser) && !empty($listOrderUser)) {
-                //     $_SESSION['totailPrice'] = cart_Totail($listOrderUser)['totail'];
-                // 
-                ?>
+            <section class="footerBill">
                 <article class="itemFooterBill">
-                    <h3>Phí dịch vụ 1%: </h3>
-                    <h1><?= ['ServiceCharge'] ?>VND</h1>
+                    <h3>Số bàn: <?= $dataTables["NumberTable"] ?> </h3>
+                    <h3>Giờ hẹn: <?= $dataTables["timeBooking"] ?> </h3>
+                    <h3>Số lượng người: <?= $dataTables["NumberInPeople"] ?> </h3>
+                    <h3>Phí dịch vụ 1%: <?= $Bill["ServiceCharge"] ?> VND</h3>
+                    <h3>VAT 10%: <?= $Bill["VAT"] ?> VND</h3>
+                    <h3>Tiền trước thuế, phí dịch vụ: <?= $Bill["totailPrice"] ?> VND</h3>
+                    <h3>Phải trả: <?= $Bill["PayThePrice"] ?> VND</h3>
                 </article>
-                <article class="itemFooterBill">
-                    <h3>VAT 10%: </h3>
-                    <h1><?= ['vat'] ?>VND</h1>
+                <article class="button">
+                    <button type="submit" name="payUrl">Thanh toán MoMo</button>
+
                 </article>
-                <article class="itemFooterBill">
-                    <h3>Tổng: </h3>
-                    <h1><?= ['totail'] ?>VND</h1>
-                </article>
-                <?php
-                // } else {
-                //     echo "<h1>Không có sản phẩm nào</h1>";
-                // } 
-                ?>
-            </article>
+            </section>
         </section>
-        <button type="submit" name="payUrl">Thanh toán MoMo</button>
-    </section>
 </form>

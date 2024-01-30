@@ -1,9 +1,10 @@
 <?php
 
-namespace App\app\routers;
+namespace App\app\routers\clients;
+
 
 use App\app\routers\Router;
-use App\app\controllers\SubProductController;
+use App\app\controllers\clients\SubProductController;
 
 class SubProductRouter
 {

@@ -4,7 +4,6 @@ namespace App\app\routers;
 
 use App\app\routers\Request;
 
-$a = 10;
 class Router
 {
     public static $routes = [];

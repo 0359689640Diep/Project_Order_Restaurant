@@ -1,0 +1,15 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+html {
+  font-size: 14px;
+}
+
+.page {
+  margin: 0 auto;
+  max-width: 1470px;
+}/*# sourceMappingURL=Home.css.map */
