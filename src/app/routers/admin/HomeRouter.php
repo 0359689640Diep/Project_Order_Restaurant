@@ -9,6 +9,6 @@ class HomeRouter
 {
     public function __construct()
     {
-        Router::get("/home", [HomeController::class, "getDataHomeAdmin"]);
+        Router::get("/admin", [HomeController::class, "getDataHomeAdmin"]);
     }
 }

@@ -9,7 +9,21 @@ html {
   font-size: 14px;
 }
 
-.page {
-  margin: 0 auto;
-  max-width: 1470px;
+.containerMain {
+  border: 2px solid rgb(0, 0, 0);
+  width: 85%;
+  height: 100%;
+  overflow-x: auto;
+}
+.containerMain::-webkit-scrollbar {
+  width: 5px;
+}
+.containerMain::-webkit-scrollbar-track {
+  background: #585353;
+}
+.containerMain::-webkit-scrollbar-thumb {
+  background: #2E2C2C;
+}
+.containerMain::-webkit-scrollbar-thumb:hover {
+  background: #2E2C2C;
 }/*# sourceMappingURL=Home.css.map */

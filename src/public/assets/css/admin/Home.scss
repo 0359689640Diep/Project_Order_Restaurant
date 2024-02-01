@@ -1,8 +1,9 @@
 @import "../mixin.scss";
 
-.page {
-    margin: 0 auto;
-    max-width: 1470px; 
-}
-
-.containerMain {}
+    .containerMain {
+        @include test;
+        width: 85%;
+        height: 100%;
+        overflow-x: auto;
+        @include customScrollbar($color3, $color7);
+    }

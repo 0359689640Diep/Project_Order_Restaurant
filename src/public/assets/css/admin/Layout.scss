@@ -1,0 +1,120 @@
+@import "../mixin.scss";
+
+.page {
+    margin: 0 auto;
+    max-width: 1490px;
+
+    header {
+        width: 100%;
+        height: 138px;
+        padding: 0% 5%;
+        background-color: $color1;
+        @include flexCenter(space-between);
+
+        .header_logo {
+            width: 11%;
+            height: 100%;
+
+            img {
+                @include image;
+            }
+
+        }
+
+        .header_nav {
+            @include flexCenter(space-around);
+            @include widthHeight(50%, 30%);
+
+            a {
+                color: $color6;
+                font-size: 1.5 rem;
+
+            }
+
+        }
+
+        .header_profile {
+            @include flexCenter(space-around);
+            @include widthHeight(20%, 100%);
+
+            img {
+                width: 55%;
+                height: 100%;
+                -o-object-fit: cover;
+                object-fit: cover;
+                -o-object-position: center;
+                object-position: center;
+            }
+
+            p {
+                color: $color10;
+                font-size: 1.2rem;
+            }
+
+        }
+    }
+
+    main {
+        width: 100%;
+        height: 590px;
+        @include flexCenter(space-between);
+
+        aside {
+
+            width: 15%;
+            height: 100%;
+            padding: 1%;
+            ;
+            overflow-x: auto;
+            @include customScrollbar($color3, $color6);
+
+
+            .aside_item {
+                color: $color3;
+                margin-bottom: 10%;
+                @include widthHeight(100%, auto);
+
+
+                .itemHeader {
+                    transition: 0.5s linear;
+                    @include widthHeight(100%, 15%);
+                    @include flexCenter(space-between);
+
+                    span {
+                        font-size: 1.5rem;
+                    }
+
+                    i {
+                        font-size: 1rem;
+                    }
+
+                }
+
+                .itemHeader:hover {
+                    cursor: pointer;
+                    color: $color11;
+                }
+                .itemHeader:active {
+                    background: rgba(196, 195, 195, 0.7);
+                }
+                .itemMain {
+                    @include widthHeight(100%, auto);
+
+                    display: none;
+
+                    a {
+                        margin: 2% 15%;
+                        padding: 5% 9%;
+                        display: block;
+                        color: $color3;
+                        font-size: 1rem;
+                        text-align: left;
+                    }
+
+                }
+            }
+
+
+        }
+    }
+}

@@ -16,6 +16,7 @@ $color7: #2E2C2C;
 $color8: #30CA73;
 $color9: #E9F8F1;
 $color10: #EBEBEB;
+$color11: #5867c3;;
 $pathImage: "../../img/html/snapedit_1701874861222.png";
 $basePathImage: "../../img/html/";
 
@@ -23,7 +24,7 @@ html {
     font-size: 14px;
 }
 
-@mixin flexCenter($justify, $align) {
+@mixin flexCenter($justify, $align : center) {
     display: flex;
     justify-content: $justify;
     align-items: $align;
@@ -37,7 +38,7 @@ html {
 }
 
 @mixin test {
-    border: 2px solid white;
+    border: 2px solid rgb(0, 0, 0);
 }
 
 @mixin borderRadius {
@@ -51,9 +52,70 @@ html {
 @mixin buttonHover {
     cursor: pointer;
     transition: 0.1s linear;
-    background: linear-gradient(265deg, #F7C427 27.42%, #CA0910 97.16%);
+    background: $color5;
+    color: $color6;
 }
 @mixin widthHeight($width, $height) {
     width: $width;
     height: $height;
+}
+@mixin customScrollbar($trackColor, $thumbColor) {
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: $trackColor;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $thumbColor;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: $thumbColor;
+    }
+}
+@mixin table{
+    table {
+        width: 100%;
+        // Cố định độ rộng cột
+        table-layout: fixed;
+        border-collapse: collapse;
+
+        th {
+            border: 2px solid;
+            padding: 3px;
+            white-space: nowrap;
+            overflow: hidden;
+            // hiển thị cho nội dung vượt qua
+            text-overflow: ellipsis;
+        }
+
+        td {
+            border: 2px solid;
+            padding: 3px solid;
+            text-align: center;
+            word-wrap: break-word;
+
+
+            button {
+                width: 50%;
+                height: 30%;
+                background-color: transparent;
+                color: $color;
+                font-size: 16px;
+                margin: 5%;
+            }
+
+            button:hover {
+                @include buttonHover;
+                border: $color;
+            }
+
+            img{
+                @include image
+            }
+        }
+    }
 }

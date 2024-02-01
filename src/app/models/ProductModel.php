@@ -12,6 +12,18 @@ class ProductModel extends BaseModels
         WHERE p.StatusProduct = 0");
         return $this->con_return($dataProduct);
     }
+    public function getProductAndCategory()
+    {
+        return $this->con_return(
+            $this->con_QueryReadAll("
+            SELECT p.*, c.NameCategory 
+            FROM product p
+            INNER JOIN category c ON p.IdCategory = c.IdCategory
+            WHERE p.StatusProduct = 0;
+
+            ")
+        );
+    }
     public function getNewProduct($quantity = null)
     {
         $sql = " SELECT p.* FROM product p WHERE p.StatusProduct = 0 ORDER BY p.IdProduct DESC ";

@@ -1,0 +1,30 @@
+@import "../../mixin.scss";
+
+.containerMain {
+    width: 85%;
+    height: 100%;
+    overflow-x: auto;
+    background-color: #eef2f4;
+    padding: 0% 1%;
+    @include customScrollbar($color3, $color7);
+
+    .titleMain{
+        @include widthHeight(100%, 15%);
+        @include flexCenter(left);
+
+        h1{
+            font-size: 2rem;
+            font-size: $color;
+        }
+    }
+
+}
+.contentMain{
+    width: 100%;
+    height: 85%;
+    padding: 1%;
+    border-radius: 10px;
+    background-color: $color6;
+
+    @include table;
+}

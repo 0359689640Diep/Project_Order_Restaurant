@@ -1,23 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<link rel="stylesheet" href="<?= $_ENV["clientsStyle"] ?>Home.css">
-
-<body>
-    <section class="page">
-        <header>
-
-        </header>
-        <main>
-            <aside></aside>
-            <section class="containerMain"></section>
-        </main>
-    </section>
-</body>
-
-</html>
+<?php
+include_once $_ENV['admin_Header_Path'];
+include_once $_ENV['admin_SideBar_Path'];
+?>
+<link rel="stylesheet" href="<?= $_ENV["admintStyle"] ?>Home.css">
+<section class="containerMain"></section>
+<?php
+include_once $_ENV['admin_Footer_Path'];
+?>
