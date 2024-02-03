@@ -1,0 +1,102 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+html {
+  font-size: 14px;
+}
+
+.containerMain {
+  width: 85%;
+  height: 100%;
+  overflow-x: auto;
+  background-color: #eef2f4;
+  padding: 0% 1%;
+}
+.containerMain::-webkit-scrollbar {
+  width: 5px;
+}
+.containerMain::-webkit-scrollbar-track {
+  background: #585353;
+}
+.containerMain::-webkit-scrollbar-thumb {
+  background: #2E2C2C;
+}
+.containerMain::-webkit-scrollbar-thumb:hover {
+  background: #2E2C2C;
+}
+.containerMain .titleMain {
+  width: 100%;
+  height: 15%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+.containerMain .titleMain h1 {
+  font-size: 2rem;
+  font-size: #131313;
+}
+
+.contentMain {
+  width: 100%;
+  height: 85%;
+  padding: 1%;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.contentMain .contentMain_item {
+  width: 48%;
+  height: 100%;
+}
+.contentMain .contentMain_item input, .contentMain .contentMain_item select, .contentMain .contentMain_item textarea {
+  width: 100%;
+  height: 10%;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #131313;
+  color: #131313;
+  background: transparent;
+  margin: 5% 0;
+  font-size: 1.2rem;
+}
+.contentMain .contentMain_item .img {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 20%;
+}
+.contentMain .contentMain_item .img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  width: 40%;
+  height: 100%;
+}
+.contentMain .contentMain_item .img input {
+  height: 40%;
+}
+.contentMain .contentMain_item button {
+  width: 50%;
+  height: 10%;
+  border-radius: 100px;
+  border: none;
+  background-color: #F7B829;
+  color: #0a101e;
+  font-weight: 650;
+}
+.contentMain .contentMain_item button:hover {
+  cursor: pointer;
+  transition: 0.1s linear;
+  background: #F7C427;
+  color: #FFFFFF;
+}/*# sourceMappingURL=CreateProduct.css.map */

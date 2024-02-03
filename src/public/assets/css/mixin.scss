@@ -110,7 +110,7 @@ html {
 
             button:hover {
                 @include buttonHover;
-                border: $color;
+                border: 2px solid $color;
             }
 
             img{

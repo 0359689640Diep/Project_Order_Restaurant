@@ -113,7 +113,8 @@ html {
 .page .main form input[type=submit]:hover {
   cursor: pointer;
   transition: 0.1s linear;
-  background: linear-gradient(265deg, #F7C427 27.42%, #CA0910 97.16%);
+  background: #F7C427;
+  color: #FFFFFF;
 }
 .page .main .footerMain {
   width: 100%;

@@ -42,7 +42,7 @@ html {
 
 .contentMain {
   width: 100%;
-  height: 85%;
+  height: auto;
   padding: 1%;
   border-radius: 10px;
   background-color: #FFFFFF;
@@ -78,5 +78,13 @@ html {
   transition: 0.1s linear;
   background: #F7C427;
   color: #FFFFFF;
-  border: none;
+  border: 2px solid #131313;
+}
+.contentMain table td img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }/*# sourceMappingURL=ListProduct.css.map */

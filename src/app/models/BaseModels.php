@@ -25,7 +25,7 @@ class BaseModels  extends Connection
         try {
             $stmt = $conn->prepare($sql);
             foreach ($params as $key => &$value) {
-                $stmt->bindParam(':' . $key, $value, \PDO::PARAM_INT);
+                $stmt->bindParam(':' . $key, $value);
             }
             $stmt->execute();
             self::$message = true;
@@ -166,9 +166,9 @@ class BaseModels  extends Connection
         $model = new static;
         if ($params !== null) {
             $column  = implode(",", $params);
-            $model->sqlBuilder = "SELECT $column FROM $model->tableName WHERE $nameRequest = $request";
+            $model->sqlBuilder = "SELECT $column FROM $model->tableName WHERE $nameRequest = '$request'";
         } else {
-            $model->sqlBuilder = "SELECT * FROM $model->tableName WHERE $nameRequest = $request";
+            $model->sqlBuilder = "SELECT * FROM $model->tableName WHERE $nameRequest = '$request'";
         }
         return $model;
     }
@@ -220,23 +220,27 @@ class BaseModels  extends Connection
             "status" => self::$status
         );
     }
-    // thêm dữ liệu
-    public static function con_insert($data)
-    {
-        $model = new static;
-        $model->sqlBuilder = "INSERT INTO $model->tableName(";
 
-        // lưu lại value của câu lệnh sql
-        $value = " VALUES(";
-        // lặp để lấy ey (tên cột của bảng) trong data
+    // thêm dữ liệu
+    public  function con_insert($data)
+    {
+        $this->sqlBuilder = "INSERT INTO $this->tableName(";
+
+        //Lưu lại value của câu lệnh SQL
+        $values = " VALUES(";
+        //lặp để lấy key (tên cột của bảng) trong data
         foreach ($data as $column => $value) {
-            $model->sqlBuilder .= "`{$column}, `";
-            $value .= ":$column";
-            // Xóa dâu , ơ bên phải chuỗi
-            $model->sqlBuilder .= ")" . $value . ")";
-            $model->con_QueryRUD($model->sqlBuilder, $data);
+            $this->sqlBuilder .= "`{$column}`, ";
+            $values .= ":$column, ";
         }
+        //Đi xóa dấu ", " ở bên phải của chuỗi
+        $this->sqlBuilder = rtrim($this->sqlBuilder, ", ");
+        $values = rtrim($values, ", ");
+        //Nối chuỗi sql với values
+        $this->sqlBuilder .= ") " . $values . ")";
+        return $this->con_QueryRUD($this->sqlBuilder, $data);
     }
+
     public static function con_return($data)
     {
         if ($data["status"] === 400) {

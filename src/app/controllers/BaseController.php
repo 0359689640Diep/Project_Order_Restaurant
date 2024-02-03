@@ -66,7 +66,6 @@ class Validate
     public function validateImg($data)
     {
         extract($data);
-        return false;
 
         if (!empty($data['name'])) {
             $type = pathinfo($data['name'], PATHINFO_EXTENSION);
@@ -85,8 +84,6 @@ class Validate
         } else {
             return "Ảnh không được để trống ";
         }
-
-        return $message;
     }
 
     /**

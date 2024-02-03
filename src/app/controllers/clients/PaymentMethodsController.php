@@ -38,7 +38,6 @@ class PaymentMethodsController extends BaseController
             "Bill" => $this->modelCart->billRequest($this->data['dataCart'])
         ];
 
-        // test($this->data);
 
         $this->loadView("clients/MethodOnline.php", $this->data);
     }

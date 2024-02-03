@@ -1,0 +1,69 @@
+@import "../../mixin.scss";
+
+.containerMain {
+    width: 85%;
+    height: 100%;
+    overflow-x: auto;
+    background-color: #eef2f4;
+    padding: 0% 1%;
+    @include customScrollbar($color3, $color7);
+
+    .titleMain{
+        @include widthHeight(100%, 15%);
+        @include flexCenter(left);
+
+        h1{
+            font-size: 2rem;
+            font-size: $color;
+        }
+    }
+
+}
+.contentMain{
+    width: 100%;
+    height: 85%;
+    padding: 1%;
+    border-radius: 10px;
+    background-color: $color6;
+    @include flexCenter(space-between);
+
+
+    .contentMain_item {
+        input, select, textarea{
+            width: 100%;
+            height: 10%;
+            border: none;
+            outline: none;
+            border-bottom: 2px solid $color;
+            color: $color;
+            background: transparent;
+            margin: 5% 0;
+            font-size: 1.2rem;
+
+        }
+        .img{
+            @include flexCenter(space-between);
+            @include widthHeight(100%, 20%);
+
+            img{
+                @include image;
+                width: 40%;
+                height: 100%;
+
+            }
+            input{
+                height: 40%;
+            }
+        }
+        button{
+            @include widthHeight(50%, 10%);
+            @include borderRadius;
+        }
+        button:hover{
+            @include buttonHover;
+        }
+        @include widthHeight(48%, 100%);
+
+    }
+    
+}

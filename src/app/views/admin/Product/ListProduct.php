@@ -1,6 +1,13 @@
 <?php
+
+use App\public\assets\global\Notification;
+
 include_once $_ENV['admin_Header_Path'];
 include_once $_ENV['admin_SideBar_Path'];
+
+if (isset($message) && !empty($message)) {
+    new Notification($message);
+}
 ?>
 <link rel="stylesheet" href="<?= $_ENV["admintStyle"] ?>Product/ListProduct.css">
 <section class="containerMain">
@@ -20,7 +27,6 @@ include_once $_ENV['admin_SideBar_Path'];
                 <th>Chức năng</th>
             </tr>
             <?php
-            // test($dataProduct);
             if (isset($dataProduct) && !empty($dataProduct)) {
                 foreach ($dataProduct as $value) : ?>
             <tr>
@@ -32,10 +38,34 @@ include_once $_ENV['admin_SideBar_Path'];
                 </td>
                 <td><?= $value['ProductDetails'] ?></td>
                 <td><?= $value['ProductDescription'] ?></td>
-                <td><?= $_ENV['basePath'] ?></td>
+                <?php
+                        $status = "";
+                        switch ($value['StatusProduct']) {
+                            case 0:
+                                $status = "Đang bán";
+                                break;
+                            case 1:
+                                $status = "Ngừng bán";
+                                break;
+                            case 2:
+                                $status = "Hạn chế bán";
+                                break;
+                            case 3:
+                                $status = "Đẩy mạnh bán sản phẩm";
+                                break;
+                            case 4:
+                                $status = "Đang SEO";
+                                break;
+                        }
+                        ?>
+                <td><?= $status ?></td>
                 <td>
-                    <a href='<?= $_ENV['basePath'].$value['IdProduct'] ?>'><button>Xóa</button></a>
-                    <a href='<?= $_ENV['basePath'].$value['IdProduct'] ?>'><button>Sửa</button></a>
+                    <a href='<?= $_ENV['basePath'] ?>admin/product/delete?id=<?= $value['IdProduct'] ?>'>
+                        <button>Xóa</button>
+                    </a>
+                    <a href='<?= $_ENV['basePath'] ?>admin/product/edit?id=<?= $value['IdProduct'] ?>'>
+                        <button>Sửa</button>
+                    </a>
                 </td>
             </tr>
             <?php endforeach;

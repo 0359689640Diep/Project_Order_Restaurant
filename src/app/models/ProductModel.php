@@ -4,6 +4,10 @@ namespace App\app\models;
 
 class ProductModel extends BaseModels
 {
+    public function __construct()
+    {
+        $this->tableName = "product";
+    }
     public function getProduct()
     {
         $dataProduct = $this->con_QueryReadAll("
@@ -12,16 +16,15 @@ class ProductModel extends BaseModels
         WHERE p.StatusProduct = 0");
         return $this->con_return($dataProduct);
     }
-    public function getProductAndCategory()
+    public function getProductAndCategory($nameRequest = null, $request = null)
     {
+        $sql = "SELECT p.*, c.NameCategory FROM product p INNER JOIN category c ON p.IdCategory = c.IdCategory ";
+        if ($request !== null) {
+            $sql .= " WHERE $nameRequest = $request";
+        }
+        $sql .= " ORDER BY DateEditProduct DESC";
         return $this->con_return(
-            $this->con_QueryReadAll("
-            SELECT p.*, c.NameCategory 
-            FROM product p
-            INNER JOIN category c ON p.IdCategory = c.IdCategory
-            WHERE p.StatusProduct = 0;
-
-            ")
+            $this->con_QueryReadAll($sql)
         );
     }
     public function getNewProduct($quantity = null)
@@ -48,6 +51,7 @@ class ProductModel extends BaseModels
             $this->con_QueryReadAll($sql)
         );
     }
+
     public function getProductAsRequested($data, $idCategory, $offset, $quantity = 10)
     {
         extract($data);
@@ -68,5 +72,28 @@ class ProductModel extends BaseModels
         $quantityProduct = $this->con_return($this->con_QueryReadOne("SELECT COUNT(*) FROM product WHERE StatusProduct = 0"));
 
         return (ceil($quantityProduct["COUNT(*)"] / 10));
+    }
+
+
+    public function createProduct($data)
+    {
+        return $this->con_return($this->con_insert($data));
+    }
+
+    public function checkProductName($NameProduct)
+    {
+        return $this->con_return(
+            $this->con_QueryReadOne($this->con_find("NameProduct", "$NameProduct")->sqlBuilder)
+        );
+    }
+
+    public function updateProduct($id, $data)
+    {
+        return $this->con_return($this->con_update("IdProduct", "$id", $data));
+    }
+
+    public function remoteProduct($id)
+    {
+        return $this->con_return($this->con_update("IdProduct", "$id", ["StatusProduct" => 1]));
     }
 }
