@@ -13,6 +13,7 @@ use App\app\routers\clients\CategoryRouter;
 
 use App\app\routers\admin\HomeRouter as AdminHomeRouter;
 use App\app\routers\admin\ProductRouter;
+use App\app\routers\admin\SubProductRouter as AdminSubProductRouter;
 
 class index
 {
@@ -29,5 +30,6 @@ class index
 
         new AdminHomeRouter;
         new ProductRouter;
+        new AdminSubProductRouter;
     }
 }

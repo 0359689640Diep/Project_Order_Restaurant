@@ -98,7 +98,7 @@ class ProductController extends BaseController
             } elseif ($ProductDescriptionValidate !== true) {
                 $this->data = ["message" => $ProductDescriptionValidate];
             } else {
-                $data = [
+                $data += [
                     "IdCategory" => $IdCategory,
                     "NameProduct" => $NameProduct,
                     "QuantityProduct" => $QuantityProduct,
@@ -112,10 +112,10 @@ class ProductController extends BaseController
                         $this->data = ["message" => $imageValidate];
                     } else {
                         move_uploaded_file($_FILES["ImageProduct"]["tmp_name"], "../public/assets/img/upload/" . $_FILES["ImageProduct"]["name"]);
-                        $data["ImageProduct"] = $_FILES["ImageProduct"]["name"];
+                        $data += ["ImageProduct" => $_FILES["ImageProduct"]["name"]];
                     }
                 } else {
-                    $data = ["ImageProduct" => $ImageProducts];
+                    $data += ["ImageProduct" => $ImageProducts];
                 }
                 $this->data = ["message" => $this->modelProduct->updateProduct($_GET['id'], $data)];
                 $this->getFromEditProduct();
@@ -141,6 +141,6 @@ class ProductController extends BaseController
         $this->data += [
             "dataCategory" => $this->modelCategory->getCategory()
         ];
-        $this->loadView("admin/Product/EditProduct.php", $this->data);
+        $this->loadView("admin/Product/CreateProduct.php", $this->data);
     }
 }

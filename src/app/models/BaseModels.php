@@ -238,6 +238,7 @@ class BaseModels  extends Connection
         $values = rtrim($values, ", ");
         //Nối chuỗi sql với values
         $this->sqlBuilder .= ") " . $values . ")";
+
         return $this->con_QueryRUD($this->sqlBuilder, $data);
     }
 

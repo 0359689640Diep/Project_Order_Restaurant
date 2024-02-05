@@ -8,10 +8,8 @@
         <article class="itemMain">
             <a href="<?= $_ENV['basePath'] ?>admin/product/create">Create Products</a>
             <a href="<?= $_ENV['basePath'] ?>admin/product">List Products</a>
-            <a href="<?= $_ENV['basePath'] ?>admin/product/edit">Edit Products</a>
             <a href="<?= $_ENV['basePath'] ?>admin/subproduct/create">Create Sub Products</a>
             <a href="<?= $_ENV['basePath'] ?>admin/subproduct">List Sub Products</a>
-            <a href="<?= $_ENV['basePath'] ?>admin/subproduct/edit">Edit Sub Products</a>
         </article>
 
     </section>
