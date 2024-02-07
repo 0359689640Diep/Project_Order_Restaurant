@@ -25,8 +25,9 @@ if (isset($message) && !empty($message)) {
             <input name="NameSubProduct" placeholder="Tên sản phẩm" value="<?= $dataSubProduct[0]['NameProduct'] ?>"
                 type="text">
             <article class="img">
-                <img src="<?= $_ENV["imgUpload"] . $dataSubProduct[0]['ImageSubProduct'] ?>" alt="">
-                <input name="ImageSubProduct" type="file">
+                <img id="previewImage" alt="img"
+                    src="<?= $_ENV["imgUpload"] . $dataSubProduct[0]['ImageSubProduct'] ?>">
+                <input id="fileInput" onchange="previewFile()" name="ImageSubProduct" type="file">
                 <input type="hidden" name="ImageSubProducts" value="<?= $dataSubProduct[0]['ImageSubProduct'] ?>">
             </article>
             <input name="QuantilySubProduct" placeholder="Số lượng sản phẩm" title="Không được để trống"
@@ -72,3 +73,4 @@ if (isset($message) && !empty($message)) {
 <?php
 include_once $_ENV['admin_Footer_Path'];
 ?>
+<script src="<?= $_ENV['javaScript'] ?>main.js"></script>

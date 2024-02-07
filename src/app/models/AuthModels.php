@@ -4,15 +4,20 @@ namespace App\app\models;
 
 use App\app\models\BaseModels;
 
-class AuthModels
+class AuthModels extends BaseModels
 {
     public $data = [];
+
+    public function __construct()
+    {
+        $this->tableName = "account";
+    }
 
     public function login($data)
     {
         extract($data);
 
-        $result = BaseModels::con_QueryReadOne("
+        $result = $this->con_QueryReadOne("
         SELECT * FROM account WHERE Gmail = '$email' AND Password = '$password' AND StatusAccount = 0
         ");
         if (!empty($result["message"])) {
@@ -27,18 +32,26 @@ class AuthModels
         return $this->data;
     }
 
-    public function SignIn($data)
+    public function createAccount($data, $ImageAccounts = null, $Role = 'KH', $StatusAccount = 0)
     {
         extract($data);
 
-        $result  = BaseModels::con_return(BaseModels::con_QueryRUD(
+        $result  = $this->con_return($this->con_QueryRUD(
             "INSERT INTO account (IdAccount, NameAccount, Gmail, Gender, Password, ImageAccounts, Role, StatusAccount, DateEditAccount) 
-            VALUES (null, :NameAccount, :Gmail, :Gender, :Password, null,'KH', 0, NOW())",
-            array('NameAccount' => $NameAccount, 'Gmail' => $Gmail, 'Gender' => $Gender, 'Password' => $Password)
+            VALUES (null, :NameAccount, :Gmail, :Gender, :Password, :ImageAccounts,:Role, :StatusAccount, NOW())",
+            array(
+                'NameAccount' => $NameAccount,
+                'Gmail' => $Gmail,
+                'Gender' => $Gender,
+                'Password' => $Password,
+                "ImageAccounts" => $ImageAccounts,
+                "Role" => $Role,
+                "StatusAccount" => $StatusAccount
+            )
         ));
 
         if ($result === true) {
-            $this->data["message"] = "Tạo tài khoản thành công. Vui lòng đăng nhập để sử dụng dịch vụ";
+            $this->data["message"] = "Tạo tài khoản thành công.";
             http_response_code(200);
         } else {
             $this->data["message"] = "Hệ thống đang bảo trì";
@@ -49,16 +62,27 @@ class AuthModels
 
     public function checkAccount($Gmail)
     {
-        $resultCheckAccount = BaseModels::con_QueryReadOne("select * from account where Gmail  = '$Gmail'");
+        $resultCheckAccount = $this->con_QueryReadOne("select * from account where Gmail  = '$Gmail'");
 
         if ($resultCheckAccount["message"] === false) {
-            $this->data["message"] = true;
-            http_response_code(409);
+            return true;
         } else {
-            $this->data["message"] = 'Gmail này đã được sử dụng vui lòng đăng nhập để sử dụng dịch vụ';
-            http_response_code(409);
+            return 'Gmail này đã được sử dụng';
         }
-        return $this->data["message"];
+    }
+
+    public function getAccount($nameRequest = null, $request = null)
+    {
+        $result = $this->con_getAll();
+        if ($request !== null) {
+            $result = $result->con_where($nameRequest, '=', $request);
+        }
+        return $this->con_return($this->con_QueryReadAll($result->sqlBuilder));
+    }
+
+    public function updateAccount($id, $data)
+    {
+        return $this->con_return($this->con_update("IdAccount", $id, $data));
     }
 
     private function setSessionAndPath($role, $message)

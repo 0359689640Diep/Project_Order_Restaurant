@@ -14,6 +14,8 @@ use App\app\routers\clients\CategoryRouter;
 use App\app\routers\admin\HomeRouter as AdminHomeRouter;
 use App\app\routers\admin\ProductRouter;
 use App\app\routers\admin\SubProductRouter as AdminSubProductRouter;
+use App\app\routers\admin\AccountRouter;
+use App\app\routers\admin\TableRouter;
 
 class index
 {
@@ -31,5 +33,7 @@ class index
         new AdminHomeRouter;
         new ProductRouter;
         new AdminSubProductRouter;
+        new AccountRouter;
+        new TableRouter;
     }
 }

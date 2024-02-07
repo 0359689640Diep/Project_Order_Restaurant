@@ -111,7 +111,7 @@ class AuthController extends BaseController
 
                 if ($currentTime < $tagerTime) {
                     if ($CodeVerify === $codeVerify) {
-                        $this->message['message'] = $this->molels->SignIn($_SESSION['VerifyAccount']["Data"]);
+                        $this->message['message'] = $this->molels->createAccount($_SESSION['VerifyAccount']["Data"]);
                         unset($_SESSION['VerifyAccount']);
                     } else {
                         $this->message["message"] = "Mã xác nhận Không hợp lệ vui lòng thử lại";

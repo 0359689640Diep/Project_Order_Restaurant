@@ -20,9 +20,8 @@
             <i class="ti-angle-down"></i>
         </article>
         <article class="itemMain">
-            <a href="<?= $_ENV['basePath'] ?>admin/">Create Accounts</a>
-            <a href="<?= $_ENV['basePath'] ?>admin/">List Accounts</a>
-            <a href="<?= $_ENV['basePath'] ?>admin/">Edit Accounts</a>
+            <a href="<?= $_ENV['basePath'] ?>admin/account/create">Create Accounts</a>
+            <a href="<?= $_ENV['basePath'] ?>admin/account">List Accounts</a>
         </article>
 
     </section>
@@ -33,9 +32,8 @@
             <i class="ti-angle-down"></i>
         </article>
         <article class="itemMain">
-            <a href="<?= $_ENV['basePath'] ?>admin/">Create Tables</a>
-            <a href="<?= $_ENV['basePath'] ?>admin/">List Tables</a>
-            <a href="<?= $_ENV['basePath'] ?>admin/">Edit Tables</a>
+            <a href="<?= $_ENV['basePath'] ?>admin/table/create">Create Tables</a>
+            <a href="<?= $_ENV['basePath'] ?>admin/table">List Tables</a>
         </article>
 
     </section>
@@ -58,6 +56,7 @@
 
     </section>
     <section class="aside_item">
+
         <article class="itemHeader">
             <i class="ti-layout-tab-window"></i>
             <span>Category</span>
@@ -66,7 +65,6 @@
         <article class="itemMain">
             <a href="<?= $_ENV['basePath'] ?>admin/">Create Category</a>
             <a href="<?= $_ENV['basePath'] ?>admin/">List Category</a>
-            <a href="<?= $_ENV['basePath'] ?>admin/">Edit Category</a>
         </article>
 
     </section>
@@ -79,7 +77,6 @@
         <article class="itemMain">
             <a href="<?= $_ENV['basePath'] ?>admin/">Create Email</a>
             <a href="<?= $_ENV['basePath'] ?>admin/">List Email</a>
-            <a href="<?= $_ENV['basePath'] ?>admin/">Edit Email</a>
         </article>
 
     </section>
@@ -92,7 +89,6 @@
         <article class="itemMain">
             <a href="<?= $_ENV['basePath'] ?>admin/">Create Size</a>
             <a href="<?= $_ENV['basePath'] ?>admin/">List Size</a>
-            <a href="<?= $_ENV['basePath'] ?>admin/">Edit Size</a>
         </article>
 
     </section>

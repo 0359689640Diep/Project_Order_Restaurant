@@ -28,7 +28,7 @@ class HomeController extends BaseController
             "Product" => $this->modelProduct->getProduct(),
             "getNewTwoProduct" => $this->modelProduct->getNewProduct(2),
             "Category" => $this->modelCategory->getCategory(),
-            "Tables" => $this->modelTables->getTables(),
+            "Tables" => $this->modelTables->getAllTables("StatusTable", 1),
             "MaxNumberPeopleTables" => $this->modelTables->getMaxNumberPeopleTables(),
         ];
         $this->loadView("clients\Home.php", $this->data);

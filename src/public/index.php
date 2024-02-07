@@ -22,3 +22,12 @@ function test($data)
     var_dump($data);
     die();
 }
+
+function select($nameSelect, $data)
+{
+    if (array_key_exists($nameSelect, $data)) {
+        return $data[$nameSelect];
+    } else {
+        return null; // hoặc giá trị mặc định khác tùy thuộc vào trường hợp cụ thể
+    }
+}

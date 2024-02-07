@@ -19,20 +19,26 @@ if (isset($message) && !empty($message)) {
     <article class="titleMain">
         <h1>Thêm sách sản phẩm</h1>
     </article>
-    <form action="<?= $_ENV['basePath'] ?>admin/product/edit?id=<?= $_GET['id'] ?>" method="post" class="contentMain" enctype="multipart/form-data">
+    <form action="<?= $_ENV['basePath'] ?>admin/product/edit?id=<?= $_GET['id'] ?>" method="post" class="contentMain"
+        enctype="multipart/form-data">
+
         <article class="contentMain_item">
-            <input name="NameProduct" placeholder="Tên sản phẩm" value="<?= $dataProduct[0]['NameProduct'] ?>" type="text">
-            <input name="QuantityProduct" placeholder="Số lượng" value="<?= $dataProduct[0]['QuantityProduct'] ?>" type="number" min=0>
+            <input name="NameProduct" placeholder="Tên sản phẩm" value="<?= $dataProduct[0]['NameProduct'] ?>"
+                type="text">
+            <input name="QuantityProduct" placeholder="Số lượng" value="<?= $dataProduct[0]['QuantityProduct'] ?>"
+                type="number" min=0>
             <article class="img">
-                <img src="<?= $_ENV["imgUpload"] . $dataProduct[0]['ImageProduct'] ?>" alt="">
-                <input name="ImageProduct" type="file">
+                <img id="previewImage" alt="img" src="<?= $_ENV["imgUpload"] . $dataProduct[0]['ImageProduct'] ?>">
+                <input id="fileInput" onchange="previewFile()" name="ImageProduct" type="file">
                 <input type="hidden" name="ImageProducts" value="<?= $dataProduct[0]['ImageProduct'] ?>">
             </article>
-            <textarea name="ProductDetails" placeholder="Thông tin sản phẩm" title="Không được để trống"><?= $dataProduct[0]['ProductDetails'] ?></textarea>
+            <textarea name="ProductDetails" placeholder="Thông tin sản phẩm"
+                title="Không được để trống"><?= $dataProduct[0]['ProductDetails'] ?></textarea>
 
         </article>
         <article class="contentMain_item">
-            <textarea name="ProductDescription" placeholder="Mô tả sản phẩm" title="Không được để trống"><?= $dataProduct[0]['ProductDescription'] ?></textarea>
+            <textarea name="ProductDescription" placeholder="Mô tả sản phẩm"
+                title="Không được để trống"><?= $dataProduct[0]['ProductDescription'] ?></textarea>
 
             <select name="StatusProduct" id="">
                 <?php
@@ -65,7 +71,7 @@ if (isset($message) && !empty($message)) {
             <select name="IdCategory" id="">
                 <option value="<?= $dataProduct[0]['IdCategory'] ?>"><?= $dataProduct[0]['NameCategory'] ?></option>
                 <?php foreach ($dataCategory as $value) : ?>
-                    <option value="<?= $value['IdCategory'] ?>"><?= $value['NameCategory'] ?></option>
+                <option value="<?= $value['IdCategory'] ?>"><?= $value['NameCategory'] ?></option>
                 <?php endforeach ?>
             </select>
 
@@ -76,3 +82,4 @@ if (isset($message) && !empty($message)) {
 <?php
 include_once $_ENV['admin_Footer_Path'];
 ?>
+<script src="<?= $_ENV['javaScript'] ?>main.js"></script>

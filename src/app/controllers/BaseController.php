@@ -42,7 +42,8 @@ class BaseController
 
     protected function checkParam($param, $from)
     {
-        if (isset($_GET[$param]) && !empty($_GET[$param])) {
+
+        if (isset($_GET["$param"]) && !empty($_GET["$param"])) {
             return $_GET[$param];
         } else {
             header("location: " . $from);
@@ -53,6 +54,22 @@ class BaseController
     {
         $_SESSION[$nameSection] = $data;
         header("location: " . $from);
+    }
+
+    protected function uploadImg($path, $imgNew, $linkImgOld = null)
+    {
+
+        // Kiểm tra xem tệp ảnh cũ có tồn tại không và xóa nó nếu có
+        if ($linkImgOld !== null && file_exists($path . $linkImgOld) && !empty($linkImgOld)) {
+            unlink($path . $linkImgOld);
+        }
+
+        // Di chuyển tệp ảnh mới vào thư mục đích
+        if (move_uploaded_file($imgNew['tmp_name'], $path . $imgNew['name'])) {
+            return true; // Trả về true nếu upload thành công
+        } else {
+            return false; // Trả về false nếu có lỗi xảy ra trong quá trình upload
+        }
     }
 }
 
