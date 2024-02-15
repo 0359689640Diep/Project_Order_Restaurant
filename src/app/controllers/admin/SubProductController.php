@@ -17,6 +17,7 @@ class SubProductController extends BaseController
         $this->modelSubProduct = new SubProductModels;
         $this->modelCategory = new CategoryModels;
         $this->controllerValidate = new Validate;
+        $this->authentication("admin");
     }
 
     // delete subproduct

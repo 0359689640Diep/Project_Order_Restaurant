@@ -16,6 +16,7 @@ class AccountController extends BaseController
     {
         $this->modelAccount = new AuthModels;
         $this->controllerValidate = new Validate;
+        $this->authentication("admin");
     }
 
     public function postCreateAccount()
@@ -52,7 +53,7 @@ class AccountController extends BaseController
             if ($imageValidate !== true) {
                 $this->data = ["message" => $imageValidate];
             } else {
-                if ($this->uploadImg($_ENV['basePathImg'], $ImageAccounts) === false) {
+                if ($this->uploadImg($ImageAccounts) === false) {
                     $data += ["message" => "Hệ thống đang bảo trì"];
                 } else {
                     $data += ["ImageAccounts" => $ImageAccounts['name']];
@@ -114,7 +115,7 @@ class AccountController extends BaseController
                 if ($imageValidate !== true) {
                     $this->data = ["message" => $imageValidate];
                 } else {
-                    if ($this->uploadImg($_ENV['basePathImg'], $ImageAccounts, $ImageAccountsOld) === false) {
+                    if ($this->uploadImg($ImageAccounts, $ImageAccountsOld) === false) {
                         $data += ["message" => "Hệ thống đang bảo trì"];
                     } else {
                         $data += ["ImageAccounts" => $ImageAccounts['name']];

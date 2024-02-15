@@ -33,13 +33,21 @@ class TablesModels extends BaseModels
         "));
     }
 
+    public function checkTable($nameCheck, $dataCheck)
+    {
+        $result = $this->con_return($this->con_QueryReadOne($this->con_find($nameCheck, $dataCheck)->sqlBuilder));
+        return empty($result) === true ? true : false;
+    }
+
     public function updateTable($nameId, $id, $data)
     {
-        $result =  $this->con_return($this->con_update($nameId, $id, $data));
-        if ($result === true) {
-            return "Xóa thành công";
-        } else {
-            return "Xóa thật bại";
-        };
+        return  $this->con_return($this->con_update($nameId, $id, $data));
+    }
+
+    public function createTable($data)
+    {
+        $result = $this->con_return($this->con_insert($data));
+
+        return $result === true ? "Thêm bàn thành công" : "Thêm bàn thất bại";
     }
 }

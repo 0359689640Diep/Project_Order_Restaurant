@@ -16,6 +16,8 @@ use App\app\routers\admin\ProductRouter;
 use App\app\routers\admin\SubProductRouter as AdminSubProductRouter;
 use App\app\routers\admin\AccountRouter;
 use App\app\routers\admin\TableRouter;
+use App\app\routers\admin\CategoryRouter as AdminCategoryRouter;
+use App\app\routers\admin\SizeRouter;
 
 class index
 {
@@ -35,5 +37,7 @@ class index
         new AdminSubProductRouter;
         new AccountRouter;
         new TableRouter;
+        new AdminCategoryRouter;
+        new SizeRouter;
     }
 }

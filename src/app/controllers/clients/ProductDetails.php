@@ -69,7 +69,7 @@ class ProductDetails extends BaseController
                 "SizeByIdProduct" => $this->modelSize->getSizeByIdProduct($Id),
                 "ListSizeByIdProduct" => $this->modelSize->getSizeByIdProduct($Id),
                 "ListCommentByIdProduct" => $this->modelComment->getAllComment($Id),
-                "Category" => $this->modelCategory->getCategory(),
+                "Category" => $this->modelCategory->getCategory("StatusCategory", 0),
             ];
             $this->loadView("clients\ProductDetails.php", $this->data);
         } else {

@@ -15,6 +15,7 @@ class ProductController extends BaseController
         $this->modelProduct = new ProductModel;
         $this->modelCategory = new CategoryModels;
         $this->controllerValidate = new Validate;
+        $this->authentication("admin");
     }
 
 
@@ -139,7 +140,7 @@ class ProductController extends BaseController
     public function getUIFromCreateProduct()
     {
         $this->data += [
-            "dataCategory" => $this->modelCategory->getCategory()
+            "dataCategory" => $this->modelCategory->getCategory("StatusCategory", 0)
         ];
         $this->loadView("admin/Product/CreateProduct.php", $this->data);
     }

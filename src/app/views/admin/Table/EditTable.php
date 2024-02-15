@@ -27,8 +27,8 @@ $StatusTable = [
     <article class="titleMain">
         <h1>Sửa bàn</h1>
     </article>
-    <form action="<?= $_ENV['basePath'] ?>admin/account/table?id=<?= $_GET['id'] ?>" method="post" class="contentMain"
-        enctype="multipart/form-data">
+    <form action="<?= $_ENV['basePath'] ?>admin/table/edit?id=<?= $_GET['id'] ?>" method="post" class="contentMain"
+        style="justify-content: center">
         <article class="contentMain_item">
 
             <input name="NumberTable" placeholder="Số bàn" value="<?= $dataTables[0]['NumberTable'] ?>" type="number">
@@ -49,7 +49,7 @@ $StatusTable = [
                 <option value="5">Khách gọi nhân viên</option>
 
             </select>
-            <button type="submit">Sửa tài khoản</button>
+            <button type="submit">Sửa bàn</button>
 
         </article>
 

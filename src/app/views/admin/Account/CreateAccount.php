@@ -40,7 +40,7 @@ if (isset($message) && !empty($message)) {
                 <option value="NVPVB">Nhân viên phục vụ bàn</option>
                 <option value="QL">Quản lý</option>
                 <option value="KH">Khách Hàng</option>
-                <option value="CQ">Chủ quán</option>
+                <option value="admin">Chủ quán</option>
             </select>
             <select required name="StatusAccount">
                 <option selected value="">Trạng thái</option>

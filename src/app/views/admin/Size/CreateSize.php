@@ -1,0 +1,51 @@
+<?php
+
+use App\public\assets\global\Notification;
+
+include_once $_ENV['admin_Header_Path'];
+include_once $_ENV['admin_SideBar_Path'];
+if (isset($message) && !empty($message)) {
+
+    if ($message === true) {
+        new Notification("Thêm sản phẩm thành công");
+    } else {
+        new Notification($message);
+    }
+}
+?>
+<link rel="stylesheet" href="<?= $_ENV["admintStyle"] ?>Product/CreateProduct.css">
+<section class="containerMain">
+    <article class="titleMain">
+        <h1>Thêm sách sản phẩm</h1>
+    </article>
+    <form action="<?= $_ENV['basePath'] ?>admin/size/create" method="post" class="contentMain" enctype="multipart/form-data">
+
+        <article class="contentMain_item">
+
+            <input required name="SizeDefault" placeholder="Tên kích thước mặc định" title="Không được để trống" type="text">
+            <input required name="PriceSize" placeholder="Giá cho từng kích thước" title="Không được để trống" type="number" min=0>
+            <input name="SEO" placeholder="SEO cho từng kích thước" title="Không được để trống" type="number" min=0>
+            <input required name="ImageSize" placeholder="" title="Không được để trống" type="file">
+
+        </article>
+        <article class="contentMain_item">
+
+            <select name="StatusSize" id="">
+                <option value="">Trạng thái kích cỡ</option>
+                <option value="0">Đang bán</option>
+                <option value="1">Ngừng bán</option>
+            </select>
+            <select name="IdProduct" id="">
+                <option value="">Sản phẩm đi kèm kích cỡ</option>
+                <?php foreach ($dataProduct as $value) : ?>
+                    <option value="<?= $value['IdProduct'] ?>"><?= $value['NameProduct'] ?></option>
+                <?php endforeach ?>
+            </select>
+
+            <button type="submit">Thêm kích cỡ</button>
+        </article>
+</section>
+</section>
+<?php
+include_once $_ENV['admin_Footer_Path'];
+?>

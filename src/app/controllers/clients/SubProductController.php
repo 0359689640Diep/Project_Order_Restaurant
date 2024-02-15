@@ -28,7 +28,7 @@ class SubProductController extends BaseController
         $IdProduct = $this->checkParam("IdProduct", "cart");
 
         $this->data = [
-            "Category" => $this->modelCategory->getCategory(),
+            "Category" => $this->modelCategory->getCategory("StatusCategory", 0),
             "dataSubProduct" => $this->modelSubProduct->getSubProductByIdProduct($IdProduct),
             "bill" => $this->modelCart->bill($this->idUser)
         ];

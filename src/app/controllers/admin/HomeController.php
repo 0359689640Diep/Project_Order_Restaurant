@@ -8,6 +8,7 @@ class HomeController extends BaseController
 {
     public function __construct()
     {
+        $this->authentication("admin");
     }
     public function getDataHomeAdmin()
     {

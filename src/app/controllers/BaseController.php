@@ -56,8 +56,9 @@ class BaseController
         header("location: " . $from);
     }
 
-    protected function uploadImg($path, $imgNew, $linkImgOld = null)
+    protected function uploadImg($imgNew, $linkImgOld = null)
     {
+        $path = $_ENV['basePathImg'];
 
         // Kiểm tra xem tệp ảnh cũ có tồn tại không và xóa nó nếu có
         if ($linkImgOld !== null && file_exists($path . $linkImgOld) && !empty($linkImgOld)) {

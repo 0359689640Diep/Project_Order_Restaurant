@@ -27,7 +27,7 @@ class HomeController extends BaseController
         $this->data = [
             "Product" => $this->modelProduct->getProduct(),
             "getNewTwoProduct" => $this->modelProduct->getNewProduct(2),
-            "Category" => $this->modelCategory->getCategory(),
+            "Category" => $this->modelCategory->getCategory("StatusCategory", 0),
             "Tables" => $this->modelTables->getAllTables("StatusTable", 1),
             "MaxNumberPeopleTables" => $this->modelTables->getMaxNumberPeopleTables(),
         ];

@@ -35,12 +35,12 @@ class ProductModel extends BaseModels
         }
         return $this->con_return($this->con_QueryReadAll($sql));
     }
-    // public function get
+
     public function getProductById($Id)
     {
         return $this->con_return(
             $this->con_QueryReadOne("
-            SELECT *  FROM product where IdProduct = $Id
+            SELECT *  FROM product where IdProduct = $Id 
             ")
         );
     }

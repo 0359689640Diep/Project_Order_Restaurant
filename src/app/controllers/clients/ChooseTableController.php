@@ -19,7 +19,7 @@ class ChooseTableController extends BaseController
     public function getTales()
     {
         $this->data = [
-            "Category" => $this->modelCategory->getCategory(),
+            "Category" => $this->modelCategory->getCategory("StatusCategory", 0),
             "dataTables" => $this->modelChooseTable->getAllTables(),
             "maxNumberPeopleDefault" => $this->modelChooseTable->getMaxNumberPeopleDefault()
         ];

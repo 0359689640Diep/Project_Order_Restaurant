@@ -31,7 +31,7 @@ class CategoryController extends BaseController
                 ];
             }
             $this->data += [
-                "Category" => $this->modelCategory->getCategory(),
+                "Category" => $this->modelCategory->getCategory("StatusCategory", 0),
                 "quanlityProduct" => $this->modelProduct->getQuanlityProduct()
             ];
 

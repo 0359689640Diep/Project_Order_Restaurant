@@ -34,7 +34,7 @@ class PaymentMethodsController extends BaseController
         ];
 
         $this->data += [
-            "Category" => $this->modelCategory->getCategory(),
+            "Category" => $this->modelCategory->getCategory("StatusCategory", 0),
             "Bill" => $this->modelCart->billRequest($this->data['dataCart'])
         ];
 

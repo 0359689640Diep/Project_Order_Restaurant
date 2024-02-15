@@ -54,7 +54,7 @@ $StatusAccount = ["0" => "Hoạt động", "1" => "Đã xóa"];
                 <option value="NVPVB">Nhân viên phục vụ bàn</option>
                 <option value="QL">Quản lý</option>
                 <option value="KH">Khách Hàng</option>
-                <option value="CQ">Chủ quán</option>
+                <option value="admin">Chủ quán</option>
             </select>
             <select name="StatusAccount">
                 <option selected value="<?= $dataAccount[0]['StatusAccount'] ?>">

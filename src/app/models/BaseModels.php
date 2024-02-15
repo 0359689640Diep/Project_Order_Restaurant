@@ -161,16 +161,16 @@ class BaseModels  extends Connection
      * Phương thức find: Dùng để tìm dữ liệu theo yêu cầu
      * 
      */
-    public static function con_find($nameRequest, $request, $params = null)
+    public function con_find($nameRequest, $request, $params = null)
     {
-        $model = new static;
+
         if ($params !== null) {
             $column  = implode(",", $params);
-            $model->sqlBuilder = "SELECT $column FROM $model->tableName WHERE $nameRequest = '$request'";
+            $this->sqlBuilder = "SELECT $column FROM $this->tableName WHERE $nameRequest = '$request'";
         } else {
-            $model->sqlBuilder = "SELECT * FROM $model->tableName WHERE $nameRequest = '$request'";
+            $this->sqlBuilder = "SELECT * FROM $this->tableName WHERE $nameRequest = '$request'";
         }
-        return $model;
+        return $this;
     }
 
     /**

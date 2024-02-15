@@ -2,45 +2,45 @@
     <section class="aside_item">
         <article class="itemHeader">
             <i class="ti-archive"></i>
-            <span>Products</span>
+            <span>Sản Phẩm</span>
             <i class="ti-angle-down"></i>
         </article>
         <article class="itemMain">
-            <a href="<?= $_ENV['basePath'] ?>admin/product/create">Create Products</a>
-            <a href="<?= $_ENV['basePath'] ?>admin/product">List Products</a>
-            <a href="<?= $_ENV['basePath'] ?>admin/subproduct/create">Create Sub Products</a>
-            <a href="<?= $_ENV['basePath'] ?>admin/subproduct">List Sub Products</a>
+            <a href="<?= $_ENV['basePath'] ?>admin/product/create">Thêm Sản Phẩm</a>
+            <a href="<?= $_ENV['basePath'] ?>admin/product">Danh Sách Sản Phẩm</a>
+            <a href="<?= $_ENV['basePath'] ?>admin/subproduct/create">Thêm Sản Phẩm Phụ</a>
+            <a href="<?= $_ENV['basePath'] ?>admin/subproduct">Danh Sách Sản Phẩm Phụ</a>
         </article>
 
     </section>
     <section class="aside_item">
         <article class="itemHeader">
             <i class="ti-user"></i>
-            <span>Accounts</span>
+            <span>Tài Khoản</span>
             <i class="ti-angle-down"></i>
         </article>
         <article class="itemMain">
-            <a href="<?= $_ENV['basePath'] ?>admin/account/create">Create Accounts</a>
-            <a href="<?= $_ENV['basePath'] ?>admin/account">List Accounts</a>
+            <a href="<?= $_ENV['basePath'] ?>admin/account/create">Thêm Tài Khoản</a>
+            <a href="<?= $_ENV['basePath'] ?>admin/account">Danh Sách Tài Khoản</a>
         </article>
 
     </section>
     <section class="aside_item">
         <article class="itemHeader">
             <i class="ti-layout-grid3"></i>
-            <span>Tables</span>
+            <span>Bàn</span>
             <i class="ti-angle-down"></i>
         </article>
         <article class="itemMain">
-            <a href="<?= $_ENV['basePath'] ?>admin/table/create">Create Tables</a>
-            <a href="<?= $_ENV['basePath'] ?>admin/table">List Tables</a>
+            <a href="<?= $_ENV['basePath'] ?>admin/table/create">Thêm Bàn</a>
+            <a href="<?= $_ENV['basePath'] ?>admin/table">Danh Sách Bàn</a>
         </article>
 
     </section>
     <section class="aside_item">
         <article class="itemHeader">
             <i class="ti-pencil-alt"></i>
-            <span>Order</span>
+            <span>Yêu Cầu</span>
             <i class="ti-angle-down"></i>
         </article>
         <article class="itemMain">
@@ -59,12 +59,12 @@
 
         <article class="itemHeader">
             <i class="ti-layout-tab-window"></i>
-            <span>Category</span>
+            <span>Danh Mục</span>
             <i class="ti-angle-down"></i>
         </article>
         <article class="itemMain">
-            <a href="<?= $_ENV['basePath'] ?>admin/">Create Category</a>
-            <a href="<?= $_ENV['basePath'] ?>admin/">List Category</a>
+            <a href="<?= $_ENV['basePath'] ?>admin/category/create">Thêm Danh Mục</a>
+            <a href="<?= $_ENV['basePath'] ?>admin/category">Danh Sách Danh Mục</a>
         </article>
 
     </section>
@@ -75,31 +75,31 @@
             <i class="ti-angle-down"></i>
         </article>
         <article class="itemMain">
-            <a href="<?= $_ENV['basePath'] ?>admin/">Create Email</a>
-            <a href="<?= $_ENV['basePath'] ?>admin/">List Email</a>
+            <a href="<?= $_ENV['basePath'] ?>admin/">Thêm Email</a>
+            <a href="<?= $_ENV['basePath'] ?>admin/">Danh Sách Email</a>
         </article>
 
     </section>
     <section class="aside_item">
         <article class="itemHeader">
             <i class="ti-calendar"></i>
-            <span>Size</span>
+            <span>Kích Cỡ</span>
             <i class="ti-angle-down"></i>
         </article>
         <article class="itemMain">
-            <a href="<?= $_ENV['basePath'] ?>admin/">Create Size</a>
-            <a href="<?= $_ENV['basePath'] ?>admin/">List Size</a>
+            <a href="<?= $_ENV['basePath'] ?>admin/size/create">Thêm Kích Cỡ</a>
+            <a href="<?= $_ENV['basePath'] ?>admin/size">Danh Sách Kích Cỡ</a>
         </article>
 
     </section>
     <section class="aside_item">
         <article class="itemHeader">
             <i class="ti-comment-alt"></i>
-            <span>Comment</span>
+            <span>Bình Luận</span>
             <i class="ti-angle-down"></i>
         </article>
         <article class="itemMain">
-            <a href="<?= $_ENV['basePath'] ?>admin/">List Comment</a>
+            <a href="<?= $_ENV['basePath'] ?>admin/">Danh Sách Comment</a>
         </article>
 
     </section>

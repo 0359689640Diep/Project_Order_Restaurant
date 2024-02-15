@@ -43,7 +43,7 @@ class CartController extends BaseController
         if (isset($_GET['more']) && !empty($_GET['more'])) {
         }
         $this->data += [
-            "Category" => $this->modelCategory->getCategory(),
+            "Category" => $this->modelCategory->getCategory("StatusCategory", 0),
             "dataCart" => $this->modelCart->getAllCart($this->idUser),
             "bill" => $this->modelCart->bill($this->idUser)
         ];
