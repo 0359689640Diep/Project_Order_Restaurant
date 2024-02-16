@@ -88,6 +88,7 @@
         </article>
         <article class="itemMain">
             <a href="<?= $_ENV['basePath'] ?>admin/size/create">Thêm Kích Cỡ</a>
+            <a href="<?= $_ENV['basePath'] ?>admin/size/addSizeInProduct">Thêm Kích Cỡ Vào Sản Phẩm</a>
             <a href="<?= $_ENV['basePath'] ?>admin/size">Danh Sách Kích Cỡ</a>
         </article>
 
@@ -99,7 +100,7 @@
             <i class="ti-angle-down"></i>
         </article>
         <article class="itemMain">
-            <a href="<?= $_ENV['basePath'] ?>admin/">Danh Sách Comment</a>
+            <a href="<?= $_ENV['basePath'] ?>admin/comment">Danh Sách Comment</a>
         </article>
 
     </section>

@@ -58,6 +58,9 @@ if (isset($message) && !empty($message)) {
                             <a href='<?= $_ENV['basePath'] ?>admin/size/delete?id=<?= $value['IdSizeDefault'] ?>'>
                                 <button>Xóa</button>
                             </a>
+                            <a href='<?= $_ENV['basePath'] ?>admin/size/deleteSizeInProduct?id=<?= $value['IdSize'] ?>'>
+                                <button>Xóa Kích Cỡ Trong Sản Phẩm</button>
+                            </a>
                             <a href='<?= $_ENV['basePath'] ?>admin/size/edit?IdSizeDefault=<?= $value['IdSizeDefault'] ?>&IdSize=<?= $value['IdSize'] ?>'>
                                 <button>Sửa</button>
                             </a>

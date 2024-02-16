@@ -16,32 +16,29 @@ if (isset($message) && !empty($message)) {
 <link rel="stylesheet" href="<?= $_ENV["admintStyle"] ?>Product/CreateProduct.css">
 <section class="containerMain">
     <article class="titleMain">
-        <h1>Thêm kích cỡ</h1>
+        <h1>Thêm kích cỡ vào sản phẩm</h1>
     </article>
-    <form action="<?= $_ENV['basePath'] ?>admin/size/create" method="post" class="contentMain"
-        enctype="multipart/form-data">
+    <form action="<?= $_ENV['basePath'] ?>admin/size/addSizeInProduct" method="post" class="contentMain" enctype="multipart/form-data">
 
         <article class="contentMain_item">
 
-            <input required name="SizeDefault" placeholder="Tên kích thước mặc định" title="Không được để trống"
-                type="text">
-            <input required name="PriceSize" placeholder="Giá cho từng kích thước" title="Không được để trống"
-                type="number" min=0>
+            <input required name="PriceSize" placeholder="Giá cho từng kích thước" title="Không được để trống" type="number" min=0>
             <input name="SEO" placeholder="SEO cho từng kích thước" title="Không được để trống" type="number" min=0>
             <input required name="ImageSize" placeholder="" title="Không được để trống" type="file">
 
         </article>
         <article class="contentMain_item">
 
-            <select name="StatusSize" id="">
-                <option value="">Trạng thái kích cỡ</option>
-                <option value="0">Đang bán</option>
-                <option value="1">Ngừng bán</option>
+            <select name="IdSizeDefault">
+                <option value="">Kích cỡ mặc định</option>
+                <?php foreach ($dataSizeDefault as $value) : ?>
+                    <option value="<?= $value['IdSizeDefault'] ?>"><?= $value['SizeDefault'] ?></option>
+                <?php endforeach ?>
             </select>
-            <select name="IdProduct" id="">
+            <select name="IdProduct">
                 <option value="">Sản phẩm đi kèm kích cỡ</option>
                 <?php foreach ($dataProduct as $value) : ?>
-                <option value="<?= $value['IdProduct'] ?>"><?= $value['NameProduct'] ?></option>
+                    <option value="<?= $value['IdProduct'] ?>"><?= $value['NameProduct'] ?></option>
                 <?php endforeach ?>
             </select>
 

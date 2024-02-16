@@ -19,8 +19,44 @@ class SizeController extends BaseController
         $this->validate = new Validate;
     }
 
-    public function getUIAddProduct()
+    public function postSizeInProduct()
     {
+        extract($_POST);
+        extract($_FILES);
+
+        $validateImg = $this->validate->validateImg($ImageSize);
+        $validatePriceSize = $this->validate->validateAll("price", $PriceSize);
+
+        if ($validateImg !== true) {
+            $this->data = ["message" => $validateImg];
+        } elseif ($validatePriceSize !== true) {
+            $this->data = ["message" => $validatePriceSize];
+        }
+
+        $dataSize = [
+            "IdProduct" => $IdProduct,
+            "IdSizeDefault" => $IdSizeDefault,
+            "PriceSize" => $PriceSize,
+            "SEO" => empty($SEO) === true ? NULL : $SEO,
+            "ImageSize" => $ImageSize['name'],
+        ];
+
+        if ($this->uploadImg($ImageSize) === true) {
+            $this->data = ["message" => $this->modelSize->createSize($dataSize)];
+        } else {
+            $this->data = ["message" => "Hệ thống đang bảo trì"];
+        }
+
+        $this->getUIAddSizeInProduct();
+    }
+
+    public function getUIAddSizeInProduct()
+    {
+        $this->data += [
+            "dataSizeDefault" => $this->modelSize->getSizeDefaultAndRequest("StatusSize", 0),
+            "dataProduct" => $this->modelProduct->getProduct()
+        ];
+        $this->loadView("admin/size/addSizeInProduct.php", $this->data);
     }
 
     public function postEditSize()
@@ -56,6 +92,10 @@ class SizeController extends BaseController
                     $this->data = ["message" => $validateImageSize];
                 } else {
                     $dataSize += ["ImageSize" => $ImageSize['name']];
+
+                    if ($this->uploadImg($ImageSize, $ImageSizeOld !== true)) {
+                        $this->data = ["message" => "Upload ảnh thất bại"];
+                    }
                 }
             } else {
                 $dataSize += ["ImageSize" => $ImageSizeOld];
@@ -66,8 +106,7 @@ class SizeController extends BaseController
 
             if (
                 $resultUpdateSizeDefalut === true &&
-                $resultUpdateSize === true &&
-                $this->uploadImg($ImageSize, $ImageSizeOld === true)
+                $resultUpdateSize === true
             ) {
                 $this->data = ["message" => "Cập nhật kích cỡ thành công"];
             } else {
@@ -75,7 +114,7 @@ class SizeController extends BaseController
             }
         }
 
-        $this->getUIListSize();
+        $this->getUIEditSize();
     }
 
     public function getUIEditSize()
@@ -91,11 +130,18 @@ class SizeController extends BaseController
         $this->loadView("admin/size/EditSize.php", $this->data);
     }
 
+    public function deleteSizeInProduct()
+    {
+        $id = $this->checkParam("id", "404");
+        $result = $this->modelSize->deleteSize("IdSize", $id);
+        $this->data = ['message' => $result === true ? "Xóa thành công" : "Xóa thất bại"];
+        $this->getUIListSize();
+    }
     public function deleteSize()
     {
         $id = $this->checkParam("id", "404");
         $result = $this->modelSize->updateSize("IdSizeDefault", $id, ["StatusSize" => 1], "sizedefault");
-        $this->data = ['message' => $result === true ? "Xóa sản phẩm thành công" : "Xóa sản phẩm thất bại"];
+        $this->data = ['message' => $result === true ? "Xóa kích cỡ thành công" : "Xóa kích cỡ thất bại"];
         $this->getUIListSize();
     }
 
@@ -135,7 +181,7 @@ class SizeController extends BaseController
                 "IdProduct" => $IdProduct,
                 "IdSizeDefault" => $IdSizeDefault,
                 "PriceSize" => $PriceSize,
-                "SEO" => $SEO,
+                "SEO" => empty($SEO) === true ? NULL : $SEO,
                 "ImageSize" => $ImageSize['name'],
                 "StatusSize" => 0
             ];

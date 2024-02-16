@@ -18,6 +18,7 @@ use App\app\routers\admin\AccountRouter;
 use App\app\routers\admin\TableRouter;
 use App\app\routers\admin\CategoryRouter as AdminCategoryRouter;
 use App\app\routers\admin\SizeRouter;
+use App\app\routers\admin\CommentRouter;
 
 class index
 {
@@ -39,5 +40,6 @@ class index
         new TableRouter;
         new AdminCategoryRouter;
         new SizeRouter;
+        new CommentRouter;
     }
 }

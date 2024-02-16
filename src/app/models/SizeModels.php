@@ -84,4 +84,9 @@ class SizeModels extends BaseModels
         $this->tableName = $tableName;
         return $this->con_return($this->con_update($nameId, $id, $data));
     }
+
+    public function deleteSize($column, $id,)
+    {
+        return $this->con_return($this->con_delete("size", $column, $id));
+    }
 }
