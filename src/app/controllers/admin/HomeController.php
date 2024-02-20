@@ -8,7 +8,13 @@ class HomeController extends BaseController
 {
     public function __construct()
     {
-        $this->authentication("admin");
+        parent::__construct();
+        $this->checkAuthentication("admin");
+    }
+
+    private function checkAuthentication($type)
+    {
+        $this->authentication($type); // Kiểm tra đăng nhập
     }
     public function getDataHomeAdmin()
     {

@@ -14,9 +14,15 @@ class AccountController extends BaseController
 
     public function __construct()
     {
+        parent::__construct();
+        $this->checkAuthentication("admin");
         $this->modelAccount = new AuthModels;
         $this->controllerValidate = new Validate;
-        $this->authentication("admin");
+    }
+
+    private function checkAuthentication($type)
+    {
+        $this->authentication($type); // Kiểm tra đăng nhập
     }
 
     public function postCreateAccount()
@@ -81,8 +87,9 @@ class AccountController extends BaseController
         $this->getAllAccount();
     }
 
-    public function postFromEditProduct()
+    public function postFromEditAccount()
     {
+
         extract($_POST);
         extract($_FILES);
         $idAccount = $this->checkParam('id', "404");
@@ -131,6 +138,7 @@ class AccountController extends BaseController
 
     public function editAccount()
     {
+
         $this->checkParam('id', "404");
         $this->data += ["dataAccount" => $this->modelAccount->getAccount("IdAccount", $_GET['id'])];
 

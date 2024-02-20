@@ -17,6 +17,13 @@ class SizeController extends BaseController
         $this->modelSize = new SizeModels;
         $this->modelProduct = new ProductModel;
         $this->validate = new Validate;
+        parent::__construct();
+        $this->checkAuthentication("admin");
+    }
+
+    private function checkAuthentication($type)
+    {
+        $this->authentication($type); // Kiểm tra đăng nhập
     }
 
     public function postSizeInProduct()

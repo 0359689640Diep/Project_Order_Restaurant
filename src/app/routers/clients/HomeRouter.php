@@ -10,6 +10,8 @@ class HomeRouter
 {
     public function __construct()
     {
+
         Router::get('/', [HomeController::class, "index"]);
+        Router::post("/bookingtable", [HomeController::class, "bookingTable"]);
     }
 }

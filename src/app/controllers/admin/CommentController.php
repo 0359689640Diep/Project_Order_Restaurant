@@ -12,6 +12,13 @@ class CommentController extends BaseController
     public function __construct()
     {
         $this->modelComment = new CommentModels;
+        parent::__construct();
+        $this->checkAuthentication("admin");
+    }
+
+    private function checkAuthentication($type)
+    {
+        $this->authentication($type); // Kiểm tra đăng nhập
     }
 
     public function deleteComment()

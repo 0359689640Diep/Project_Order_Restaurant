@@ -13,8 +13,15 @@ class TablesController extends BaseController
     public function __construct()
     {
         $this->modelTable = new TablesModels;
-        $this->authentication("admin");
+        parent::__construct();
+        $this->checkAuthentication("admin");
     }
+
+    private function checkAuthentication($type)
+    {
+        $this->authentication($type); // Kiểm tra đăng nhập
+    }
+
 
     public function postCreateTable()
     {

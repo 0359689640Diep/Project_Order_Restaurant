@@ -15,9 +15,14 @@ class ProductController extends BaseController
         $this->modelProduct = new ProductModel;
         $this->modelCategory = new CategoryModels;
         $this->controllerValidate = new Validate;
-        $this->authentication("admin");
+        parent::__construct();
+        $this->checkAuthentication("admin");
     }
 
+    private function checkAuthentication($type)
+    {
+        $this->authentication($type); // Kiểm tra đăng nhập
+    }
 
     public function deleteProduct()
     {

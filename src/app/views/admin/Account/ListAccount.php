@@ -12,7 +12,7 @@ if (isset($message) && !empty($message)) {
 <link rel="stylesheet" href="<?= $_ENV["admintStyle"] ?>Product/ListProduct.css">
 <section class="containerMain">
     <article class="titleMain">
-        <h1>Danh sách sản phẩm</h1>
+        <h1>Danh sách tài khoản</h1>
     </article>
     <article class="contentMain">
         <table>

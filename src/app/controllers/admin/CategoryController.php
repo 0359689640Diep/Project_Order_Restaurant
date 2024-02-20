@@ -12,6 +12,7 @@ class CategoryController extends BaseController
     public function __construct()
     {
         $this->modelCategory = new CategoryModels;
+        parent::__construct();
         $this->authentication("admin");
     }
 

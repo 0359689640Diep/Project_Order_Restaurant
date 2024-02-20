@@ -1,5 +1,11 @@
 <?php
+
+use App\public\assets\global\Notification;
+
 include_once $_ENV['header_Path'];
+if (isset($message) && !empty($message)) {
+    new Notification($message);
+}
 ?>
 <div class="home">
     <link rel="stylesheet" href="<?= $_ENV["clientsStyle"] ?>Home.css">
@@ -85,24 +91,24 @@ include_once $_ENV['header_Path'];
             }
             ?>
         </div>
-        <form action="OnlineController.php?act=trangchu" method="POST">
+        <form action="<?= $_ENV['baseUrl'] ?>bookingtable" method="POST">
             <div class="choose_table">
                 <h1>Đặt Bàn</h1>
                 <div class="pick_option">
-                    <input type="datetime-local" name="Date">
-                    <select name="IdTable" id="">
+                    <input required title="Không được để trống" type="datetime-local" name="OrderDate">
+                    <select required title="Không được để trống" name="NumberTables">
                         <option value="" disabled selected hidden>Chọn Bàn</option>
                         <?php
 
                         foreach ($data['Tables'] as $valuesTables) {
                             echo "
-                                <option value='{$valuesTables['IdTables']}'>Bàn:{$valuesTables['NumberTable']}-Tối đa {$valuesTables['DefaultNumberPeople']} người </option>
+                                <option value='{$valuesTables['NumberTable']}'>Bàn:{$valuesTables['NumberTable']}-Tối đa {$valuesTables['NumberPeopleDefault']} người </option>
                                 ";
                         }
                         ?>
 
                     </select>
-                    <select name="NumberPeopleInTables" id="">
+                    <select required title="Không được để trống" name="NumberInPeople">
                         <option value="" disabled selected hidden>Số Lượng Người</option>
                         <?php
                         for ($i = 1; $i <= $data['MaxNumberPeopleTables']["max(NumberPeopleDefault)"]; $i++) {
@@ -147,7 +153,7 @@ include_once $_ENV['header_Path'];
                 <p style="margin-top:0px ;">Nhập Họ Tên</p>
                 <input type="text" placeholder="Nhập họ tên của bạn...">
                 <input type="text" placeholder="số điện thoại...">
-                <input type="text" placeholder="email..." name="" id="">
+                <input type="text" placeholder="email..." name="">
                 <button>Gửi Liên Hệ</button>
             </div>
             <div class="info_shop">

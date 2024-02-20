@@ -15,6 +15,11 @@ class BaseController
     protected $view = null;
     protected $layoutPath = null;
     protected $data = [];
+
+    public function __construct()
+    {
+    }
+
     protected function loadView($viePath, $data = null)
     {
         if (file_exists("../../src/app/views/$viePath")) {
@@ -34,10 +39,12 @@ class BaseController
     protected function authentication($type)
     {
         if (isset($_SESSION[$type]) === false) {
-            header("location: login");
-        } else {
-            return $_SESSION[$type];
+            // Xóa bất kỳ đầu ra nào đã được gửi
+            ob_clean();
+            header("location: http://dataphp.com/Project_Order_Restaurant/src/public/login");
+            exit(); // Thêm exit() để đảm bảo không có mã PHP tiếp tục thực thi sau khi chuyển hướng
         }
+        return $_SESSION[$type];
     }
 
     protected function checkParam($param, $from)
@@ -46,14 +53,18 @@ class BaseController
         if (isset($_GET["$param"]) && !empty($_GET["$param"])) {
             return $_GET[$param];
         } else {
+            ob_clean();
             header("location: " . $from);
+            exit();
         }
     }
 
     protected function nextPage($nameSection, $data, $from)
     {
         $_SESSION[$nameSection] = $data;
+        ob_clean();
         header("location: " . $from);
+        exit();
     }
 
     protected function uploadImg($imgNew, $linkImgOld = null)
@@ -140,6 +151,8 @@ class Validate
                     return "Email không hợp lệ";
                 }
                 return true;
+            case "number":
+                return is_numeric($data) === false ? "Dữ liệu nhận vào phải là dạng số" : true;
             case "dateBooking":
                 $dataTime = new DateTime('now', new DateTimeZone("Asia/Ho_Chi_Minh"));
                 $dataReal = $dataTime->format('Y-m-d\TH:i');
