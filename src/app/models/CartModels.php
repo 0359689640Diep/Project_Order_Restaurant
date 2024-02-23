@@ -1,6 +1,6 @@
 <?php
 
-namespace App\app\models;
+namespace App\src\app\models;
 
 class CartModels extends BaseModels
 {

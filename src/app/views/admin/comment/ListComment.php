@@ -1,6 +1,6 @@
 <?php
 
-use App\public\assets\global\Notification;
+use App\src\assets\global\Notification;
 
 include_once $_ENV['admin_Header_Path'];
 include_once $_ENV['admin_SideBar_Path'];
@@ -35,25 +35,25 @@ if (isset($message) && !empty($message)) {
                     "1" => "Ẩn",
                 ];
                 foreach ($dataComment as $value) : ?>
-            <tr>
-                <td><?= $value['Content'] ?></td>
-                <td><?= $value['NameAccount'] ?></td>
-                <td><?= $value['NumberTable'] ?></td>
-                <td><?= $value['Gmail'] ?></td>
-                <td>
-                    <img src='<?= $_ENV['imgUpload'] . $value['ImageAccounts'] ?>' alt=''>
-                </td>
-                <td><?= $value['DateEditComment'] ?></td>
-                <td><?= select($value['StatusComment'], $StatusComment) ?></td>
-                <td>
-                    <a href='<?= $_ENV['basePath'] ?>admin/comment/delete?id=<?= $value['IdComment'] ?>'>
-                        <button>Ẩn</button>
-                    </a>
-                    <a href='<?= $_ENV['basePath'] ?>admin/comment/restore?id=<?= $value['IdComment'] ?>'>
-                        <button>Khôi phục</button>
-                    </a>
-                </td>
-            </tr>
+                    <tr>
+                        <td><?= $value['Content'] ?></td>
+                        <td><?= $value['NameAccount'] ?></td>
+                        <td><?= $value['NumberTable'] ?></td>
+                        <td><?= $value['Gmail'] ?></td>
+                        <td>
+                            <img src='<?= $_ENV['imgUpload'] . $value['ImageAccounts'] ?>' alt=''>
+                        </td>
+                        <td><?= $value['DateEditComment'] ?></td>
+                        <td><?= select($value['StatusComment'], $StatusComment) ?></td>
+                        <td>
+                            <a href='<?= $_ENV['basePath'] ?>admin/comment/delete?id=<?= $value['IdComment'] ?>'>
+                                <button>Ẩn</button>
+                            </a>
+                            <a href='<?= $_ENV['basePath'] ?>admin/comment/restore?id=<?= $value['IdComment'] ?>'>
+                                <button>Khôi phục</button>
+                            </a>
+                        </td>
+                    </tr>
             <?php endforeach;
             } ?>
         </table>

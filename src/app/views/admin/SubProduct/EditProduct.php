@@ -1,6 +1,6 @@
 <?php
 
-use App\public\assets\global\Notification;
+use App\src\assets\global\Notification;
 
 include_once $_ENV['admin_Header_Path'];
 include_once $_ENV['admin_SideBar_Path'];
@@ -19,25 +19,20 @@ if (isset($message) && !empty($message)) {
     <article class="titleMain">
         <h1>Thêm sách sản phẩm</h1>
     </article>
-    <form action="<?= $_ENV['basePath'] ?>admin/subproduct/edit?id=<?= $_GET['id'] ?>" method="post" class="contentMain"
-        enctype="multipart/form-data">
+    <form action="<?= $_ENV['basePath'] ?>admin/subproduct/edit?id=<?= $_GET['id'] ?>" method="post" class="contentMain" enctype="multipart/form-data">
         <article class="contentMain_item">
-            <input name="NameSubProduct" placeholder="Tên sản phẩm" value="<?= $dataSubProduct[0]['NameProduct'] ?>"
-                type="text">
+            <input name="NameSubProduct" placeholder="Tên sản phẩm" value="<?= $dataSubProduct[0]['NameProduct'] ?>" type="text">
             <article class="img">
-                <img id="previewImage" alt="img"
-                    src="<?= $_ENV["imgUpload"] . $dataSubProduct[0]['ImageSubProduct'] ?>">
+                <img id="previewImage" alt="img" src="<?= $_ENV["imgUpload"] . $dataSubProduct[0]['ImageSubProduct'] ?>">
                 <input id="fileInput" onchange="previewFile()" name="ImageSubProduct" type="file">
                 <input type="hidden" name="ImageSubProducts" value="<?= $dataSubProduct[0]['ImageSubProduct'] ?>">
             </article>
-            <input name="QuantilySubProduct" placeholder="Số lượng sản phẩm" title="Không được để trống"
-                value="<?= $dataSubProduct[0]['QuantilySubProduct'] ?>" type="text">
+            <input name="QuantilySubProduct" placeholder="Số lượng sản phẩm" title="Không được để trống" value="<?= $dataSubProduct[0]['QuantilySubProduct'] ?>" type="text">
 
         </article>
         <article class="contentMain_item">
 
-            <input name="PriceSubProduct" placeholder="Số lượng sản phẩm" title="Không được để trống"
-                value="<?= $dataSubProduct[0]['PriceSubProduct'] ?>" type="text">
+            <input name="PriceSubProduct" placeholder="Số lượng sản phẩm" title="Không được để trống" value="<?= $dataSubProduct[0]['PriceSubProduct'] ?>" type="text">
 
             <select name="StatusSubProduct" id="">
                 <?php
@@ -61,7 +56,7 @@ if (isset($message) && !empty($message)) {
 
                 <?php
                 foreach ($dataProduct as $value) : ?>
-                <option value="<?= $value['IdProduct'] ?>"><?= $value['NameProduct'] ?></option>
+                    <option value="<?= $value['IdProduct'] ?>"><?= $value['NameProduct'] ?></option>
                 <?php endforeach ?>
             </select>
 

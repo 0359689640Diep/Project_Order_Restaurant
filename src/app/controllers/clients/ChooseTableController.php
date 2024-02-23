@@ -1,10 +1,10 @@
 <?php
 
-namespace App\app\controllers\clients;
+namespace App\src\app\controllers\clients;
 
-use App\app\models\CategoryModels;
-use App\app\models\ChooseTableModels;
-use App\app\controllers\BaseController;
+use App\src\app\models\CategoryModels;
+use App\src\app\models\ChooseTableModels;
+use App\src\app\controllers\BaseController;
 
 
 

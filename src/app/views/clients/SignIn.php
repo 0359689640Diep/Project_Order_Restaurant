@@ -1,6 +1,6 @@
 <?php
 
-use App\public\assets\global\Notification;
+use App\src\assets\global\Notification;
 
 if (isset($message) && !empty($message)) {
     // test($message);

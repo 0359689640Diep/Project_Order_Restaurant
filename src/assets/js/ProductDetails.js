@@ -27,10 +27,10 @@ function renderSizeAndImage(data){
     let price = document.getElementById("price");
     let SEO = document.getElementById("SEO");
 
-    image.src = "./../public/assets/img/upload/"+data[0]['ImageSize'];
+    image.src = "http://dataphp.com/Project_Order_Restaurant/src/assets/img/upload/"+data[0]['ImageSize'];
     optionSizeDefault.value = data[0]['IdSizeDefault'];
     optionSizeDefault.innerHTML = data[0]['SizeDefault'];
-    console.log(data[0]['SEO']);
+
     if(data[0]['SEO'] !== 0 && data[0]['SEO'] !== null) {
         price.value =  data[0]['PriceSize'] - ((data[0]['SEO'] / 100) * data[0]['PriceSize']);
         SEO.innerHTML = " - "+data[0]['SEO']+" %";
@@ -44,7 +44,7 @@ function renderSizeAndImage(data){
 
         data.forEach(element => {
             if(element['IdSizeDefault'] === parseInt(selectedOption.value)){
-                image.src = "./../public/assets/img/upload/"+element['ImageSize'];
+                image.src = "http://dataphp.com/Project_Order_Restaurant/src/assets/img/upload/"+element['ImageSize'];
                 optionSizeDefault.value = element['IdSizeDefault'];
                 optionSizeDefault.innerHTML = element['SizeDefault'];  
                 if(element['SEO'] !== 0 && element['SEO'] !== null ) {

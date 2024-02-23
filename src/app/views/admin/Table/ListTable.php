@@ -1,6 +1,6 @@
 <?php
 
-use App\public\assets\global\Notification;
+use App\src\assets\global\Notification;
 
 include_once $_ENV['admin_Header_Path'];
 include_once $_ENV['admin_SideBar_Path'];

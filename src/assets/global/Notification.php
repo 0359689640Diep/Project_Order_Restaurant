@@ -1,6 +1,6 @@
 <?php
 
-namespace App\public\assets\global;
+namespace App\src\assets\global;
 
 class Notification
 {

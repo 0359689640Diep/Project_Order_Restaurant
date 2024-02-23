@@ -1,10 +1,10 @@
 <?php
 
-namespace App\app\routers\clients;
+namespace App\src\app\routers\clients;
 
 
-use App\app\routers\Router;
-use App\app\controllers\clients\ProductDetails;
+use App\src\app\routers\Router;
+use App\src\app\controllers\clients\ProductDetails;
 
 class ProductDetailsRouter
 {

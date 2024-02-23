@@ -1,6 +1,6 @@
 <?php
 
-use App\public\assets\global\Notification;
+use App\src\assets\global\Notification;
 
 if (isset($path) && !empty($path) && isset($message) && !empty($message) && $message === true) {
     header("Location: " . $_ENV["baseUrl"] . $path);

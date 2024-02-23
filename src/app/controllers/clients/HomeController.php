@@ -1,18 +1,19 @@
 <?php
 
-namespace App\app\controllers\clients;
+namespace App\src\app\controllers\clients;
 
-use App\app\controllers\BaseController;
-use App\app\controllers\Validate;
-use App\app\Models\ProductModel;
-use App\app\Models\CategoryModels;
-use App\app\Models\TablesModels;
-use App\app\Models\OderModels;
+use App\src\app\controllers\BaseController;
+use App\src\app\controllers\Validate;
+use App\src\app\controllers\SendGmail;
+use App\src\app\Models\ProductModel;
+use App\src\app\Models\CategoryModels;
+use App\src\app\Models\TablesModels;
+use App\src\app\Models\OderModels;
 
 
 class HomeController extends BaseController
 {
-    private $modelProduct, $modelTables, $modelCategory, $modelOder, $controlerValidate;
+    private $modelProduct, $modelTables, $modelCategory, $modelOder, $controlerValidate, $controlerSendGmail;
 
     public function __construct()
     {
@@ -21,6 +22,7 @@ class HomeController extends BaseController
         $this->modelTables = new TablesModels;
         $this->modelOder = new OderModels;
         $this->controlerValidate = new Validate;
+        $this->controlerSendGmail = new SendGmail;
     }
     public function bookingTable()
     {
@@ -30,32 +32,55 @@ class HomeController extends BaseController
         $validateNumberTables = $this->controlerValidate->validateAll("number", $NumberTables);
         $validateNumberInPeople = $this->controlerValidate->validateAll("number", $NumberInPeople);
         $validateOrderDate = $this->controlerValidate->validateAll("dateBooking", $OrderDate);
-        $resultCheckOrder = $this->modelOder->checkOrderTable("OrderDate", $OrderDate);
 
+        $oneHourBefore = strtotime($OrderDate) + 3600;
+        $oneHourBeforeFormatted = date("Y-m-d\TH:i", $oneHourBefore);
+        $resultCheckOrder = $this->modelOder->checkOrderTable(["NumberTables" => $NumberTables, "OrderDate" => $oneHourBeforeFormatted]);
         if ($validateNumberTables !== true) {
-            $this->data = ["message" => $validateNumberTables, "status" => "warrning"];
+            $this->data = ["message" => $validateNumberTables];
+        } elseif ($validateNumberInPeople !== true) {
+            $this->data = ["message" => $validateNumberInPeople];
+        } elseif ($validateOrderDate !== true) {
+            $this->data = ["message" => $validateOrderDate];
+        } elseif ($resultCheckOrder !== true) {
+            $this->data = ["message" => $resultCheckOrder];
+        } else {
+            $data = [
+                "IdAccount" => $dataAccount["IdAccount"],
+                "NumberTables" => $NumberTables,
+                "NumberInPeople" => $NumberInPeople,
+                "PaymentMethod" => 0,
+                "SumPriceOrder" => NULL,
+                "StatusOrders" => 2,
+                "OrderDate" => $OrderDate
+            ];
+            $codeBill = $this->modelOder->CreateOrder($data);
+
+            if ($codeBill === true) {
+                $this->data = ["message" => "Cảm ơn bạn đã đặt bàn"];
+
+                $recipientGmail  = $dataAccount["Gmail"];
+                $nameRecipientGmail  = $dataAccount["NameAccount"];
+                $titleGamil  = "Thư cảm ơn";
+                $contentGmail = "
+                    <h1>Xin chào $nameRecipientGmail</h1>. </br>
+                    <p>Chúng tôi là đội ngũ nhà hàng Terrace Restaurant cám ơn bạn đã đặt bàn số: $NumberTables</p>
+                    </br>
+                    <h2>Mã hóa đơn của bạn là: <h2 style = 'color: red;'>$codeBill</h2></h2> ";
+                $this->controlerSendGmail->SendGmailConfirmation($recipientGmail, $nameRecipientGmail, $titleGamil, $contentGmail);
+            } else {
+                $this->data = ["message" => "Hệ thống đang bảo trì"];
+            };
         }
 
-        $data = [
-            "IdAccount" => $dataAccount["IdAccount"],
-            "NumberTables" => $NumberTables,
-            "NumberInPeople" => $NumberInPeople,
-            "PaymentMethod" => 0,
-            "SumPriceOrder" => NULL,
-            "StatusOrders" => 2,
-            "OrderDate" => $OrderDate
-        ];
-        if ($this->modelOder->CreateOrder($data) === true) {
-            $this->data = ["message" => "Cảm ơn bạn đã đặt bàn", "status" => "success"];
-        } else {
-            $this->data = ["message" => "Hệ thống đang bảo trì", "status" => "error"];
-        };
+        $this->index();
     }
 
 
 
     public function index()
     {
+
         $this->data += [
             "Product" => $this->modelProduct->getProduct(),
             "getNewTwoProduct" => $this->modelProduct->getNewProduct(2),

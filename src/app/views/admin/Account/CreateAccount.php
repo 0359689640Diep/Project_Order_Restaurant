@@ -1,6 +1,6 @@
 <?php
 
-use App\public\assets\global\Notification;
+use App\src\assets\global\Notification;
 
 include_once $_ENV['admin_Header_Path'];
 include_once $_ENV['admin_SideBar_Path'];
@@ -18,8 +18,7 @@ if (isset($message) && !empty($message)) {
     <article class="titleMain">
         <h1>Thêm tài khoản</h1>
     </article>
-    <form action="<?= $_ENV['basePath'] ?>admin/account/create" method="post" class="contentMain"
-        enctype="multipart/form-data">
+    <form action="<?= $_ENV['basePath'] ?>admin/account/create" method="post" class="contentMain" enctype="multipart/form-data">
         <article class="contentMain_item">
             <input required name="NameAccount" placeholder="Tên tài khoản" title="Không được để trống" type="text">
             <input required name="Gmail" placeholder="Gmail " title="Không được để trống" type="gmail">

@@ -1,13 +1,13 @@
 <?php
 
-namespace App\app\controllers\clients;
+namespace App\src\app\controllers\clients;
 
-use App\app\controllers\BaseController;
-use App\app\Models\ProductModel;
-use App\app\Models\SizeModels;
-use App\app\Models\CommentModels;
-use App\app\Models\CategoryModels;
-use App\app\Models\ProductDetailsModels;
+use App\src\app\controllers\BaseController;
+use App\src\app\Models\ProductModel;
+use App\src\app\Models\SizeModels;
+use App\src\app\Models\CommentModels;
+use App\src\app\Models\CategoryModels;
+use App\src\app\Models\ProductDetailsModels;
 
 
 class ProductDetails extends BaseController

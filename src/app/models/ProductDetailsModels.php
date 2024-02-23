@@ -1,8 +1,8 @@
 <?php
 
-namespace App\app\models;
+namespace App\src\app\models;
 
-use App\app\models\BaseModels;
+use App\src\app\models\BaseModels;
 
 class ProductDetailsModels
 {

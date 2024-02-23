@@ -1,8 +1,8 @@
 <?php
 
-namespace App\app\models;
+namespace App\src\app\models;
 
-use App\config\Connection;
+use App\src\config\Connection;
 use PDO;
 use PDOException;
 
@@ -52,6 +52,7 @@ class BaseModels  extends Connection
     {
         $conn = self::connectDatabase();
         try {
+
             $stmt = $conn->prepare($sql);
             $stmt->execute();
             self::$message = $stmt->fetch(PDO::FETCH_ASSOC);

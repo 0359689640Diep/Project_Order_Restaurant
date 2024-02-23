@@ -1,8 +1,8 @@
 <?php
 
-namespace App\app\models;
+namespace App\src\app\models;
 
-use App\app\models\BaseModels;
+use App\src\app\models\BaseModels;
 
 class CommentModels extends BaseModels
 {
@@ -16,8 +16,8 @@ class CommentModels extends BaseModels
         $sql = "
             SELECT c.*, ac.ImageAccounts, ac.NameAccount, ac.Gmail, tb.NumberTable  FROM comment c 
             JOIN account ac ON ac.IdAccount = c.IdAccount LEFT JOIN tables tb ON tb.IdTables  = c.IdTable";
-        if ($id !== null) $sql .= "AND c.IdProduct = '$id'";
         if ($nameRequest !== null && $request !== null) $sql .= " WHERE $nameRequest = $request";
+        if ($id !== null) $sql .= " AND c.IdProduct = '$id'";
 
         return $this->con_return(
             $this->con_QueryReadAll($sql)

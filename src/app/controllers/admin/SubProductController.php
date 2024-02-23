@@ -1,12 +1,12 @@
 <?php
 
-namespace App\app\controllers\admin;
+namespace App\src\app\controllers\admin;
 
-use App\app\controllers\BaseController;
-use App\app\controllers\Validate;
-use App\app\models\CategoryModels;
-use App\app\models\ProductModel;
-use App\app\models\SubProductModels;
+use App\src\app\controllers\BaseController;
+use App\src\app\controllers\Validate;
+use App\src\app\models\CategoryModels;
+use App\src\app\models\ProductModel;
+use App\src\app\models\SubProductModels;
 
 class SubProductController extends BaseController
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace App\app\routers\admin;
+namespace App\src\app\routers\admin;
 
-use App\app\routers\Router;
-use App\app\controllers\admin\SizeController;
+use App\src\app\routers\Router;
+use App\src\app\controllers\admin\SizeController;
 
 class SizeRouter
 {

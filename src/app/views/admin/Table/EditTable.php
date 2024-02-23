@@ -1,6 +1,6 @@
 <?php
 
-use App\public\assets\global\Notification;
+use App\src\assets\global\Notification;
 
 include_once $_ENV['admin_Header_Path'];
 include_once $_ENV['admin_SideBar_Path'];
@@ -27,14 +27,12 @@ $StatusTable = [
     <article class="titleMain">
         <h1>Sửa bàn</h1>
     </article>
-    <form action="<?= $_ENV['basePath'] ?>admin/table/edit?id=<?= $_GET['id'] ?>" method="post" class="contentMain"
-        style="justify-content: center">
+    <form action="<?= $_ENV['basePath'] ?>admin/table/edit?id=<?= $_GET['id'] ?>" method="post" class="contentMain" style="justify-content: center">
         <article class="contentMain_item">
 
             <input name="NumberTable" placeholder="Số bàn" value="<?= $dataTables[0]['NumberTable'] ?>" type="number">
 
-            <input name="NumberPeopleDefault" placeholder="Số người mặc định"
-                value="<?= $dataTables[0]['NumberPeopleDefault'] ?>" type="number">
+            <input name="NumberPeopleDefault" placeholder="Số người mặc định" value="<?= $dataTables[0]['NumberPeopleDefault'] ?>" type="number">
 
             <select name="StatusTable">
                 <option selected value="<?= $dataTables[0]['StatusTable'] ?>">

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\app\routers;
+namespace App\src\app\routers;
 
-use App\app\routers\Request;
+use App\src\app\routers\Request;
 
-namespace App\app\routers;
+namespace App\src\app\routers;
 
-use App\app\routers\Request;
+use App\src\app\routers\Request;
 
 class Router
 {
@@ -51,7 +51,8 @@ class Router
     public function getPath()
     {
         $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-        $basePath = str_replace("Project_Order_Restaurant/src/public/", "/", $path);
+        $basePath = str_replace("Project_Order_Restaurant/", "/", $path);
+
         return "/" . ltrim($basePath, "/");
     }
 
@@ -69,7 +70,7 @@ class Router
         if (isset(static::$routes[$method][$path])) {
             $callback = static::$routes[$method][$path];
         }
-
+        // test($path);
         if ($callback === false) {
             echo "404 FILE NOT found1!";
             return 0;

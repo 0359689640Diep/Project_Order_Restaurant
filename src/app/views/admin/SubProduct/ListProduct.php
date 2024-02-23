@@ -1,6 +1,6 @@
 <?php
 
-use App\public\assets\global\Notification;
+use App\src\assets\global\Notification;
 
 include_once $_ENV['admin_Header_Path'];
 include_once $_ENV['admin_SideBar_Path'];
@@ -29,18 +29,18 @@ if (isset($message) && !empty($message)) {
             <?php
             if (isset($dataSubProduct) && !empty($dataSubProduct)) {
                 foreach ($dataSubProduct as $value) : ?>
-            <tr>
-                <td><?= $value['NameSubProduct'] ?></td>
-                <td><?= $value['QuantilySubProduct'] ?></td>
-                <td>
-                    <img src='<?= $_ENV['imgUpload'] . $value['ImageSubProduct'] ?>' alt='image'>
-                </td>
-                <td><?= $value['PriceSubProduct'] ?></td>
-                <td><?= $value['NameProduct'] ?></td>
-                <td>
-                    <img src='<?= $_ENV['imgUpload'] . $value['ImageProduct'] ?>' alt='image'>
-                </td>
-                <?php
+                    <tr>
+                        <td><?= $value['NameSubProduct'] ?></td>
+                        <td><?= $value['QuantilySubProduct'] ?></td>
+                        <td>
+                            <img src='<?= $_ENV['imgUpload'] . $value['ImageSubProduct'] ?>' alt='image'>
+                        </td>
+                        <td><?= $value['PriceSubProduct'] ?></td>
+                        <td><?= $value['NameProduct'] ?></td>
+                        <td>
+                            <img src='<?= $_ENV['imgUpload'] . $value['ImageProduct'] ?>' alt='image'>
+                        </td>
+                        <?php
                         $status = "";
                         switch ($value['StatusSubProduct']) {
                             case 0:
@@ -51,16 +51,16 @@ if (isset($message) && !empty($message)) {
                                 break;
                         }
                         ?>
-                <td><?= $status ?></td>
-                <td>
-                    <a href='<?= $_ENV['basePath'] ?>admin/subproduct/delete?id=<?= $value['IdSubProduct'] ?>'>
-                        <button>Xóa</button>
-                    </a>
-                    <a href='<?= $_ENV['basePath'] ?>admin/subproduct/edit?id=<?= $value['IdSubProduct'] ?>'>
-                        <button>Sửa</button>
-                    </a>
-                </td>
-            </tr>
+                        <td><?= $status ?></td>
+                        <td>
+                            <a href='<?= $_ENV['basePath'] ?>admin/subproduct/delete?id=<?= $value['IdSubProduct'] ?>'>
+                                <button>Xóa</button>
+                            </a>
+                            <a href='<?= $_ENV['basePath'] ?>admin/subproduct/edit?id=<?= $value['IdSubProduct'] ?>'>
+                                <button>Sửa</button>
+                            </a>
+                        </td>
+                    </tr>
             <?php endforeach;
             } ?>
         </table>

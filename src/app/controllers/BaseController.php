@@ -1,6 +1,6 @@
 <?php
 
-namespace App\app\controllers;
+namespace App\src\app\controllers;
 
 use DateTime;
 use DateTimeZone;
@@ -22,16 +22,16 @@ class BaseController
 
     protected function loadView($viePath, $data = null)
     {
-        if (file_exists("../../src/app/views/$viePath")) {
+        if (file_exists("./src/app/views/$viePath")) {
             ob_start();
             if ($data != null)
                 extract($data);
-            include "../../src/app/views/$viePath";
+            include "./src/app/views/$viePath";
             $this->view = ob_get_contents();
             ob_get_clean();
         }
         if ($this->layoutPath != null)
-            include "../../src/app/views/$this->layoutPath";
+            include "./src/app/views/$this->layoutPath";
         else
             echo $this->view;
     }
@@ -41,7 +41,7 @@ class BaseController
         if (isset($_SESSION[$type]) === false) {
             // Xóa bất kỳ đầu ra nào đã được gửi
             ob_clean();
-            header("location: http://dataphp.com/Project_Order_Restaurant/src/public/login");
+            header("location: " . $_ENV['baseUrl'] . "login");
             exit(); // Thêm exit() để đảm bảo không có mã PHP tiếp tục thực thi sau khi chuyển hướng
         }
         return $_SESSION[$type];
@@ -156,6 +156,7 @@ class Validate
             case "dateBooking":
                 $dataTime = new DateTime('now', new DateTimeZone("Asia/Ho_Chi_Minh"));
                 $dataReal = $dataTime->format('Y-m-d\TH:i');
+
                 $resultTime = strtotime($data) - strtotime($dataReal);
                 $oneHourBefore = strtotime($dataReal) + 3600;
 
@@ -212,8 +213,6 @@ class SendGmail
             $mail->send();
             return true;
         } catch (Exception $e) {
-            // echo "<pre>";
-            // var_dump($e);
             return false;
         }
     }

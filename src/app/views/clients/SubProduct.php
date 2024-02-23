@@ -1,6 +1,6 @@
 <?php
 
-use App\public\assets\global\Notification;
+use App\src\assets\global\Notification;
 
 include_once $_ENV['header_Path'];
 if (isset($message) && !empty($message)) {
@@ -8,8 +8,7 @@ if (isset($message) && !empty($message)) {
 }
 ?>
 <link rel="stylesheet" href="<?= $_ENV["clientsStyle"] ?>Cart.css">
-<form action="<?= $_ENV["basePath"] ?>cart?IdSubCart=<?= $_GET['IdSubCart'] ?>" method="post" class="page"
-    id="formCart">
+<form action="<?= $_ENV["basePath"] ?>cart?IdSubCart=<?= $_GET['IdSubCart'] ?>" method="post" class="page" id="formCart">
     <section class="headerProduct">
         <h1>Các món ăn đi kèm với sản phẩm của bạn</h1>
     </section>

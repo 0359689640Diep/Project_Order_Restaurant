@@ -1,6 +1,6 @@
 <?php
 
-use App\public\assets\global\Notification;
+use App\src\assets\global\Notification;
 
 include_once $_ENV['header_Path'];
 $dataSize = json_encode($SizeByIdProduct);

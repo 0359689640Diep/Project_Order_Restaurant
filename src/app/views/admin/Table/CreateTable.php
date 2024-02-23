@@ -1,6 +1,6 @@
 <?php
 
-use App\public\assets\global\Notification;
+use App\src\assets\global\Notification;
 
 include_once $_ENV['admin_Header_Path'];
 include_once $_ENV['admin_SideBar_Path'];
@@ -13,13 +13,11 @@ if (isset($message) && !empty($message)) {
     <article class="titleMain">
         <h1>Thêm tài khoản</h1>
     </article>
-    <form action="<?= $_ENV['basePath'] ?>admin/table/create" method="post" class="contentMain"
-        style="justify-content: center">
+    <form action="<?= $_ENV['basePath'] ?>admin/table/create" method="post" class="contentMain" style="justify-content: center">
         <article class="contentMain_item">
 
             <input required name="NumberTable" placeholder="Số bàn" title="Không được để trống" type="number">
-            <input required name="NumberPeopleDefault" placeholder="Số người mặc định " title="Không được để trống"
-                type="number">
+            <input required name="NumberPeopleDefault" placeholder="Số người mặc định " title="Không được để trống" type="number">
 
             <select name="StatusTable">
                 <option selected value=""> Trạng thái bàn</option>

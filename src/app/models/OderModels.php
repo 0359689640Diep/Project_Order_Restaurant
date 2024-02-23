@@ -1,8 +1,8 @@
 <?php
 
-namespace App\app\models;
+namespace App\src\app\models;
 
-use App\app\models\BaseModels;
+use App\src\app\models\BaseModels;
 
 class OderModels extends BaseModels
 {
@@ -16,10 +16,19 @@ class OderModels extends BaseModels
         return $this->con_return($this->con_insert($data));
     }
 
-    public function checkOrderTable($column, $request, $tableName = "orders")
+    public function checkOrderTable($data)
+    {
+        extract($data);
+
+        $result  = $this->con_return($this->con_QueryReadOne(
+            "SELECT * FROM orders   WHERE  NumberTables = $NumberTables  AND OrderDate = '$OrderDate'"
+        ));
+
+        return $result === false ? true : "Bàn: $NumberTables và thời gian: $OrderDate đã có người sử dụng";
+    }
+
+    public function updateOrder($tableName, $column, $request)
     {
         $this->tableName = $tableName;
-        // test($this->con_return($this->con_QueryReadOne($this->con_find($column, $request)->sqlBuilder)));
-        return $this->con_return($this->con_QueryReadOne($this->con_find($column, $request)->sqlBuilder));
     }
 }

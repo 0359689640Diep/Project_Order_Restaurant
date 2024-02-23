@@ -1,6 +1,6 @@
 <?php
 
-namespace App\app\models;
+namespace App\src\app\models;
 
 class ProductModel extends BaseModels
 {
@@ -39,9 +39,7 @@ class ProductModel extends BaseModels
     public function getProductById($Id)
     {
         return $this->con_return(
-            $this->con_QueryReadOne("
-            SELECT *  FROM product where IdProduct = $Id 
-            ")
+            $this->con_QueryReadOne("SELECT *  FROM product where IdProduct = $Id")
         );
     }
     public function getProductByIdCategory($IdCategory, $offset, $quantity = 10)

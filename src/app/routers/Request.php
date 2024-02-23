@@ -1,6 +1,6 @@
 <?php
 
-namespace App\app\routers;
+namespace App\src\app\routers;
 
 use stdClass;
 

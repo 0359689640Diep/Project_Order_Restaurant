@@ -1,9 +1,9 @@
 <?php
 
-namespace App\app\routers\admin;
+namespace App\src\app\routers\admin;
 
-use App\app\controllers\admin\CommentController;
-use App\app\routers\Router;
+use App\src\app\controllers\admin\CommentController;
+use App\src\app\routers\Router;
 
 class CommentRouter
 {

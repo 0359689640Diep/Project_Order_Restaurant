@@ -2,7 +2,7 @@
     "name": "vudie/project_order_restaurant",
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "App\\": "./"
         }
     },
     "authors": [

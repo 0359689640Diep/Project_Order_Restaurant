@@ -1,11 +1,11 @@
 <?php
 
-namespace App\app\controllers\clients;
+namespace App\src\app\controllers\clients;
 
-use App\app\models\CategoryModels;
-use App\app\models\SubProductModels;
-use App\app\models\CartModels;
-use App\app\controllers\BaseController;
+use App\src\app\models\CategoryModels;
+use App\src\app\models\SubProductModels;
+use App\src\app\models\CartModels;
+use App\src\app\controllers\BaseController;
 
 
 
