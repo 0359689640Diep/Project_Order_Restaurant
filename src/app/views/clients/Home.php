@@ -32,7 +32,8 @@ if (isset($message) && !empty($message)) {
         <div class="intro">
             <div class="intro1">
                 <div class="img">
-                    <img src="<?= $_ENV["imgUpload"] . $data["getNewTwoProduct"][0]["ImageProduct"] ?>" alt="<?= "ImageProduct" ?>">
+                    <img src="<?= $_ENV["imgUpload"] . $data["getNewTwoProduct"][0]["ImageProduct"] ?>"
+                        alt="<?= "ImageProduct" ?>">
                 </div>
                 <div class="content_intro1">
                     <h1> <?= $data["getNewTwoProduct"][0]["NameProduct"] ?> </h1>
@@ -66,7 +67,8 @@ if (isset($message) && !empty($message)) {
                     </div>
                 </div>
                 <div class="img">
-                    <img src="<?= $_ENV["imgUpload"] . $data["getNewTwoProduct"][1]["ImageProduct"] ?>" alt="<?= "ImageProduct" ?>">
+                    <img src="<?= $_ENV["imgUpload"] . $data["getNewTwoProduct"][1]["ImageProduct"] ?>"
+                        alt="<?= "ImageProduct" ?>">
                 </div>
             </div>
         </div>
@@ -174,33 +176,7 @@ if (isset($message) && !empty($message)) {
 </div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
-<script>
-    let currentIndex = 0;
-    const slides = document.querySelectorAll('.content_pro');
-    const totalSlides = slides.length;
-    const slideshow = document.getElementById('slideshow');
-
-    function showSlide(index) {
-        slides.forEach((slide, i) => {
-            const offset = (i - index) * 280; // 300px width + 40px margin
-            slide.style.transform = `translateX(${offset}px)`;
-        });
-    }
-
-    function nextSlide() {
-        currentIndex = (currentIndex + 1) % totalSlides;
-        showSlide(currentIndex);
-    }
-
-    const mc = new Hammer(slideshow);
-    mc.on('swipeleft', nextSlide);
-    mc.on('swiperight', () => {
-        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-        showSlide(currentIndex);
-    });
-
-    setInterval(nextSlide, 3000); // Change slide every 2 seconds
-</script>
+<script src="<?= $_ENV['javaScript'] ?>Home.js"></script>
 
 </html>
 <?php

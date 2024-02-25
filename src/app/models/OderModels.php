@@ -27,8 +27,16 @@ class OderModels extends BaseModels
         return $result === false ? true : "Bàn: $NumberTables và thời gian: $OrderDate đã có người sử dụng";
     }
 
-    public function updateOrder($tableName, $column, $request)
+    public function updateOrder($column, $request, $data, $tableName = "orders")
     {
         $this->tableName = $tableName;
+        return $this->con_return($this->con_update($column, $request, $data));
+    }
+
+    public function findOrder($column, $request, $tableName = "orders")
+    {
+        $this->tableName = $tableName;
+
+        return $this->con_return($this->con_QueryReadAll($this->con_find($column, $request, ["IdOrder", "OrderDate"])->sqlBuilder));
     }
 }
