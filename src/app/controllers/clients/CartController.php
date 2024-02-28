@@ -21,6 +21,31 @@ class CartController extends BaseController
 
     public function postProduct()
     {
+        $data = $_POST;
+        $dataCart = [];
+        if (isset($data["IdSubCart"])) {
+            foreach ($data["IdSubCart"] as $value) {
+                // Xây dựng mảng tạm thời cho từng phần tử 
+                $tempArray = array(
+                    "IdSubCart" => $value,
+                    "quantity" => $data["quantity"][$value],
+                    "note" => $data["note"][$value]
+                );
+
+                // Thêm mảng tạm thời vào mảng kết quả
+                $dataCart[] = $tempArray;
+            }
+        }
+        foreach ($dataCart as  $value) {
+            $relute = $this->modelCart->updateCart("IdSubCart", $value["IdSubCart"], [
+                "QuantityCardProduct" => $value["quantity"],
+                "Note" => $value["note"],
+            ]);
+            if ($relute !== true) {
+                // 404
+            }
+        };
+
         if (isset($_POST["SubProduct"]) && isset($_GET['IdSubCart'])) {
             $this->modelCart->addSubProductInCart($_GET['IdSubCart'], $_POST);
             $this->data["message"] = "Thêm sản phẩm thành công";

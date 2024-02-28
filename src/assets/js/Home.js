@@ -26,6 +26,5 @@ setInterval(nextSlide, 3000);
 
 setTimeout(() => {
   window.location.reload();
-  alert('msg');
 }, 1 * 60* 1000)
 

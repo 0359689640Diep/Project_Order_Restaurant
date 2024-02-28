@@ -1,18 +1,10 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box; // Đảm bảo rằng padding và border không làm tăng kích thước thực của phần tử
-}
-
-html {
-  font-size: 14px;
-}
+@import "../mixin.scss";
 
 .BillPayment {
   margin: 0 auto;
   max-width: 1470px;
-  height: 1500px;
-  background-image: url("../../img/html/snapedit_1701874861222.png");
+  height: 732px;
+  background-image: url($pathImage);
   background-size: 100%;
   padding-bottom: 50px;
   .layer {

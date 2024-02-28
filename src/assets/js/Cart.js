@@ -8,18 +8,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
         checkboxes.forEach(function (checkbox) {
             checkbox.checked = isChecked;
-            updateQuantityInput(checkbox);
+            updateInput("quantity", checkbox);
+            updateInput("note", checkbox);
         });
     });
 
     checkboxes.forEach(function (checkbox) {
         checkbox.addEventListener('change', function () {
-            updateQuantityInput(checkbox);
+            updateInput("quantity", checkbox);
+            updateInput("note", checkbox);
         });
     });
 
-    function updateQuantityInput(checkbox) {
-        var quantityInput = document.getElementById('quantity' + checkbox.dataset.quantityId);
+    function updateInput(id,checkbox) {
+        
+        var quantityInput = document.getElementById(id + checkbox.dataset.quantityId);
         quantityInput.disabled = !checkbox.checked;
     }
     
@@ -33,13 +36,16 @@ document.addEventListener('DOMContentLoaded', function () {
     })
 
     // Xử lý sự kiện submit
-    document.getElementById('formCart').addEventListener('submit', function (event) {
+    document.getElementById('formCart').addEventListener('submit', function () {
         checkboxes.forEach(function (checkbox) {
             if (!checkbox.checked) {
                 var quantityInput = document.getElementById('quantity' + checkbox.dataset.quantityId);
                 quantityInput.disabled = true;
+                var noteInput = document.getElementById('note' + checkbox.dataset.quantityId);
+                noteInput.disabled = true;
             }
         });
     });
 });
+
 

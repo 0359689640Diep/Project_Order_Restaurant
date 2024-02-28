@@ -10,7 +10,24 @@ class OderModels extends BaseModels
     {
         $this->tableName = "orders";
     }
-    public function CreateOrder($data, $tableName = "orders")
+
+    public function getALLOrderByIdAccount($idAccount)
+    {
+        return $this->con_return($this->con_QueryReadAll("
+            SELECT ord.* FROM orders ord 
+            WHERE ord.IdAccount = $idAccount
+        "));
+    }
+
+    public function createOrderLastId($data)
+    {
+        return $this->con_return($this->con_QueryCreateLastId(
+            "INSERT INTO orders (IdOrder ,IdAccount ,NumberTables ,NumberInPeople, PaymentMethod, SumPriceOrder, StatusOrders, OrderDate) VALUES (NULL,:IdAccount,:NumberTables,:NumberInPeople,:PaymentMethod, :SumPriceOrder,:StatusOrders,:OrderDate)",
+            $data
+        ));
+    }
+
+    public function createOrder($data, $tableName = "orders")
     {
         $this->tableName = $tableName;
         return $this->con_return($this->con_insert($data));

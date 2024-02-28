@@ -36,6 +36,12 @@ class BaseController
             echo $this->view;
     }
 
+    protected function formatDate($date)
+    {
+        $timestamp = strtotime($date);
+        return date('Y-m-d H:i', $timestamp);
+    }
+
     protected function authentication($type)
     {
         if (isset($_SESSION[$type]) === false) {

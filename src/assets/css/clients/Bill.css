@@ -1,7 +1,8 @@
 * {
-  margin: 0;
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 html {
@@ -11,7 +12,7 @@ html {
 .BillPayment {
   margin: 0 auto;
   max-width: 1470px;
-  height: 1500px;
+  height: 732px;
   background-image: url("../../img/html/snapedit_1701874861222.png");
   background-size: 100%;
   padding-bottom: 50px;
@@ -166,4 +167,4 @@ html {
 .BillPayment .container .content_BillPayment::-webkit-scrollbar-track, .BillPayment .container .content_BillPayment::-webkit-scrollbar-thumb {
   background: transparent;
   box-shadow: inset 0 0 6px white;
-}/*# sourceMappingURL=BillPayment.css.map */
+}/*# sourceMappingURL=Bill.css.map */

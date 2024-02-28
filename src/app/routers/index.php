@@ -19,6 +19,7 @@ use App\src\app\routers\admin\TableRouter;
 use App\src\app\routers\admin\CategoryRouter as AdminCategoryRouter;
 use App\src\app\routers\admin\SizeRouter;
 use App\src\app\routers\admin\CommentRouter;
+use App\src\app\routers\clients\BillRouter;
 
 class index
 {
@@ -41,5 +42,6 @@ class index
         new AdminCategoryRouter;
         new SizeRouter;
         new CommentRouter;
+        new BillRouter;
     }
 }

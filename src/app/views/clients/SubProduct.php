@@ -8,16 +8,16 @@ if (isset($message) && !empty($message)) {
 }
 ?>
 <link rel="stylesheet" href="<?= $_ENV["clientsStyle"] ?>Cart.css">
-<form action="<?= $_ENV["basePath"] ?>cart?IdSubCart=<?= $_GET['IdSubCart'] ?>" method="post" class="page" id="formCart">
+<form action="<?= $_ENV["basePath"] ?>cart?IdSubCart=<?= $_GET['IdSubCart'] ?>" method="post" class="page"
+    id="formCart">
     <section class="headerProduct">
-        <h1>Các món ăn đi kèm với sản phẩm của bạn</h1>
+        <h1>Chọn món ăn đi kèm với sản phẩm của bạn</h1>
     </section>
     <main>
         <section class="containerMain">
             <section class="listProduct">
                 <table>
                     <tr>
-                        <th><input type="checkbox" name="" id="checkAll"></th>
                         <th>Ảnh </th>
                         <th>Tên </th>
                         <th>Giá</th>
@@ -28,7 +28,7 @@ if (isset($message) && !empty($message)) {
                         echo "
                         <tr>
                             <td>
-                                <input type='checkbox' 
+                                <input type='radio' 
                                 name='IdSubProduct' 
                                 class='rowCheckbox' 
                                 value='$valuesSubProduct[IdSubProduct]'
@@ -64,9 +64,7 @@ if (isset($message) && !empty($message)) {
         </section>
         <section class="footerAside">
             <h1>Giá phải trả: <?= $bill['PayThePrice'] ?> VND</h1>
-            <button id="submit" type="submit" name="SubProduct" disabled>Thêm vào giỏ hàng</button>
+            <button id="submit" type="submit" name="SubProduct">Thêm vào giỏ hàng</button>
         </section>
     </aside>
 </form>
-
-<script src="<?= $_ENV['javaScript'] ?>Cart.js"></script>

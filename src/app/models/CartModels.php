@@ -155,4 +155,10 @@ class CartModels extends BaseModels
         $this->tableName = "cart";
         return $retult;
     }
+
+    public function updateCart($column, $id, $data)
+    {
+        $this->tableName = $this->subTableName[0];
+        return $this->con_return($this->con_update($column, $id, $data));
+    }
 }

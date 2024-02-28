@@ -1,7 +1,7 @@
 @import "../mixin.scss";
 .page{
     width: 1470px;
-    height: 732px;
+    height: auto;
     display: flex;
     justify-content: center;
     margin: 0 auto;
@@ -46,7 +46,8 @@
 
                 table{
                     width: 100%;
-                    // co dinh do rong cot
+                    height: 100%;
+                    overflow-x: auto;
                     table-layout: fixed;
                     border-collapse: collapse;
 
@@ -118,16 +119,17 @@
                         font-size: 1.5rem;
                         padding: 3% 0;
                         color: $color6;
-                        background-color: #AD006C;
                         border-radius: 10px;
                         border: none;
+                        @include borderRadius();
             
                     }
             
                     button:hover {
-                        background-color: $color3;
-                        transition: linear 1s;
                         cursor: pointer;
+                        transition: linear 1s;
+                        color: $color6;
+                        background-color: $color3;
                     }
                 }
 

@@ -46,7 +46,7 @@ include_once $_ENV['header_Path'];
                     <h3>Phải trả: <?= $Bill["PayThePrice"] ?> VND</h3>
                 </article>
                 <article class="button">
-                    <button type="submit" name="payUrl">Thanh toán MoMo</button>
+                    <button type="submit" name="payUrl">Thanh toán</button>
 
                 </article>
             </section>
