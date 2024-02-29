@@ -11,6 +11,6 @@ class BillRouter
     public function __construct()
     {
         Router::get("/bill", [BillController::class, "getUIBill"]);
-        Router::post("/bill", [BillController::class, "postProduct"]);
+        Router::get("/billdetails", [BillController::class, "getUIDetailsBill"]);
     }
 }

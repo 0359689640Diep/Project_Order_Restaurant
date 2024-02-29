@@ -11,12 +11,13 @@ if (isset($message) && !empty($message)) {
 <link rel="stylesheet" href="<?= $_ENV["clientsStyle"] ?>Bill.css">
 <div class="BillPayment">
     <div class="layer"></div>
-    <h1 id="title">Lịch Sử Giao Dịch</h1>
+    <h1 id="title">Chi Tiết Yêu Cầu</h1>
     <section class="container">
         <section class="asside">
             <section class="headerAsside">
                 <article class="img">
-                    <img src="<?= $_ENV["imgUpload"] . $_SESSION['KH']['ImageAccounts'] ?>" alt="<?= $dataProfile['ImageAccounts'] ?>">
+                    <img src="<?= $_ENV["imgUpload"] . $_SESSION['KH']['ImageAccounts'] ?>"
+                        alt="<?= $dataProfile['ImageAccounts'] ?>">
                 </article>
                 <article class="name">
                     <h1> <?= $_SESSION['KH']['NameAccount'] ?> </h1>
@@ -26,9 +27,12 @@ if (isset($message) && !empty($message)) {
                 <ul>
                     <li> <a href="<?= $_ENV['basePath'] ?>PersonalPage">Trang cá nhân</a> <i class="ti-angle-down"></i>
                     </li>
-                    <li> <a href="<?= $_ENV['basePath'] ?>billthanhtoan">Lịch sử thanh toán</a> <i class="ti-angle-down"></i> </li>
-                    <li> <a href="<?= $_ENV['basePath'] ?>AddComment">Bình luận sản phẩm</a> <i class="ti-angle-down"></i> </li>
-                    <li> <a href="<?= $_ENV['basePath'] ?>ListComment">Sản phẩm đã bình luận</a> <i class="ti-angle-down"></i> </li>
+                    <li> <a href="<?= $_ENV['basePath'] ?>billthanhtoan">Lịch sử thanh toán</a> <i
+                            class="ti-angle-down"></i> </li>
+                    <li> <a href="<?= $_ENV['basePath'] ?>AddComment">Bình luận sản phẩm</a> <i
+                            class="ti-angle-down"></i> </li>
+                    <li> <a href="<?= $_ENV['basePath'] ?>ListComment">Sản phẩm đã bình luận</a> <i
+                            class="ti-angle-down"></i> </li>
                 </ul>
             </section>
         </section>
@@ -36,21 +40,17 @@ if (isset($message) && !empty($message)) {
             <table>
                 <tbody>
                     <tr>
-                        <th>Id</th>
-                        <th>Bàn</th>
-                        <th>Số người trong bàn</th>
-                        <th>Thanh toán</th>
-                        <th>Trạng thái</th>
-                        <th>Thời gian</th>
+                        <th>Tên sản phẩm</th>
                         <th>Giá (VND)</th>
-                        <th>Action</th>
+                        <th>Số lượng </th>
+                        <th>Kích cỡ</th>
+                        <th>Tên sản phẩm phụ</th>
+                        <th>Giá (VND)</th>
+                        <th>Số lượng </th>
+                        <th>Ghi chú </th>
+                        <th>Trạng thái</th>
                     </tr>
                     <?php
-                    $listPaymentMethod = [
-                        "0" =>  "Chưa thanh toán",
-                        "1" =>  "Thanh toán tiền mặt",
-                        "2" =>  "Thanh toán qua ngân hàng"
-                    ];
                     $listStatus = [
                         "0" => "Khách ăn tại quán",
                         "1" => "Khách đặt bàn kèm sản phẩm trước ",
@@ -63,19 +63,18 @@ if (isset($message) && !empty($message)) {
                         "6" => "Nhân viên đã nhận được sản phẩm",
                         "7" => "Khách muốn thanh toán"
                     ];
-                    foreach ($dataBill as  $value) : ?>
-                        <tr>
-                            <td> <?= $value['IdOrder'] ?></td>
-                            <td> <?= $value['NumberTables'] ?></td>
-                            <td> <?= $value['NumberInPeople'] ?></td>
-                            <td> <?= select($value['PaymentMethod'], $listPaymentMethod) ?></td>
-                            <td> <?= select($value['StatusOrders'], $listStatus) ?></td>
-                            <td> <?= $value['OrderDate'] ?></td>
-                            <td> <?= $value['SumPriceOrder'] ?></td>
-                            <td>
-                                <a href="<?= $_ENV['basePath'] ?>billdetails?id=<?= $value['IdOrder'] ?>">Chi Tiết</a>
-                            </td>
-                        </tr>
+                    foreach ($dataDetailsBill as  $value) : ?>
+                    <tr>
+                        <td> <?= $value['NameSubProduct'] ?></td>
+                        <td> <?= $value['PriceProduct'] ?></td>
+                        <td> <?= $value['QuantitySubOrderProduct'] ?></td>
+                        <td> <?= $value['NameSize'] ?></td>
+                        <td> <?= $value['NameSubProduct'] ?></td>
+                        <td> <?= $value['PriceSubProduct'] ?></td>
+                        <td> <?= $value['QuantitySubOrderSubProduct'] ?></td>
+                        <td> <?= $value['Note'] ?></td>
+                        <td> <?= select($value['StatusOrders'], $listStatus) ?></td>
+                    </tr>
                     <?php endforeach ?>
                 </tbody>
             </table>

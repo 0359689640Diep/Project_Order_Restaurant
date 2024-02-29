@@ -30,14 +30,14 @@ html {
 }
 .BillPayment .container {
   width: 100%;
-  height: 100%;
+  height: 70%;
   display: flex;
   justify-content: space-between;
-  padding: 0 5%;
+  padding: 0 1%;
 }
 .BillPayment .container .asside {
-  width: 35%;
-  max-height: 50%;
+  width: 18%;
+  max-height: 100%;
   color: white;
 }
 .BillPayment .container .asside .headerAsside {
@@ -78,7 +78,7 @@ html {
 .BillPayment .container .asside .mainAside ul li {
   list-style-type: none;
   width: 100%;
-  height: 14%;
+  height: 27%;
   color: var(--color6);
   font-feature-settings: "clig" off, "liga" off;
   font-family: Bitter;
@@ -100,13 +100,9 @@ html {
   text-decoration: none;
 }
 .BillPayment .container .content_BillPayment {
-  width: 90%;
-  margin: 0 auto;
-  margin-top: 20px;
-  height: 400px;
+  width: 80%;
+  height: 115%;
   overflow-x: auto;
-  display: flex;
-  justify-content: space-between;
 }
 .BillPayment .container .content_BillPayment .aside {
   width: 35%;
@@ -137,29 +133,44 @@ html {
 .BillPayment .container .content_BillPayment table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
   font-family: "Roboto", sans-serif;
 }
 .BillPayment .container .content_BillPayment table th,
 .BillPayment .container .content_BillPayment table td {
   padding: 10px;
-  text-align: left;
+  text-align: center;
   border-bottom: 1px solid #ddd;
 }
 .BillPayment .container .content_BillPayment table td {
   color: white;
 }
+.BillPayment .container .content_BillPayment table td a {
+  width: 100%;
+  height: 100%;
+  padding: 5%;
+  border: none;
+  outline: none;
+  color: #FFFFFF;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  transition: 0.5s linear;
+}
 .BillPayment .container .content_BillPayment table th {
-  background-color: #f7c427;
+  background-color: transparent;
   color: white;
   font-weight: bold;
   text-transform: uppercase;
 }
 .BillPayment .container .content_BillPayment table tr:hover {
-  background-color: #f1f1f1;
+  cursor: pointer;
 }
 .BillPayment .container .content_BillPayment table tr:hover td {
-  color: black;
+  background-color: #f1f1f1;
+  color: #131313;
+}
+.BillPayment .container .content_BillPayment table tr:hover a {
+  color: #131313;
+  border-bottom: 2px solid #131313;
 }
 .BillPayment .container .content_BillPayment::-webkit-scrollbar {
   width: 6px;

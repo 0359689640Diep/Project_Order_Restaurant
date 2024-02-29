@@ -54,6 +54,6 @@ class OderModels extends BaseModels
     {
         $this->tableName = $tableName;
 
-        return $this->con_return($this->con_QueryReadAll($this->con_find($column, $request, ["IdOrder", "OrderDate"])->sqlBuilder));
+        return $this->con_return($this->con_QueryReadAll($this->con_find($column, $request)->sqlBuilder));
     }
 }

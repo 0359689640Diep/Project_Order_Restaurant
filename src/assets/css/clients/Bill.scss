@@ -20,14 +20,14 @@
   }
   .container {
     width: 100%;
-    height: 100%;
+    height: 70%;
     display: flex;
     justify-content: space-between;
-    padding: 0 5%;
+    padding: 0 1%;
 
     .asside{
-      width: 35%;
-      max-height: 50%;
+      width: 18%;
+      max-height: 100%;
       color: white;
 
       .headerAsside{
@@ -73,7 +73,7 @@
            li{
                list-style-type: none;
                width: 100%;
-               height: 14%;
+               height: 27%;
                color: var(--color6);
                font-feature-settings: 'clig' off, 'liga' off;
                font-family: Bitter;
@@ -103,14 +103,10 @@
  
     
     .content_BillPayment {
-      width: 90%;
-      margin: 0 auto;
-      margin-top: 20px;
-      height: 400px;
+      width: 80%;
+      height: 115%;
       overflow-x: auto;
-      display: flex;
-      justify-content: space-between;
-  
+      
       .aside{
         width: 35%;
         height: 100%;
@@ -148,29 +144,46 @@
       table {
         width: 100%;
         border-collapse: collapse;
-        margin-top: 20px;
-  
         font-family: "Roboto", sans-serif;
   
         th,
         td {
           padding: 10px;
-          text-align: left;
+          text-align: center;
           border-bottom: 1px solid #ddd;
         }
         td {
           color: white;
+
+          a{
+            width: 100%;
+            height: 100%;
+            padding: 5%;
+            border: none;
+            outline: none;
+            color: $color6;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            transition: 0.5s linear;
+
+          }
+
         }
         th {
-          background-color: #f7c427;
+          background-color: transparent;
           color: white;
           font-weight: bold;
           text-transform: uppercase;
         }
         tr:hover {
-          background-color: #f1f1f1;
+          cursor: pointer;
           td {
-            color: black;
+            background-color: #f1f1f1;
+            color: $color;
+          }
+          a {
+            color: $color;
+            border-bottom: 2px solid $color;
           }
         }
       }
