@@ -18,7 +18,7 @@ class BillController extends BaseController
     public function getUIBill()
     {
         $dataAccount = $this->authentication("KH");
-        $this->data = [
+        $this->data += [
             "dataBill" => $this->modelOrder->getALLOrderByIdAccount($dataAccount["IdAccount"]),
             "Category" => $this->modelCategory->getCategory("StatusCategory", 0),
         ];
@@ -28,7 +28,9 @@ class BillController extends BaseController
     public function getUIDetailsBill()
     {
         $id = $this->checkParam("id", "404");
-        $this->data = ["dataDetailsBill" => $this->modelOrder->findOrder("IdOrder", $id, "suborders")];
+        $this->data += [
+            "dataDetailsBill" => $this->modelOrder->findOrder("IdOrder", $id, "suborders"),
+        ];
         return $this->loadView("clients/DetailsBill.php", $this->data);
     }
 }

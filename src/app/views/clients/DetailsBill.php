@@ -16,8 +16,7 @@ if (isset($message) && !empty($message)) {
         <section class="asside">
             <section class="headerAsside">
                 <article class="img">
-                    <img src="<?= $_ENV["imgUpload"] . $_SESSION['KH']['ImageAccounts'] ?>"
-                        alt="<?= $dataProfile['ImageAccounts'] ?>">
+                    <img src="<?= $_ENV["imgUpload"] . $_SESSION['KH']['ImageAccounts'] ?>" alt="<?= $dataProfile['ImageAccounts'] ?>">
                 </article>
                 <article class="name">
                     <h1> <?= $_SESSION['KH']['NameAccount'] ?> </h1>
@@ -27,12 +26,9 @@ if (isset($message) && !empty($message)) {
                 <ul>
                     <li> <a href="<?= $_ENV['basePath'] ?>PersonalPage">Trang cá nhân</a> <i class="ti-angle-down"></i>
                     </li>
-                    <li> <a href="<?= $_ENV['basePath'] ?>billthanhtoan">Lịch sử thanh toán</a> <i
-                            class="ti-angle-down"></i> </li>
-                    <li> <a href="<?= $_ENV['basePath'] ?>AddComment">Bình luận sản phẩm</a> <i
-                            class="ti-angle-down"></i> </li>
-                    <li> <a href="<?= $_ENV['basePath'] ?>ListComment">Sản phẩm đã bình luận</a> <i
-                            class="ti-angle-down"></i> </li>
+                    <li> <a href="<?= $_ENV['basePath'] ?>billthanhtoan">Lịch sử thanh toán</a> <i class="ti-angle-down"></i> </li>
+                    <li> <a href="<?= $_ENV['basePath'] ?>AddComment">Bình luận sản phẩm</a> <i class="ti-angle-down"></i> </li>
+                    <li> <a href="<?= $_ENV['basePath'] ?>ListComment">Sản phẩm đã bình luận</a> <i class="ti-angle-down"></i> </li>
                 </ul>
             </section>
         </section>
@@ -57,24 +53,24 @@ if (isset($message) && !empty($message)) {
                         "8" => "Bàn và sản phẩm của khách đặt trước đã được chuẩn bị sẵn sàng",
                         "2" => "Đặt bàn trước",
                         "9" => "Bàn đặt trước của khách đã sẵn sàng",
-                        "3" => "Khách đã đến cửa hàng( Chỉ áp dụng cho khách đặt online)",
-                        "4" => "Khách đã sử dụng xong sản phẩm( Chỉ áp dụng cho khách đặt online)",
+                        "3" => "Khách đã đến cửa hàng",
+                        "4" => "Khách đã sử dụng xong sản phẩm",
                         "5" => "Bếp đã làm xong sản phẩm",
                         "6" => "Nhân viên đã nhận được sản phẩm",
                         "7" => "Khách muốn thanh toán"
                     ];
                     foreach ($dataDetailsBill as  $value) : ?>
-                    <tr>
-                        <td> <?= $value['NameSubProduct'] ?></td>
-                        <td> <?= $value['PriceProduct'] ?></td>
-                        <td> <?= $value['QuantitySubOrderProduct'] ?></td>
-                        <td> <?= $value['NameSize'] ?></td>
-                        <td> <?= $value['NameSubProduct'] ?></td>
-                        <td> <?= $value['PriceSubProduct'] ?></td>
-                        <td> <?= $value['QuantitySubOrderSubProduct'] ?></td>
-                        <td> <?= $value['Note'] ?></td>
-                        <td> <?= select($value['StatusOrders'], $listStatus) ?></td>
-                    </tr>
+                        <tr>
+                            <td> <?= $value['NameSubProduct'] ?></td>
+                            <td> <?= $value['PriceProduct'] ?></td>
+                            <td> <?= $value['QuantitySubOrderProduct'] ?></td>
+                            <td> <?= $value['NameSize'] ?></td>
+                            <td> <?= $value['NameSubProduct'] ?></td>
+                            <td> <?= $value['PriceSubProduct'] ?></td>
+                            <td> <?= $value['QuantitySubOrderSubProduct'] ?></td>
+                            <td> <?= $value['Note'] ?></td>
+                            <td> <?= select($value['StatusOrders'], $listStatus) ?></td>
+                        </tr>
                     <?php endforeach ?>
                 </tbody>
             </table>

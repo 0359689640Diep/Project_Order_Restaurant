@@ -96,8 +96,7 @@ class HomeController extends BaseController
     // tác dụng dùng để kiểm tra và update trạng thái sản phẩm khi gần đến giờ khách hàng sử dụng
     private function autoOrder($status)
     {
-        $dataTime = new DateTime('now', new DateTimeZone("Asia/Ho_Chi_Minh"));
-        $timeReal = $dataTime->format('Y-m-d\TH:i');
+        $timeReal = $this->getDateNow();
         $dataOrder = $this->modelOder->findOrder("StatusOrders", $status);
         foreach ($dataOrder as $value) {
             $timeBeforeOrder = strtotime($value['OrderDate']) + ($status === 2 ? (30 * 60) : (60 * 60));

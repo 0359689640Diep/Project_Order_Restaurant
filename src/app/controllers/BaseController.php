@@ -89,6 +89,11 @@ class BaseController
             return false; // Trả về false nếu có lỗi xảy ra trong quá trình upload
         }
     }
+    protected function getDateNow()
+    {
+        $dataTime = new DateTime('now', new DateTimeZone("Asia/Ho_Chi_Minh"));
+        return $dataTime->format('Y-m-d\TH:i');
+    }
 }
 
 class Validate
