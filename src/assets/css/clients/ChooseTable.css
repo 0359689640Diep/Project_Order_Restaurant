@@ -64,6 +64,16 @@ html {
           appearance: none;
   background-color: transparent;
 }
+.datban .containerTable .listTable .contentTable input:-webkit-autofill,
+.datban .containerTable .listTable .contentTable input:-webkit-autofill:hover,
+.datban .containerTable .listTable .contentTable input:-webkit-autofill:focus,
+.datban .containerTable .listTable .contentTable input:-webkit-autofill:active {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #FFFFFF;
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
+  box-shadow: inset 0 0 20px 20px transparent;
+}
 .datban .containerTable .listTable .contentTable span {
   font-size: 1.2rem;
 }

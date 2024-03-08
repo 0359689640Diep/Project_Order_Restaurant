@@ -100,22 +100,16 @@ html {
   background: #F7C427;
   color: #FFFFFF;
 }
+.container .content_BillPayment table td button:hover {
+  background-color: #585353;
+  transition: all 1s;
+  border-radius: 10px;
+}
 .container .content_BillPayment table th {
   background-color: transparent;
   color: white;
   font-weight: bold;
   text-transform: uppercase;
-}
-.container .content_BillPayment table tr:hover {
-  cursor: pointer;
-}
-.container .content_BillPayment table tr:hover td {
-  background-color: #f1f1f1;
-  color: #131313;
-}
-.container .content_BillPayment table tr:hover a {
-  color: #131313;
-  border-bottom: 2px solid #131313;
 }
 .container .content_BillPayment::-webkit-scrollbar {
   width: 6px;
@@ -139,4 +133,4 @@ html {
   width: 100%;
   height: 100%;
   border-radius: 100px;
-}/*# sourceMappingURL=Bill.css.map */
+}/*# sourceMappingURL=Comment.css.map */

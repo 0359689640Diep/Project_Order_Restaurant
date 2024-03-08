@@ -1,22 +1,4 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-:root {
-    --color: #131313;
-    --color1: #282828;
-    --color2: #393939;
-    --color3: #585353;
-    --color4: #CA0910;
-    --color5: #F7C427;
-    --color6: #FFFFFF;
-    --color7: #2E2C2C;
-}
-html{
-    font-size: 14px;
-}
-
+@import "../../mixin.scss";
 .page{
     width: 1470px;
     height: 2498px;
@@ -107,6 +89,7 @@ html{
                         font-size: 1rem;
                         padding-left:5% ;
                     }
+                    @include input;
                     input:focus{
                         outline:  none;
                     }

@@ -73,13 +73,13 @@ class BaseController
         exit();
     }
 
-    protected function uploadImg($imgNew, $linkImgOld = null)
+    protected function uploadImg($imgNew, $imgOld = null)
     {
         $path = $_ENV['basePathImg'];
 
         // Kiểm tra xem tệp ảnh cũ có tồn tại không và xóa nó nếu có
-        if ($linkImgOld !== null && file_exists($path . $linkImgOld) && !empty($linkImgOld)) {
-            unlink($path . $linkImgOld);
+        if ($imgOld !== null && file_exists($path . $imgOld) && !empty($imgOld)) {
+            unlink($path . $imgOld);
         }
 
         // Di chuyển tệp ảnh mới vào thư mục đích
@@ -93,6 +93,15 @@ class BaseController
     {
         $dataTime = new DateTime('now', new DateTimeZone("Asia/Ho_Chi_Minh"));
         return $dataTime->format('Y-m-d\TH:i');
+    }
+    public function unsetSection($name)
+    {
+        unset($_SESSION[$name]);
+        if (!isset($_SESSION[$name])) {
+            ob_clean();
+            header("location: " . $_ENV['baseUrl']);
+            exit();
+        }
     }
 }
 

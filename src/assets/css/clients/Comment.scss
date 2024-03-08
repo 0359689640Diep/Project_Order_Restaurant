@@ -91,23 +91,18 @@
           @include buttonHover;
         }
 
+        button:hover{
+          background-color: #585353;
+          transition: all 1s;
+          border-radius: 10px
+        }
+
       }
       th {
         background-color: transparent;
         color: white;
         font-weight: bold;
         text-transform: uppercase;
-      }
-      tr:hover {
-        cursor: pointer;
-        td {
-          background-color: #f1f1f1;
-          color: $color;
-        }
-        a {
-          color: $color;
-          border-bottom: 2px solid $color;
-        }
       }
     }
     &::-webkit-scrollbar {

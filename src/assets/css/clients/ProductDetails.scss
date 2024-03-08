@@ -69,6 +69,7 @@
               outline: none;
 
             }
+            @include input;
 
           }
         }
@@ -107,7 +108,7 @@
               padding: 0;
               border: none;
               width: 15px;
-  
+              @include input;
               &::-webkit-inner-spin-button,
               &::-webkit-outer-spin-button {
                 appearance: none;

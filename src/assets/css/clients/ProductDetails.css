@@ -79,6 +79,16 @@ html {
   opacity: 90%;
   outline: none;
 }
+.chitietsanpham .product_detail .content ul li input:-webkit-autofill,
+.chitietsanpham .product_detail .content ul li input:-webkit-autofill:hover,
+.chitietsanpham .product_detail .content ul li input:-webkit-autofill:focus,
+.chitietsanpham .product_detail .content ul li input:-webkit-autofill:active {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #FFFFFF;
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
+  box-shadow: inset 0 0 20px 20px transparent;
+}
 .chitietsanpham .product_detail .content .option {
   margin-top: 10px;
   display: flex;
@@ -114,6 +124,16 @@ html {
   padding: 0;
   border: none;
   width: 15px;
+}
+.chitietsanpham .product_detail .content .option .tanggiam input input:-webkit-autofill,
+.chitietsanpham .product_detail .content .option .tanggiam input input:-webkit-autofill:hover,
+.chitietsanpham .product_detail .content .option .tanggiam input input:-webkit-autofill:focus,
+.chitietsanpham .product_detail .content .option .tanggiam input input:-webkit-autofill:active {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #FFFFFF;
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
+  box-shadow: inset 0 0 20px 20px transparent;
 }
 .chitietsanpham .product_detail .content .option .tanggiam input::-webkit-inner-spin-button, .chitietsanpham .product_detail .content .option .tanggiam input::-webkit-outer-spin-button {
   -webkit-appearance: none;

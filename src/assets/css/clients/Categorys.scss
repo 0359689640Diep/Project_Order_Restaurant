@@ -42,6 +42,7 @@
         border: none;
         outline: none;
       }
+      @include input;
       select {
         margin: 0 10px;
         background-color: #fdfafa;

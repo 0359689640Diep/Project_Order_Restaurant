@@ -368,6 +368,7 @@
             border: none;
             font-size: 30px;
           }
+          @include input;
         }
         button{
           margin-top: 30px;

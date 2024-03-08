@@ -1,11 +1,4 @@
-* {
-    margin: 0px;
-    padding: 0px;
-}
-
-html{
-    font-size: 14px;
-}
+@import "../../mixin.scss";
 
 footer{
     margin: 0 auto;
@@ -30,7 +23,7 @@ footer{
             }
             form{
                 display: flex;
-                >input{
+                input{
                     background-color: transparent;
                     display: block;
                     border: 1px solid white;
@@ -47,6 +40,7 @@ footer{
                         font-size: 15px;
                     }
                 }
+                @include input;
                 button{
                     background-color: #F7C427;
                     font-size: 15px;

@@ -240,6 +240,7 @@ html{
                             outline: none;
                             
                         }
+                        @include input;
                     }
                     .sendContent{
                         width: 10%;
@@ -256,6 +257,7 @@ html{
                             background-color: var(--color5);
                             color: var(--color6);
                         }
+                        @include input;
                         input:hover{
                             background-color: var(--color3);
                             transition: 1s linear;

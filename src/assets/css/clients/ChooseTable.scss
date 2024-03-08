@@ -57,7 +57,7 @@
                     background-color: transparent;
 
                 }
-                
+                @include input;
                 span{
                     font-size: 1.2rem;
                 }

@@ -51,6 +51,16 @@ html {
   border: none;
   outline: none;
 }
+.danh_sach_san_pham .timkiem input:-webkit-autofill,
+.danh_sach_san_pham .timkiem input:-webkit-autofill:hover,
+.danh_sach_san_pham .timkiem input:-webkit-autofill:focus,
+.danh_sach_san_pham .timkiem input:-webkit-autofill:active {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #FFFFFF;
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
+  box-shadow: inset 0 0 20px 20px transparent;
+}
 .danh_sach_san_pham .timkiem select {
   margin: 0 10px;
   background-color: #fdfafa;

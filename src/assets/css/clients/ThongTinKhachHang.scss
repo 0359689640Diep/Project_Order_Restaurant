@@ -97,6 +97,7 @@
                     outline: none;
                 }
             }
+            @include input;
             button{
                 margin-bottom: 30px;
                 width: 77%;

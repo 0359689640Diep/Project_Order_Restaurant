@@ -41,6 +41,7 @@
             font-size: 1.2rem;
 
         }
+        @include input;
         .img{
             @include flexCenter(space-between);
             @include widthHeight(100%, 20%);

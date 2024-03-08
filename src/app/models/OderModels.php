@@ -16,6 +16,7 @@ class OderModels extends BaseModels
         return $this->con_return($this->con_QueryReadAll("
             SELECT ord.* FROM orders ord 
             WHERE ord.IdAccount = $idAccount
+            ORDER BY ord.OrderDate ASC
         "));
     }
 
