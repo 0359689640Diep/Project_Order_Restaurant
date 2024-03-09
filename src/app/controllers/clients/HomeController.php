@@ -29,18 +29,20 @@ class HomeController extends BaseController
     }
     public function bookingTable()
     {
+        // test($_POST);
         $dataAccount = $this->authentication('KH');
         extract($_POST);
 
-        $validateNumberTables = $this->controlerValidate->validateAll("number", $NumberTables);
         $validateNumberInPeople = $this->controlerValidate->validateAll("number", $NumberInPeople);
         $validateOrderDate = $this->controlerValidate->validateAll("dateBooking", $OrderDate);
 
-        $oneHourBefore = strtotime($OrderDate) + 3600;
-        $oneHourBeforeFormatted = date("Y-m-d\TH:i", $oneHourBefore);
-        $resultCheckOrder = $this->modelOder->checkOrderTable(["NumberTables" => $NumberTables, "OrderDate" => $oneHourBeforeFormatted]);
-        if ($validateNumberTables !== true) {
-            $this->data = ["message" => $validateNumberTables];
+        $resultCheckTable = $this->modelTables->getTablesById($IdTables)[0];
+        $NumberTables = $resultCheckTable["NumberTable"];
+        $resultCheckOrder = $this->modelOder->checkOrderTable(["NumberTables" => $NumberTables, "OrderDate" => $OrderDate], "table");
+        // test($resultCheckTable);
+
+        if ($resultCheckTable["NumberPeopleDefault"] < $NumberInPeople) {
+            $this->data = ["message" => "Vui lòng chọn bàn lớn hơn"];
         } elseif ($validateNumberInPeople !== true) {
             $this->data = ["message" => $validateNumberInPeople];
         } elseif ($validateOrderDate !== true) {
@@ -94,14 +96,13 @@ class HomeController extends BaseController
         $this->loadView("clients\Home.php", $this->data);
     }
     // tác dụng dùng để kiểm tra và update trạng thái sản phẩm khi gần đến giờ khách hàng sử dụng
-    private function autoOrder($status)
+    public function autoOrder($status)
     {
         $timeReal = $this->getDateNow();
         $dataOrder = $this->modelOder->findOrder("StatusOrders", $status);
         foreach ($dataOrder as $value) {
             $timeBeforeOrder = strtotime($value['OrderDate']) + ($status === 2 ? (30 * 60) : (60 * 60));
-
-            if (strtotime($timeReal) >= $timeBeforeOrder) {
+            if (strtotime($timeReal) <= $timeBeforeOrder) {
 
                 $newStatus = ($status === 2) ? 9 : 8;
                 $result = $this->modelOder->updateOrder("IdOrder", $value["IdOrder"], ["StatusOrders" => $newStatus]);

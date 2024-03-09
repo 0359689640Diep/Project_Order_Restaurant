@@ -32,8 +32,7 @@ if (isset($message) && !empty($message)) {
         <div class="intro">
             <div class="intro1">
                 <div class="img">
-                    <img src="<?= $_ENV["imgUpload"] . $data["getNewTwoProduct"][0]["ImageProduct"] ?>"
-                        alt="<?= "ImageProduct" ?>">
+                    <img src="<?= $_ENV["imgUpload"] . $data["getNewTwoProduct"][0]["ImageProduct"] ?>" alt="<?= "ImageProduct" ?>">
                 </div>
                 <div class="content_intro1">
                     <h1> <?= $data["getNewTwoProduct"][0]["NameProduct"] ?> </h1>
@@ -67,8 +66,7 @@ if (isset($message) && !empty($message)) {
                     </div>
                 </div>
                 <div class="img">
-                    <img src="<?= $_ENV["imgUpload"] . $data["getNewTwoProduct"][1]["ImageProduct"] ?>"
-                        alt="<?= "ImageProduct" ?>">
+                    <img src="<?= $_ENV["imgUpload"] . $data["getNewTwoProduct"][1]["ImageProduct"] ?>" alt="<?= "ImageProduct" ?>">
                 </div>
             </div>
         </div>
@@ -98,13 +96,15 @@ if (isset($message) && !empty($message)) {
                 <h1>Đặt Bàn</h1>
                 <div class="pick_option">
                     <input required title="Không được để trống" type="datetime-local" name="OrderDate">
-                    <select required title="Không được để trống" name="NumberTables">
+                    <select required title="Không được để trống" name="IdTables">
                         <option value="" disabled selected hidden>Chọn Bàn</option>
                         <?php
 
                         foreach ($data['Tables'] as $valuesTables) {
                             echo "
-                                <option value='{$valuesTables['NumberTable']}'>Bàn:{$valuesTables['NumberTable']}-Tối đa {$valuesTables['NumberPeopleDefault']} người </option>
+                                <option value='{$valuesTables['IdTables']}'>
+                                    Bàn:{$valuesTables['NumberTable']}-Tối đa {$valuesTables['NumberPeopleDefault']} người 
+                                </option>
                                 ";
                         }
                         ?>

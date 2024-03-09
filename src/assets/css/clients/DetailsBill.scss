@@ -99,11 +99,6 @@
         font-weight: bold;
         text-transform: uppercase;
       }
-      tr:nth-child(2){
-        td, a{
-          color: $color4;
-        }
-      }
       tr:hover {
         cursor: pointer;
         td {

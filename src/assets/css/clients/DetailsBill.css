@@ -106,9 +106,6 @@ html {
   font-weight: bold;
   text-transform: uppercase;
 }
-.container .content_BillPayment table tr:nth-child(2) td, .container .content_BillPayment table tr:nth-child(2) a {
-  color: #CA0910;
-}
 .container .content_BillPayment table tr:hover {
   cursor: pointer;
 }
@@ -142,4 +139,4 @@ html {
   width: 100%;
   height: 100%;
   border-radius: 100px;
-}/*# sourceMappingURL=Bill.css.map */
+}/*# sourceMappingURL=DetailsBill.css.map */

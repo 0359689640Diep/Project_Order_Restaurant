@@ -10,7 +10,6 @@ if (isset($message) && !empty($message)) {
 ?>
 <link rel="stylesheet" href="<?= $_ENV["clientsStyle"] ?>Bill.css">
 <div class="BillPayment">
-    <h1>Lỗi phần giá cần phải fix khi order</h1>
     <div class="layer"></div>
     <h1 id="title">Lịch Sử Giao Dịch</h1>
     <section class="container">
@@ -47,26 +46,27 @@ if (isset($message) && !empty($message)) {
                         "6" => "Nhân viên đã nhận được sản phẩm",
                         "7" => "Khách muốn thanh toán"
                     ];
-                    foreach ($dataBill as  $value) : ?>
-                        <tr class="<?= $value['StatusOrders'] !== 2 &&
-                                        $value['StatusOrders'] !== 9 ? 'columnOrder' : ''
-                                    ?>" data-id=<?= $value['IdOrder'] ?>>
-                            <td> <?= $value['IdOrder'] ?></td>
-                            <td> <?= $value['NumberTables'] ?></td>
-                            <td> <?= $value['NumberInPeople'] ?></td>
-                            <td> <?= select($value['PaymentMethod'], $listPaymentMethod) ?></td>
-                            <td> <?= select($value['StatusOrders'], $listStatus) ?></td>
-                            <td> <?= $value['OrderDate'] ?></td>
-                            <td> <?= $value['SumPriceOrder'] ?></td>
-                            <td>
-                                <?=
-                                $value['StatusOrders'] !== 2 && $value['StatusOrders'] !== 9 ?
-                                    '<a href="' . $_ENV['basePath'] . 'billdetails?id=' . $value['IdOrder'] . '">Chi Tiết</a>' : ''
-                                ?>
+                    // Lấy độ dài của mảng $dataBill
+                    $length = count($dataBill);
+                    // Lặp qua mảng từ cuối đến đầu
+                    for ($i = $length - 1; $i >= 0; $i--) {
+                        $value = $dataBill[$i];
+                    ?>
 
+                        <tr class="<?= $value['StatusOrders'] !== 2 && $value['StatusOrders'] !== 9 ? 'columnOrder' : '' ?>" data-id="<?= $value['IdOrder'] ?>">
+                            <td><?= $value['IdOrder'] ?></td>
+                            <td><?= $value['NumberTables'] ?></td>
+                            <td><?= $value['NumberInPeople'] ?></td>
+                            <td><?= select($value['PaymentMethod'], $listPaymentMethod) ?></td>
+                            <td><?= select($value['StatusOrders'], $listStatus) ?></td>
+                            <td><?= $value['OrderDate'] ?></td>
+                            <td><?= $value['SumPriceOrder'] ?></td>
+                            <td>
+                                <?= $value['StatusOrders'] !== 2 && $value['StatusOrders'] !== 9 ? '<a href="' . $_ENV['basePath'] . 'billdetails?id=' . $value['IdOrder'] . '">Chi Tiết</a>' : '' ?>
                             </td>
                         </tr>
-                    <?php endforeach ?>
+                    <?php
+                    } ?>
                 </tbody>
             </table>
         </div>

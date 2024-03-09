@@ -1,5 +1,11 @@
 <?php
-include_once $_ENV['header_Path'];
+
+use App\src\assets\global\Notification;
+
+include_once $_ENV["header_Path"];
+if (isset($message) && !empty($message)) {
+    new Notification($message);
+}
 
 ?>
 <link rel="stylesheet" href="<?= $_ENV["clientsStyle"] ?>ChooseTable.css">
@@ -27,7 +33,6 @@ include_once $_ENV['header_Path'];
                 }
             }
             ?>
-
         </section>
         <article class="timeBooking">
             <input type="datetime-local" name="timeBooking" required title="Không được để trống">

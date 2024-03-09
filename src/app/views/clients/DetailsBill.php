@@ -8,7 +8,7 @@ if (isset($message) && !empty($message)) {
 }
 
 ?>
-<link rel="stylesheet" href="<?= $_ENV["clientsStyle"] ?>Bill.css">
+<link rel="stylesheet" href="<?= $_ENV["clientsStyle"] ?>DetailsBill.css">
 <div class="BillPayment">
     <div class="layer"></div>
     <h1 id="title">Chi Tiết Yêu Cầu</h1>
