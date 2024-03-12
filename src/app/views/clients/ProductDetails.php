@@ -32,7 +32,8 @@ if (isset($message) && !empty($message)) {
                     <p>Số lượng mua&nbsp;&nbsp;</p>
                     <button type="button" id="decrease">-</button>
 
-                    <input required type="number" value="1" name="Quantity" id="quantity" min="1" max="<?= $ProductById["QuantityProduct"] ?>">
+                    <input required type="number" value="1" name="Quantity" id="quantity" min="1"
+                        max="<?= $ProductById["QuantityProduct"] ?>">
 
                     <button type="button" id="increase" value="<?= $QuantityProduct ?>">+</button>
                 </div>
@@ -42,9 +43,9 @@ if (isset($message) && !empty($message)) {
                     <select name="SizeProduct" id="selectSize">
                         <option value="" id="optionSizeDefault"></option>
                         <?php foreach ($ListSizeByIdProduct as $i) : ?>
-                            <option value="<?= $i['IdSizeDefault'] ?>">
-                                <?= $i['SizeDefault'] ?>
-                            </option>
+                        <option value="<?= $i['IdSizeDefault'] ?>">
+                            <?= $i['SizeDefault'] ?>
+                        </option>
                         <?php endforeach ?>
 
                     </select>
@@ -61,7 +62,7 @@ if (isset($message) && !empty($message)) {
             echo "
                 <div class='comment'>
                     <article class='content'>
-                        <p>{$valuesComment['Content']}</p>
+                        <p>{$valuesComment['Comment']}</p>
                     </article> 
                     <article class='persion'>
                         <img src='{$_ENV["imgUpload"]}{$valuesComment['ImageAccounts']}' alt='{$valuesComment['ImageAccounts']}'>
@@ -112,7 +113,7 @@ if (isset($message) && !empty($message)) {
 <script src="<?= $_ENV["javaScript"] ?>ProductDetails.js">
 </script>
 <script>
-    renderSizeAndImage(<?= $dataSize ?>);
+renderSizeAndImage(<?= $dataSize ?>);
 </script>
 <?php
 include_once $_ENV['footer_Path'];

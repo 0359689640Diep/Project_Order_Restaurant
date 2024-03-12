@@ -11,26 +11,29 @@ include_once $_ENV['header_Path'];
             <section class="contentBill">
                 <table>
                     <tr>
-                        <th>Tên sản phẩm</th>
+                        <th>Tên SP</th>
+                        <th>Ảnh SP</th>
                         <th>Số lượng</th>
                         <th>Giá</th>
                         <th>Kích cỡ</th>
-                        <th>Tên sản phẩm phụ</th>
+                        <th>Tên SP phụ</th>
+                        <th>Ảnh SP phụ</th>
                         <th>Số lượng </th>
                     </tr>
+
                     <?php
                     foreach ($dataCart as $dataListOrderUser) {
                         echo "
                             <tr>
                                 <td>{$dataListOrderUser['NameProduct']}</td>
+                                <td><img src='{$_ENV['imgUpload']}{$dataListOrderUser['ImageSize']}' alt='img'></td>
                                 <td>{$dataListOrderUser['QuantityCardProduct']}</td>
                                 <td>{$dataListOrderUser['PriceSize']}VND</td>
                                 <td>{$dataListOrderUser['SizeDefault']}</td>
                                 <td>{$dataListOrderUser['NameSubProduct']}</td>
+                                <td><img src='{$_ENV['imgUpload']}{$dataListOrderUser['ImageSubProduct']}' alt='img'></td>
                                 <td>{$dataListOrderUser['QuantitySubCardProduct']}</td>
-                            </tr>
-
-                            ";
+                            </tr>";
                     }
                     ?>
                 </table>

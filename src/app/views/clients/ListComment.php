@@ -28,14 +28,13 @@ if (isset($message) && !empty($message)) {
                     <?php
 
                     foreach ($dataComment as  $value) : ?>
-                    <form action="<?= $_ENV['baseUrl'] ?>comment?id=<?= $value['IdComment'] ?>" method="POST">
+                    <form action="<?= $_ENV['baseUrl'] ?>comment?id=<?= $value['IdSubOrders'] ?>" method="POST">
                         <tr>
                             <td> <?= $value['NameProduct'] ?></td>
                             <td> <img src="<?= $_ENV['imgUpload'] .   $value['ImageProduct'] ?>" alt="img"></td>
-                            <td> <?= $value['NumberTable'] ?></td>
+                            <td> <?= $value['NumberTables'] ?></td>
                             <td> <input autofocus type="text"
-                                    value=" <?= empty($value['Content']) === true ? "" : $value['Content'] ?>"
-                                    name="Content">
+                                    value=" <?= !empty($value['Comment']) ? $value['Comment']   : ""?>" name="Comment">
                             </td>
                             <td> <button type="submit">Cập nhật</button></td>
                         </tr>

@@ -90,4 +90,22 @@ class OderModels extends BaseModels
 
         return $this->con_return($this->con_QueryReadAll($this->con_find($column, $request)->sqlBuilder));
     }
+
+    public function findOrderComment($column = NULL, $request = NULL, $StatusOrders = NULL)
+    {
+        $sql = "
+            SELECT 
+                o.NumberTables, 
+                so.NameProduct, so.ImageProduct, so.IdSubOrders, so.Comment, so.StatusOrders,
+                ac.Gmail, ac.ImageAccounts, ac.NameAccount
+            FROM orders o
+            JOIN suborders so ON so.IdOrder = o.IdOrder 
+            JOIN account ac ON ac.IdAccount  = o.IdAccount  
+            WHERE o.PaymentMethod != 0
+        ";
+        if ($column !== null && $request !== null && $StatusOrders = NULL) {
+            $sql += " AND $column = $request AND StatusOrders = $StatusOrders ";
+        }
+        return $this->con_return($this->con_QueryReadAll($sql));
+    }
 }

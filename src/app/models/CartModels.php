@@ -16,11 +16,11 @@ class CartModels extends BaseModels
         return $this->con_return(
             $this->con_QueryReadOne("
                 SELECT 
-                    sc.IdSubCart, sc.QuantityCardProduct, sc.QuantitySubCardProduct, sc.Note,
-                    s.PriceSize, s.SEO,
+                    sc.IdSubCart, sc.IdCart,sc.QuantityCardProduct, sc.QuantitySubCardProduct, sc.Note,
+                    s.PriceSize, s.SEO,s.ImageSize,
                     sd.SizeDefault,
                     p.NameProduct, p.QuantityProduct,
-                    sp.IdSubProduct, sp.NameSubProduct, sp.PriceSubProduct, sp.QuantilySubProduct
+                    sp.IdSubProduct, sp.NameSubProduct, sp.PriceSubProduct,sp.ImageSubProduct, sp.QuantilySubProduct
                 FROM {$this->subTableName[0]} sc
                 JOIN {$this->subTableName[1]} s ON sc.IdSize = s.IdSize 
                 JOIN {$this->subTableName[2]} sd ON sd.IdSizeDefault = s.IdSizeDefault  
@@ -129,13 +129,12 @@ class CartModels extends BaseModels
                 + (($totailPriceProduct + $totailSubPriceProduct) * $ServiceCharge)
         ];
     }
-    public function deleteProductInCart($id)
+    public function deleteProductInCart($id, $tableName)
     {
-        $this->tableName = $this->subTableName[0];
-        $deleteSubCart = $this->con_delete($this->tableName, "IdCart", $id);
-        $this->tableName = "cart";
-        $deleteCart = $this->con_delete($this->tableName, "IdCart", $id);
-        if ($deleteSubCart["message"] === true && $deleteCart["message"] === true) {
+        $this->tableName = $tableName;
+        $request = $tableName === "subcard" ? "IdSubCart" : "IdCart";
+        $deleteSubCart = $this->con_delete($this->tableName, $request, $id);
+        if ($deleteSubCart["message"] === true) {
             return [
                 "message" => "Xóa sản phẩm thành công"
             ];
@@ -144,6 +143,10 @@ class CartModels extends BaseModels
                 "message" => "Cú pháp không hợp lệ"
             ];
         }
+    }
+
+    public function deleteCart($id)
+    {
     }
 
     public function addSubProductInCart($id, $data)

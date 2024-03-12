@@ -3,28 +3,23 @@
 namespace App\src\app\controllers\admin;
 
 use App\src\app\controllers\BaseController;
-use App\src\app\models\CommentModels;
+use App\src\app\models\OderModels;
 
 class CommentController extends BaseController
 {
-    private $modelComment;
+    private $modelOrder;
 
     public function __construct()
     {
-        $this->modelComment = new CommentModels;
+        $this->modelOrder = new OderModels;
         parent::__construct();
-        $this->checkAuthentication("admin");
-    }
-
-    private function checkAuthentication($type)
-    {
-        $this->authentication($type); // Kiểm tra đăng nhập
+        $this->authentication("admin");
     }
 
     public function deleteComment()
     {
         $id = $this->checkParam("id", "404");
-        $result = $this->modelComment->updateComment("IdComment", $id, ["StatusComment" => 1]);
+        $result = $this->modelOrder->updateOrder("IdSubOrders", $id, ["StatusOrders" => 2], "suborders");
 
         $this->setResultMessage($result, "Ẩn bình luận thành công");
         $this->getUIListComment();
@@ -33,7 +28,7 @@ class CommentController extends BaseController
     public function restoreComment()
     {
         $id = $this->checkParam("id", "404");
-        $result = $this->modelComment->updateComment("IdComment", $id, ["StatusComment" => 0]);
+        $result = $this->modelOrder->updateOrder("IdSubOrders", $id, ["StatusOrders" => 1], "suborders");
 
         $this->setResultMessage($result, "Khôi phục bình luận thành công");
         $this->getUIListComment();
@@ -46,7 +41,7 @@ class CommentController extends BaseController
 
     public function getUIListComment()
     {
-        $this->data += ["dataComment" => $this->modelComment->getAllComment()];
+        $this->data += ["dataComment" => $this->modelOrder->findOrderComment()];
         $this->loadView("admin/comment/ListComment.php", $this->data);
     }
 }

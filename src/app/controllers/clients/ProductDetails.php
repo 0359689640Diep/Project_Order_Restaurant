@@ -5,7 +5,7 @@ namespace App\src\app\controllers\clients;
 use App\src\app\controllers\BaseController;
 use App\src\app\Models\ProductModel;
 use App\src\app\Models\SizeModels;
-use App\src\app\Models\CommentModels;
+use App\src\app\Models\OderModels;
 use App\src\app\Models\CategoryModels;
 use App\src\app\Models\ProductDetailsModels;
 
@@ -15,7 +15,7 @@ class ProductDetails extends BaseController
     public $data = [];
     private $modelProduct;
     private $modelSize;
-    private $modelComment;
+    private $OderModels;
     private $modelCategory;
     private $modelProductDetails;
 
@@ -23,7 +23,7 @@ class ProductDetails extends BaseController
     {
         $this->modelProduct = new ProductModel;
         $this->modelSize = new SizeModels;
-        $this->modelComment = new CommentModels;
+        $this->OderModels = new OderModels;
         $this->modelCategory = new CategoryModels;
         $this->modelProductDetails = new ProductDetailsModels;
     }
@@ -60,20 +60,18 @@ class ProductDetails extends BaseController
             $this->data = $data;
         }
 
-        if (isset($_GET['id']) && !empty($_GET['id'])) {
-            $Id = $_GET['id'];
-            $this->data += [
-                "ProductById" => $this->modelProduct->getProductById($Id),
-                "Top3ProductById" => $this->modelProduct->getNewProduct(3),
-                "AllProduct" => $this->modelProduct->getProduct(),
-                "SizeByIdProduct" => $this->modelSize->getSizeByIdProduct($Id),
-                "ListSizeByIdProduct" => $this->modelSize->getSizeByIdProduct($Id),
-                "ListCommentByIdProduct" => $this->modelComment->getAllComment($Id, "c.StatusComment", 0),
-                "Category" => $this->modelCategory->getCategory("StatusCategory", 0),
-            ];
-            $this->loadView("clients\ProductDetails.php", $this->data);
-        } else {
-            // 404
-        }
+        $Id = $this->checkParam('id', "404");
+        $nameProduct = $this->checkParam('name', "404");
+
+        $this->data += [
+            "ProductById" => $this->modelProduct->getProductById($Id),
+            "Top3ProductById" => $this->modelProduct->getProductQuantity(3),
+            "AllProduct" => $this->modelProduct->getProduct(),
+            "SizeByIdProduct" => $this->modelSize->getSizeByIdProduct($Id),
+            "ListSizeByIdProduct" => $this->modelSize->getSizeByIdProduct($Id),
+            "ListCommentByIdProduct" => $this->OderModels->findOrderComment("so.NameProduct", $nameProduct, 1),
+            "Category" => $this->modelCategory->getCategory("StatusCategory", 0),
+        ];
+        $this->loadView("clients\ProductDetails.php", $this->data);
     }
 }

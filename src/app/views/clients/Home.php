@@ -20,7 +20,7 @@ if (isset($message) && !empty($message)) {
                 <p>Nơi Hội Tụ Của Sự Sáng Tạo và Hương Vị Truyền Thống</p>
                 <p>Mỗi Bữa Ăn Là Một Hành Trình Đặc Sắc</p>
             </div>
-            <a href="OnlineController.php?act=DanhMucSanPham?idCategory=">
+            <a href="<?= $_ENV['baseUrl'] . "categorys" ?>">
                 <button>khám Phá Ngay</button>
             </a>
             <img class="footer_banner" src="<?= $_ENV["img_Path"] ?>snapedit_1701874146870.png" alt="img">
@@ -32,7 +32,8 @@ if (isset($message) && !empty($message)) {
         <div class="intro">
             <div class="intro1">
                 <div class="img">
-                    <img src="<?= $_ENV["imgUpload"] . $data["getNewTwoProduct"][0]["ImageProduct"] ?>" alt="<?= "ImageProduct" ?>">
+                    <img src="<?= $_ENV["imgUpload"] . $data["getNewTwoProduct"][0]["ImageProduct"] ?>"
+                        alt="<?= "ImageProduct" ?>">
                 </div>
                 <div class="content_intro1">
                     <h1> <?= $data["getNewTwoProduct"][0]["NameProduct"] ?> </h1>
@@ -43,7 +44,8 @@ if (isset($message) && !empty($message)) {
                         <?= $data["getNewTwoProduct"][0]["ProductDescription"] ?>
                     </p>
                     <div class="button_intro1">
-                        <a href='productDetails?id=<?= $data["getNewTwoProduct"][0]["IdProduct"] ?>' class='button_div'>
+                        <a href='productDetails?id=<?= $data["getNewTwoProduct"][0]["IdProduct"] ?>&name=<?= $data["getNewTwoProduct"][0]["NameProduct"] ?>'
+                            class='button_div'>
                             <button>Chi tiết sản phẩm</button>
                         </a>
                     </div>
@@ -60,13 +62,15 @@ if (isset($message) && !empty($message)) {
                         <?= $data["getNewTwoProduct"][1]["ProductDescription"] ?>
                     </p>
                     <div class="button_intro2">
-                        <a href='productDetails?id=<?= $data["getNewTwoProduct"][1]["IdProduct"] ?>' class='button_div'>
+                        <a href='productDetails?id=<?= $data["getNewTwoProduct"][1]["IdProduct"] ?>&name=<?= $data["getNewTwoProduct"][1]["NameProduct"] ?>'
+                            class='button_div'>
                             <button>Chi tiết sản phẩm</button>
                         </a>
                     </div>
                 </div>
                 <div class="img">
-                    <img src="<?= $_ENV["imgUpload"] . $data["getNewTwoProduct"][1]["ImageProduct"] ?>" alt="<?= "ImageProduct" ?>">
+                    <img src="<?= $_ENV["imgUpload"] . $data["getNewTwoProduct"][1]["ImageProduct"] ?>"
+                        alt="<?= "ImageProduct" ?>">
                 </div>
             </div>
         </div>
@@ -83,7 +87,7 @@ if (isset($message) && !empty($message)) {
                         <article class='description'>
                         <p>" . $itemProduct['ProductDetails'] . "</p>
                         </article>
-                        <a href='productDetails?id=" . $itemProduct['IdProduct'] . "' class='button_div'>
+                        <a href='productDetails?id=" . $itemProduct['IdProduct'] . "&name=" . $itemProduct['NameProduct'] . "' class='button_div'>
                             <button>Chi tiết sản phẩm</button>
                         </a>
                     </div>

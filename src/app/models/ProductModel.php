@@ -27,7 +27,7 @@ class ProductModel extends BaseModels
             $this->con_QueryReadAll($sql)
         );
     }
-    public function getNewProduct($quantity = null)
+    public function getProductQuantity($quantity = null)
     {
         $sql = " SELECT p.* FROM product p WHERE p.StatusProduct = 0 ORDER BY p.IdProduct DESC ";
         if ($quantity !== null) {
@@ -44,7 +44,7 @@ class ProductModel extends BaseModels
     }
     public function getProductByIdCategory($IdCategory, $offset, $quantity = 10)
     {
-        $sql = "SELECT *  FROM product where IdCategory  = $IdCategory order by IdCategory desc limit $quantity OFFSET $offset";
+        $sql = "SELECT *  FROM product where IdCategory  = $IdCategory AND StatusProduct !=1 order by IdCategory desc limit $quantity OFFSET $offset";
         return $this->con_return(
             $this->con_QueryReadAll($sql)
         );
@@ -58,7 +58,7 @@ class ProductModel extends BaseModels
             SELECT
             p.IdProduct, p.NameProduct, p.ImageProduct, p.ProductDetails
             FROM product p
-            WHERE   p.StatusProduct = 0 AND p.IdCategory = $idCategory AND
+            WHERE   p.StatusProduct !=1 0 AND p.IdCategory = $idCategory AND
             p.NameProduct LIKE '%$contentShearch%' 
             LIMIT $quantity OFFSET $offset;
         ")

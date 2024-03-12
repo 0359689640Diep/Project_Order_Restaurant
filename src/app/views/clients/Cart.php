@@ -30,7 +30,9 @@ if (isset($message) && !empty($message)) {
                     <?php
                     foreach ($dataCart as $valuesCart) : ?>
                         <tr>
-                            <td><input type="checkbox" name="IdSubCart[]" value=<?= $valuesCart["IdSubCart"] ?> class="rowCheckbox" data-quantity-id="<?= $valuesCart["IdSubCart"] ?>"></td>
+                            <td>
+                                <input type="checkbox" name="IdSubCart[]" value=<?= $valuesCart["IdSubCart"] ?> class="rowCheckbox" data-quantity-id="<?= $valuesCart["IdSubCart"] ?>">
+                            </td>
                             <td><img src="<?= $_ENV["imgUpload"] . $valuesCart["ImageSize"] ?>" alt="img"></td>
                             <td> <?= $valuesCart["NameProduct"] ?> </td>
                             <td> <?= $valuesCart["SizeDefault"] ?> </td>

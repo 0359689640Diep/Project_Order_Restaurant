@@ -15,7 +15,7 @@
                 </li>
                 <li> <a href="<?= $_ENV['basePath'] ?>bill">Lịch sử thanh toán</a> <i class="ti-angle-down"></i>
                 </li>
-                <li> <a href="<?= $_ENV['basePath'] ?>comment">Bình luận sản phẩm</a> <i class="ti-angle-down"></i>
+                <li> <a href="<?= $_ENV['basePath'] ?>comment">Đã đánh giá sản phẩm</a> <i class="ti-angle-down"></i>
                 </li>
             </ul>
         </section>

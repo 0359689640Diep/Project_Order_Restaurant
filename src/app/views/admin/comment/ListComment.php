@@ -22,7 +22,6 @@ if (isset($message) && !empty($message)) {
                 <th>Số bàn đã ngồi</th>
                 <th>Gmail </th>
                 <th>Ảnh khách hàng</th>
-                <th>Thời gian bình luận</th>
                 <th>Trạng thái</th>
                 <th>Chức năng</th>
             </tr>
@@ -31,29 +30,28 @@ if (isset($message) && !empty($message)) {
             if (isset($dataComment) && !empty($dataComment)) {
 
                 $StatusComment = [
-                    "0" => "Hoạt động",
-                    "1" => "Ẩn",
+                    "1" => "Hoạt động",
+                    "2" => "Ẩn",
                 ];
                 foreach ($dataComment as $value) : ?>
-                    <tr>
-                        <td><?= $value['Content'] ?></td>
-                        <td><?= $value['NameAccount'] ?></td>
-                        <td><?= $value['NumberTable'] ?></td>
-                        <td><?= $value['Gmail'] ?></td>
-                        <td>
-                            <img src='<?= $_ENV['imgUpload'] . $value['ImageAccounts'] ?>' alt=''>
-                        </td>
-                        <td><?= $value['DateEditComment'] ?></td>
-                        <td><?= select($value['StatusComment'], $StatusComment) ?></td>
-                        <td>
-                            <a href='<?= $_ENV['basePath'] ?>admin/comment/delete?id=<?= $value['IdComment'] ?>'>
-                                <button>Ẩn</button>
-                            </a>
-                            <a href='<?= $_ENV['basePath'] ?>admin/comment/restore?id=<?= $value['IdComment'] ?>'>
-                                <button>Khôi phục</button>
-                            </a>
-                        </td>
-                    </tr>
+            <tr>
+                <td><?= $value['Comment'] ?></td>
+                <td><?= $value['NameAccount'] ?></td>
+                <td><?= $value['NumberTables'] ?></td>
+                <td><?= $value['Gmail'] ?></td>
+                <td>
+                    <img src='<?= $_ENV['imgUpload'] . $value['ImageAccounts'] ?>' alt=''>
+                </td>
+                <td><?= select($value['StatusOrders'], $StatusComment) ?></td>
+                <td>
+                    <a href='<?= $_ENV['basePath'] ?>admin/comment/delete?id=<?= $value['IdSubOrders'] ?>'>
+                        <button>Ẩn</button>
+                    </a>
+                    <a href='<?= $_ENV['basePath'] ?>admin/comment/restore?id=<?= $value['IdSubOrders'] ?>'>
+                        <button>Khôi phục</button>
+                    </a>
+                </td>
+            </tr>
             <?php endforeach;
             } ?>
         </table>

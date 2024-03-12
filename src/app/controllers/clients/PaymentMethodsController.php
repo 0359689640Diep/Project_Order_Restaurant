@@ -72,6 +72,8 @@ class PaymentMethodsController extends BaseController
                 "NameSize" =>  $value["SizeDefault"],
                 "QuantitySubOrderProduct" =>  $value["QuantityCardProduct"],
                 "QuantitySubOrderSubProduct" =>  $value["QuantitySubCardProduct"],
+                "ImageProduct" =>  $value["ImageSize"],
+                "ImageSubProduct" =>  $value["ImageSubProduct"],
                 "StatusOrders" =>  0,
                 "Note" =>  $value["Note"]
             ];
@@ -80,7 +82,8 @@ class PaymentMethodsController extends BaseController
                 die;
             } else {
                 $status = true;
-                $this->modelCart->deleteProductInCart($value["IdSubCart"]);
+                $this->modelCart->deleteProductInCart($value["IdSubCart"], "subcard");
+                $this->modelCart->deleteProductInCart($value["IdCart"], "cart");
             }
         }
 

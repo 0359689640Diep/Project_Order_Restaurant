@@ -20,22 +20,29 @@ class CategoryController extends BaseController
     public function getProductByCategory()
     {
         if (isset($_GET['idCategory']) && !empty($_GET['idCategory'])) {
+            $idCategory = $_GET['idCategory'];
             $offset = isset($_GET['page']) && !empty($_GET['page']) ? $_GET['page'] : 0;
             if ($_SERVER['REQUEST_METHOD'] === "POST") {
                 $this->data = [
-                    'dataProduct' => $this->modelProduct->getProductAsRequested($_POST, $_GET['idCategory'], $offset),
+                    'dataProduct' => $this->modelProduct->getProductAsRequested($_POST, $idCategory, $offset),
                 ];
             } else {
                 $this->data = [
-                    'dataProduct' => $this->modelProduct->getProductByIdCategory($_GET['idCategory'], $offset),
+                    'dataProduct' => $this->modelProduct->getProductByIdCategory($idCategory, $offset),
                 ];
             }
             $this->data += [
                 "Category" => $this->modelCategory->getCategory("StatusCategory", 0),
                 "quanlityProduct" => $this->modelProduct->getQuanlityProduct()
             ];
-
-
+            $this->loadView("clients/Categorys.php", $this->data);
+        } else {
+            $this->data += [
+                "Category" => $this->modelCategory->getCategory("StatusCategory", 0),
+                "quanlityProduct" => $this->modelProduct->getQuanlityProduct(),
+                'dataProduct' => $this->modelProduct->getProductQuantity(10)
+            ];
+            // test($this->data);
             $this->loadView("clients/Categorys.php", $this->data);
         }
     }
