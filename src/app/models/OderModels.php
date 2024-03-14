@@ -31,6 +31,7 @@ class OderModels extends BaseModels
 
     public function createOrder($data, $tableName = "orders")
     {
+
         $this->tableName = $tableName;
         return $this->con_return($this->con_insert($data));
     }
@@ -103,9 +104,10 @@ class OderModels extends BaseModels
             JOIN account ac ON ac.IdAccount  = o.IdAccount  
             WHERE o.PaymentMethod != 0
         ";
-        if ($column !== null && $request !== null && $StatusOrders = NULL) {
-            $sql += " AND $column = $request AND StatusOrders = $StatusOrders ";
+        if ($column !== NULL && $request !== NULL && $StatusOrders !== NULL) {
+            $sql .= " AND $column = '$request' AND so.StatusOrders = '$StatusOrders' ";
         }
+
         return $this->con_return($this->con_QueryReadAll($sql));
     }
 }

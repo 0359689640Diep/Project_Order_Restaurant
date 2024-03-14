@@ -8,16 +8,20 @@ use App\src\app\models\TablesModels;
 use App\src\app\controllers\BaseController;
 use App\src\app\controllers\SendGmail;
 use App\src\app\models\OderModels;
+use App\src\app\models\ProductModel;
+use App\src\app\models\SubProductModels;
 
 class PaymentMethodsController extends BaseController
 {
-    private $modelCategory, $modelCart, $modelTable, $modelOrder, $sendEmail;
+    private $modelCategory, $modelCart, $modelTable, $modelOrder, $modelProduct, $modelSubProduct, $sendEmail;
     public function __construct()
     {
         $this->modelCategory = new CategoryModels;
         $this->modelCart = new CartModels;
         $this->modelTable = new TablesModels;
         $this->modelOrder = new OderModels;
+        $this->modelProduct = new ProductModel;
+        $this->modelSubProduct = new SubProductModels;
         $this->sendEmail = new SendGmail;
     }
 
@@ -48,6 +52,7 @@ class PaymentMethodsController extends BaseController
     public function postClientMethodOnline()
     {
         extract($_SESSION["dataPayment"]);
+
         $status = "";
         $dataOrder = [
             "IdAccount" =>  $_SESSION["KH"]["IdAccount"],
@@ -58,7 +63,6 @@ class PaymentMethodsController extends BaseController
             "StatusOrders" =>  1,
             "OrderDate" =>  $dataTables["timeBooking"],
         ];
-
         $idOrder = $this->modelOrder->createOrderLastId($dataOrder);
 
         foreach ($dataCart as $value) {
@@ -68,22 +72,36 @@ class PaymentMethodsController extends BaseController
                 "NameSubProduct" =>  $value["NameSubProduct"],
                 "NameProduct" =>  $value["NameProduct"],
                 "PriceProduct" =>  $value["PriceSize"],
-                "PriceSubProduct" =>  $value["PriceSubProduct"],
+                "PriceSubProduct" =>  NULL,
                 "NameSize" =>  $value["SizeDefault"],
                 "QuantitySubOrderProduct" =>  $value["QuantityCardProduct"],
-                "QuantitySubOrderSubProduct" =>  $value["QuantitySubCardProduct"],
+                "QuantitySubOrderSubProduct" =>  NULL,
                 "ImageProduct" =>  $value["ImageSize"],
-                "ImageSubProduct" =>  $value["ImageSubProduct"],
+                "ImageSubProduct" =>  NULL,
                 "StatusOrders" =>  0,
                 "Note" =>  $value["Note"]
             ];
+            if (isset($value["PriceSubProduct"]) && !empty($value["PriceSubProduct"])) {
+                $dataSubOrder["PriceSubProduct"] = $value["PriceSubProduct"];
+                $dataSubOrder["QuantitySubOrderSubProduct"] =  $value["QuantitySubCardProduct"];
+                $dataSubOrder["ImageSubProduct"] =  $value["ImageSubProduct"];
+            }
+
             if ($this->modelOrder->createOrder($dataSubOrder, "suborders") !== true) {
                 $status = false;
                 die;
             } else {
-                $status = true;
+                $dataId = $this->modelCart->getIdProduct($value["IdSubCart"]);
+                $idProduct = $dataId["IdProduct"];
+                $quantityCardProduct = $value["QuantityCardProduct"];
+
+                $this->modelProduct->updateQuantityProduct($quantityCardProduct, $idProduct);
+                if ($dataId["IdSubProduct"] !== NULL) {
+                    $this->modelSubProduct->updateQuantilySubProduct($value["QuantitySubCardProduct"], $dataId["IdSubProduct"]);
+                }
                 $this->modelCart->deleteProductInCart($value["IdSubCart"], "subcard");
                 $this->modelCart->deleteProductInCart($value["IdCart"], "cart");
+                $status = true;
             }
         }
 
@@ -93,7 +111,8 @@ class PaymentMethodsController extends BaseController
             // còn thiếu gửi về cho khách hàng danh sách món ăn và giá, thời gian, số bàn....
             $contentGmail = "Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi, </br> Mã order của bạn là: $idOrder";
             $this->sendEmail->SendGmailConfirmation($_SESSION["KH"]["Gmail"], $_SESSION["KH"]["NameAccount"], $titleGmail, $contentGmail);
-            header("location: bill");
+            $this->unsetSection("dataCart");
+            $this->unsetSection("dataTables", "bill");
         } else {
             $this->data = ["message" => "Hệ thống đang bảo trì"];
         }

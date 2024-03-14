@@ -16,7 +16,9 @@ include_once $_ENV['header_Path'];
         </div>
     </div>
     <div class="timkiem">
-        <form action="<?= $_ENV["basePath"] ?>categorys<?= isset($_GET['idCategory']) && !empty($_GET['idCategory']) ? "?idCategory=" . $_GET['idCategory'] : "" ?>" method="post">
+        <form
+            action="<?= $_ENV["basePath"] ?>categorys<?= isset($_GET['idCategory']) && !empty($_GET['idCategory']) ? "?idCategory=" . $_GET['idCategory'] : "" ?>"
+            method="post">
 
             <input type="search" placeholder="Tìm kiếm theo từ khóa" name="contentShearch">
             <select name="" id="category">
@@ -40,7 +42,7 @@ include_once $_ENV['header_Path'];
 
                         <!-- Mô tả chính -->
                         <p>{$valueProducts['ProductDetails']}</p>
-                        <a href='productDetails?id={$valueProducts['IdProduct']}' class='button_div'>
+                        <a href='productDetails?id={$valueProducts['IdProduct']}&name={$valueProducts['NameProduct']}' class='button_div'>
                             <button>Chi Tiết Sản Phẩm</button>
                         </a>
                     </div>

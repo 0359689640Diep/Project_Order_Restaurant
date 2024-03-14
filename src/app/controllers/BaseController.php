@@ -92,14 +92,14 @@ class BaseController
     protected function getDateNow()
     {
         $dataTime = new DateTime('now', new DateTimeZone("Asia/Ho_Chi_Minh"));
-        return $dataTime->format('Y-m-d\TH:i');
+        return $dataTime->format('Y-m-d H:i:s');
     }
-    public function unsetSection($name)
+    public function unsetSection($name, $from = null)
     {
         unset($_SESSION[$name]);
-        if (!isset($_SESSION[$name])) {
+        if (!isset($_SESSION[$name]) && $from !== null) {
             ob_clean();
-            header("location: " . $_ENV['baseUrl']);
+            header("location: " . $from);
             exit();
         }
     }

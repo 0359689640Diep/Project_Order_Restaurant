@@ -9,8 +9,6 @@ use App\src\app\Models\ProductModel;
 use App\src\app\Models\CategoryModels;
 use App\src\app\Models\TablesModels;
 use App\src\app\Models\OderModels;
-use DateTime;
-use DateTimeZone;
 
 class HomeController extends BaseController
 {
@@ -24,8 +22,6 @@ class HomeController extends BaseController
         $this->modelOder = new OderModels;
         $this->controlerValidate = new Validate;
         $this->controlerSendGmail = new SendGmail;
-        $this->autoOrder(1);
-        $this->autoOrder(2);
     }
     public function bookingTable()
     {
@@ -94,22 +90,5 @@ class HomeController extends BaseController
             "MaxNumberPeopleTables" => $this->modelTables->getMaxNumberPeopleTables(),
         ];
         $this->loadView("clients\Home.php", $this->data);
-    }
-    // tác dụng dùng để kiểm tra và update trạng thái sản phẩm khi gần đến giờ khách hàng sử dụng
-    public function autoOrder($status)
-    {
-        $timeReal = $this->getDateNow();
-        $dataOrder = $this->modelOder->findOrder("StatusOrders", $status);
-        foreach ($dataOrder as $value) {
-            $timeBeforeOrder = strtotime($value['OrderDate']) + ($status === 2 ? (30 * 60) : (60 * 60));
-            if (strtotime($timeReal) <= $timeBeforeOrder) {
-
-                $newStatus = ($status === 2) ? 9 : 8;
-                $result = $this->modelOder->updateOrder("IdOrder", $value["IdOrder"], ["StatusOrders" => $newStatus]);
-                if ($result !== true) {
-                    //  404
-                }
-            }
-        }
     }
 }

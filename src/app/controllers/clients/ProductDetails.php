@@ -12,7 +12,6 @@ use App\src\app\Models\ProductDetailsModels;
 
 class ProductDetails extends BaseController
 {
-    public $data = [];
     private $modelProduct;
     private $modelSize;
     private $OderModels;
@@ -35,30 +34,20 @@ class ProductDetails extends BaseController
             $data = [
                 "IdAccount" => $dataAuthor["IdAccount"],
                 "IdProduct" => $_GET["id"],
-                "IdSizeDefault" => $_POST["SizeProduct"],
+                "IdSize" => $_POST["IdSize"],
                 "QuantityCardProduct" => $_POST["Quantity"],
                 "price" => $_POST["price"],
                 "message" => "",
             ];
 
-            if (isset($_POST["pay_now"])) {
-                $_SESSION["cart_pay_now"] = $data;
-                header("Location: /payNow");
-            } else {
-                $addToCartResult = $this->modelProductDetails->AddToCart($data);
-                $this->data["message"] = $addToCartResult  === true ? "Thêm giỏ hàng thành công" : $addToCartResult;
-            }
-
-            $this->index($this->data);
+            $addToCartResult = $this->modelProductDetails->AddToCart($data);
+            $this->data["message"] = $addToCartResult  === true ? "Thêm giỏ hàng thành công" : $addToCartResult;
+            $this->index();
         }
     }
 
-    public function index($data = [])
+    public function index()
     {
-        // Kiểm tra xem $data là mảng và có dữ liệu không
-        if (is_array($data) && !empty($data)) {
-            $this->data = $data;
-        }
 
         $Id = $this->checkParam('id', "404");
         $nameProduct = $this->checkParam('name', "404");

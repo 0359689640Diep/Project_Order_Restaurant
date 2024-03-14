@@ -35,7 +35,13 @@ class SubProductModels extends BaseModels
     {
         return $this->con_return($this->con_insert($data));
     }
-
+    public function updateQuantilySubProduct($QuantilySubProduct, $IdSubProduct)
+    {
+        return $this->con_return($this->con_QueryRUD(
+            'UPDATE subproduct SET QuantilySubProduct = QuantilySubProduct -  :QuantilySubProduct WHERE IdSubProduct = :IdSubProduct',
+            ["QuantilySubProduct" => $QuantilySubProduct, "IdSubProduct" => $IdSubProduct]
+        ));
+    }
     public function updateSubProductById($id, $data)
     {
         return $this->con_return($this->con_update("IdSubProduct", $id, $data));

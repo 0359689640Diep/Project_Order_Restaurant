@@ -29,30 +29,36 @@ if (isset($message) && !empty($message)) {
                     </tr>
                     <?php
                     foreach ($dataCart as $valuesCart) : ?>
-                        <tr>
-                            <td>
-                                <input type="checkbox" name="IdSubCart[]" value=<?= $valuesCart["IdSubCart"] ?> class="rowCheckbox" data-quantity-id="<?= $valuesCart["IdSubCart"] ?>">
-                            </td>
-                            <td><img src="<?= $_ENV["imgUpload"] . $valuesCart["ImageSize"] ?>" alt="img"></td>
-                            <td> <?= $valuesCart["NameProduct"] ?> </td>
-                            <td> <?= $valuesCart["SizeDefault"] ?> </td>
-                            <td> <?= $valuesCart["PriceSize"] ?> </td>
-                            <td>
-                                <input type="number" name="quantity[<?= $valuesCart["IdSubCart"] ?>]" min="1" max=<?= $valuesCart["QuantityProduct"] ?> value="<?= $valuesCart['QuantityCardProduct'] ?>" id="quantity<?= $valuesCart['IdSubCart'] ?>">
-                            </td>
-                            <td>
-                                <input type="text" autofocus name="note[<?= $valuesCart["IdSubCart"] ?>]" id="note<?= $valuesCart['IdSubCart'] ?>" value="<?= $valuesCart['Note'] ?>">
-                            </td>
-                            <td>
-                                <a href=" <?= $_ENV['basePath'] . 'cart?delete=' . $valuesCart['IdCart'] ?>">
-                                    <i class="ti-trash"></i>
-                                </a>
-                                <a href="<?= $_ENV['basePath'] . 'getSubProduct?IdProduct=' . $valuesCart['IdProduct'] . '&IdSubCart=' . $valuesCart['IdSubCart'] ?>">
-                                    <i class="ti-pencil-alt"></i>
-                                </a>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="IdSubCart[]" value=<?= $valuesCart["IdSubCart"] ?>
+                                class="rowCheckbox" data-quantity-id="<?= $valuesCart["IdSubCart"] ?>">
+                        </td>
+                        <td><img src="<?= $_ENV["imgUpload"] . $valuesCart["ImageSize"] ?>" alt="img"></td>
+                        <td> <?= $valuesCart["NameProduct"] ?> </td>
+                        <td> <?= $valuesCart["SizeDefault"] ?> </td>
+                        <td> <?= $valuesCart["PriceSize"] ?> </td>
+                        <td>
+                            <input type="number" name="quantity[<?= $valuesCart["IdSubCart"] ?>]" min="1"
+                                max=<?= $valuesCart["QuantityProduct"] ?>
+                                value="<?= $valuesCart['QuantityCardProduct'] ?>"
+                                id="quantity<?= $valuesCart['IdSubCart'] ?>">
+                        </td>
+                        <td>
+                            <input type="text" autofocus name="note[<?= $valuesCart["IdSubCart"] ?>]"
+                                id="note<?= $valuesCart['IdSubCart'] ?>" value="<?= $valuesCart['Note'] ?>">
+                        </td>
+                        <td>
+                            <a href=" <?= $_ENV['basePath'] . 'cart?delete=' . $valuesCart['IdSubCart'] ?>">
+                                <i class="ti-trash"></i>
+                            </a>
+                            <a
+                                href="<?= $_ENV['basePath'] . 'getSubProduct?IdProduct=' . $valuesCart['IdProduct'] . '&IdSubCart=' . $valuesCart['IdSubCart'] ?>">
+                                <i class="ti-pencil-alt"></i>
+                            </a>
 
-                            </td>
-                        </tr>
+                        </td>
+                    </tr>
                     <?php endforeach; ?>
                 </table>
             </section>

@@ -16,10 +16,10 @@ class ProductDetailsModels
         extract($RetultCart);
         if ($status === 200) {
             return BaseModels::con_return(
-                BaseModels::con_QueryRUD("INSERT INTO subcard (IdSubCart, IdCart, IdSubProduct , IdProduct, IdSizeDefault, QuantityCardProduct, QuantitySubCardProduct, Note) VALUES(null, :IdCart, null, :IdProduct, :IdSizeDefault, :QuantityCardProduct, null, null)", array(
+                BaseModels::con_QueryRUD("INSERT INTO subcard (IdSubCart, IdCart, IdSubProduct , IdProduct, IdSize, QuantityCardProduct, QuantitySubCardProduct, Note) VALUES(null, :IdCart, null, :IdProduct, :IdSize, :QuantityCardProduct, null, null)", array(
                     'IdCart' => $message,
                     'IdProduct' => $IdProduct,
-                    'IdSizeDefault' => $IdSizeDefault,
+                    'IdSize' => $IdSize,
                     'QuantityCardProduct' => $QuantityCardProduct
                 ))
             );

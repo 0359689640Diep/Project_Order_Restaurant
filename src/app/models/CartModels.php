@@ -33,6 +33,12 @@ class CartModels extends BaseModels
         );
     }
 
+    public function getIdProduct($IdSubCart)
+    {
+        $this->tableName = "subcard";
+        return $this->con_return($this->con_QueryReadOne($this->con_find("IdSubCart", $IdSubCart, ["IdProduct", "IdSubProduct"])->sqlBuilder));
+    }
+
     public function getAllCart($IdAccount)
     {
         return $this->con_return(
@@ -44,7 +50,7 @@ class CartModels extends BaseModels
                     sd.SizeDefault,
                     p.NameProduct, p.QuantityProduct,
                     sp.IdSubProduct, sp.NameSubProduct, sp.PriceSubProduct, sp.QuantilySubProduct, sp.ImageSubProduct 
-                FROM $this->tableName c
+                FROM cart c
                 JOIN {$this->subTableName[0]} sc ON sc.IdCart = c.IdCart
                 JOIN {$this->subTableName[1]} s ON sc.IdSize = s.IdSize 
                 JOIN {$this->subTableName[2]} sd ON sd.IdSizeDefault = s.IdSizeDefault  
@@ -52,7 +58,6 @@ class CartModels extends BaseModels
                 LEFT JOIN {$this->subTableName[4]} sp ON sp.IdSubProduct = sc.IdSubProduct 
                 AND sc.IdSubProduct IS NOT NULL
                 WHERE c.IdAccount = '$IdAccount'
-
             ")
         );
     }
@@ -145,9 +150,6 @@ class CartModels extends BaseModels
         }
     }
 
-    public function deleteCart($id)
-    {
-    }
 
     public function addSubProductInCart($id, $data)
     {

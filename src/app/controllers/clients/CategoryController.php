@@ -42,7 +42,6 @@ class CategoryController extends BaseController
                 "quanlityProduct" => $this->modelProduct->getQuanlityProduct(),
                 'dataProduct' => $this->modelProduct->getProductQuantity(10)
             ];
-            // test($this->data);
             $this->loadView("clients/Categorys.php", $this->data);
         }
     }

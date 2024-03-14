@@ -63,6 +63,7 @@ class CartController extends BaseController
         }
 
         if (isset($_GET['delete']) && !empty($_GET['delete'])) {
+
             $this->data["message"] = $this->modelCart->deleteProductInCart($_GET['delete'], "subcard")["message"];
         }
         if (isset($_GET['more']) && !empty($_GET['more'])) {

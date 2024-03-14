@@ -18,7 +18,7 @@ class PersonalPageController extends BaseController
     }
     public function deleteSection()
     {
-        $this->unsetSection("KH");
+        $this->unsetSection("KH", $_ENV['basePath']);
     }
     public function updatePersonal()
     {

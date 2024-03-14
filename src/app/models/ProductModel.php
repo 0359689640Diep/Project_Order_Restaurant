@@ -27,6 +27,14 @@ class ProductModel extends BaseModels
             $this->con_QueryReadAll($sql)
         );
     }
+    public function updateQuantityProduct($QuantityProduct, $IdProduct)
+    {
+        return $this->con_return($this->con_QueryRUD(
+            'UPDATE product SET QuantityProduct = QuantityProduct - :QuantityProduct WHERE IdProduct = :IdProduct',
+            ['QuantityProduct' => $QuantityProduct, 'IdProduct' => $IdProduct]
+        ));
+    }
+
     public function getProductQuantity($quantity = null)
     {
         $sql = " SELECT p.* FROM product p WHERE p.StatusProduct = 0 ORDER BY p.IdProduct DESC ";

@@ -17,7 +17,8 @@ if (isset($message) && !empty($message)) {
         <div class="anh">
             <img src="<?= $_ENV["imgUpload"] ?>" id="sizeImage" height="100%">
         </div>
-        <form action="<?= $_ENV["basePath"] ?>productDetails?id=<?= $_GET['id'] ?>" method="post" class="content">
+        <form action="<?= $_ENV["basePath"] ?>productDetails?id=<?= $_GET['id'] ?>&name=<?= $_GET['name'] ?>"
+            method="post" class="content">
             <h1><?= $ProductById['NameProduct'] ?></h1>
             <div class="hr"></div>
             <ul>
@@ -40,10 +41,10 @@ if (isset($message) && !empty($message)) {
                 <div class="tanggiam">
                     <p>Size&nbsp;&nbsp;</p>
 
-                    <select name="SizeProduct" id="selectSize">
+                    <select name="IdSize" id="selectSize">
                         <option value="" id="optionSizeDefault"></option>
                         <?php foreach ($ListSizeByIdProduct as $i) : ?>
-                        <option value="<?= $i['IdSizeDefault'] ?>">
+                        <option value="<?= $i['IdSize'] ?>">
                             <?= $i['SizeDefault'] ?>
                         </option>
                         <?php endforeach ?>
@@ -52,7 +53,6 @@ if (isset($message) && !empty($message)) {
                 </div>
             </div>
             <button class="order" type="submit" name="add_to_cart">Thêm Giỏ Hàng</button>
-            <button class="order" type="submit" name="pay_now">Mua Ngay</button>
         </form>
     </div>
     <div class="list">
@@ -80,7 +80,7 @@ if (isset($message) && !empty($message)) {
         foreach ($AllProduct as $valuesPro) {
             echo "
                 <div class='pro'>
-                    <a href='productDetails?id={$valuesPro['IdProduct']}'>
+                    <a href='productDetails?id={$valuesPro['IdProduct']}&name={$valuesPro['NameProduct']}'>
                         <div class='img' style='height:230px'>
                             <img src='{$_ENV["imgUpload"]}{$valuesPro['ImageProduct']}' alt='{$valuesPro['ImageProduct']}'>
                         </div>
@@ -99,7 +99,7 @@ if (isset($message) && !empty($message)) {
                 <?php
                 foreach ($Top3ProductById as $valuesTop) {
                     echo "
-                        <a href='productDetails?id={$valuesTop['IdProduct']}' class='item'>
+                        <a href='productDetails?id={$valuesTop['IdProduct']}&name={$valuesTop['NameProduct']}' class='item'>
                             <img src='{$_ENV["imgUpload"]}{$valuesTop['ImageProduct']}' alt='{$valuesTop['ImageProduct']}'>
                             <p>{$valuesTop['NameProduct']}</p>
                         </a>
