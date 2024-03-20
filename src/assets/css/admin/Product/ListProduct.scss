@@ -28,3 +28,14 @@
 
     @include table;
 }
+#printOrder{
+    width: 93px;
+    height: 40px;
+    margin: 10px;
+    
+    @include borderRadius;
+}
+
+#printOrder:hover{
+   @include buttonHover; 
+}

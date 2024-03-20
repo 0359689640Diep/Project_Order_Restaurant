@@ -44,14 +44,7 @@
             <i class="ti-angle-down"></i>
         </article>
         <article class="itemMain">
-            <a href="<?= $_ENV['basePath'] ?>admin/">Add Product</a>
-            <a href="<?= $_ENV['basePath'] ?>admin/">Add Product</a>
-            <a href="<?= $_ENV['basePath'] ?>admin/">Add Product</a>
-            <a href="<?= $_ENV['basePath'] ?>admin/">Add Product</a>
-            <a href="<?= $_ENV['basePath'] ?>admin/">Add Product</a>
-            <a href="<?= $_ENV['basePath'] ?>admin/">Add Product</a>
-            <a href="<?= $_ENV['basePath'] ?>admin/">Add Product</a>
-            <a href="<?= $_ENV['basePath'] ?>admin/">Add Product</a>
+            <a href="<?= $_ENV['basePath'] ?>admin/order">Danh sách</a>
         </article>
 
     </section>

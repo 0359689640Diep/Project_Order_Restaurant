@@ -87,4 +87,22 @@ html {
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
+}
+
+#printOrder {
+  width: 93px;
+  height: 40px;
+  margin: 10px;
+  border-radius: 100px;
+  border: none;
+  background-color: #F7B829;
+  color: #0a101e;
+  font-weight: 650;
+}
+
+#printOrder:hover {
+  cursor: pointer;
+  transition: 0.1s linear;
+  background: #F7C427;
+  color: #FFFFFF;
 }/*# sourceMappingURL=ListProduct.css.map */

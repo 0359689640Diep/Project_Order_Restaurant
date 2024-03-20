@@ -14,5 +14,6 @@ class AdminRouter
         new CategoryRouter;
         new SizeRouter;
         new CommentRouter;
+        new OrderRouter;
     }
 }

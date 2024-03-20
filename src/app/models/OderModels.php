@@ -12,6 +12,15 @@ class OderModels extends BaseModels
         $this->tableName = "orders";
     }
 
+    public function getAllOrderAndAccount()
+    {
+        return $this->con_return($this->con_QueryReadAll("
+            SELECT ord.*, ac.NameAccount, ac.Gmail, ac.ImageAccounts FROM orders ord 
+            JOIN account ac ON ac.IdAccount = ord.IdAccount
+            ORDER BY ord.OrderDate ASC
+        "));
+    }
+
     public function getALLOrderByIdAccount($idAccount)
     {
         return $this->con_return($this->con_QueryReadAll("
