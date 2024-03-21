@@ -2,7 +2,7 @@
 
 namespace App\src\app\routers\clients;
 
-use App\src\app\controllers\clients\PersonalPageController;
+use App\src\app\controllers\clients\eat_online\PersonalPageController;
 use App\src\app\routers\Router;
 
 class PersonalPageRouter

@@ -1,0 +1,128 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+html {
+  font-size: 14px;
+}
+
+.datban {
+  width: 1470px;
+  margin: 0 auto;
+  background-image: url("../../../img/html/snapedit_1701874861222.png");
+  padding: 50px 0;
+  height: 730px;
+  padding: 2% 5%;
+}
+.datban .headerchooseTable {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.datban .headerchooseTable h1 {
+  color: #FFFFFF;
+  font-size: 2.2rem;
+}
+.datban .containerTable {
+  width: 100%;
+  height: 90%;
+  display: flex;
+  justify-content: space-between;
+}
+.datban .containerTable .listTable {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: start;
+  flex-wrap: wrap;
+  overflow-x: auto;
+  justify-content: space-around;
+  align-content: flex-start;
+  z-index: 9999999;
+  margin-top: 5%;
+}
+.datban .containerTable .listTable .contentTable {
+  width: 38%;
+  height: 10%;
+  margin: 2% 0;
+  display: flex;
+  color: #FFFFFF;
+  border-radius: 10px;
+  background-color: #30CA73;
+  align-items: center;
+  justify-content: space-around;
+}
+.datban .containerTable .listTable .contentTable input {
+  width: 100%;
+  height: 100%;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: transparent;
+}
+.datban .containerTable .listTable .contentTable input:-webkit-autofill,
+.datban .containerTable .listTable .contentTable input:-webkit-autofill:hover,
+.datban .containerTable .listTable .contentTable input:-webkit-autofill:focus,
+.datban .containerTable .listTable .contentTable input:-webkit-autofill:active {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #FFFFFF;
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
+  box-shadow: inset 0 0 20px 20px transparent;
+}
+.datban .containerTable .listTable .contentTable span {
+  font-size: 1.2rem;
+}
+.datban .containerTable .listTable .contentTable:hover {
+  cursor: pointer;
+}
+.datban .containerTable .timeBooking {
+  width: 45%;
+  height: 50%;
+  z-index: 9999999;
+  margin-top: 5%;
+  padding: 0 5%;
+}
+.datban .containerTable .timeBooking input, .datban .containerTable .timeBooking select {
+  width: 100%;
+  height: 20%;
+  text-align: center;
+  font-size: 1rem;
+  background-color: #30CA73;
+  color: #FFFFFF;
+  margin: 5% 0;
+  border: none;
+  outline: none;
+}
+.datban .containerTable .timeBooking input:focus, .datban .containerTable .timeBooking select:focus {
+  outline: none;
+}
+.datban .containerTable .timeBooking .footer {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 5%;
+}
+.datban .containerTable .timeBooking .footer button {
+  width: 100%;
+  height: 100%;
+  font-size: 1.5rem;
+  background-color: #393939;
+  color: #FFFFFF;
+  border: none;
+  outline: none;
+  transition: 1s linear;
+}
+.datban .containerTable .timeBooking .footer button:hover {
+  background-color: #585353;
+  color: #FFFFFF;
+  transition: 1s linear;
+  border-radius: 10px;
+  cursor: pointer;
+}/*# sourceMappingURL=ChooseTable.css.map */

@@ -1,0 +1,432 @@
+@charset "UTF-8";
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+html {
+  font-size: 14px;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+.home {
+  margin: 0 auto;
+  max-width: 1470px;
+}
+.home .banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../../../img/html/snapedit_1701874861222.png");
+  height: 700px;
+  border-bottom: 1px solid white;
+}
+.home .banner .content_banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.home .banner .content_banner hr {
+  width: 100%;
+}
+.home .banner .content_banner > p {
+  margin: 10px 0;
+  font-size: 23px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.home .banner .content_banner h1 {
+  font-size: 70px;
+  color: #f7c427;
+}
+.home .banner .content_banner .p_phu p {
+  margin: 20px 0;
+  color: white;
+  font-size: 25px;
+  text-align: center;
+}
+.home .banner .content_banner button {
+  margin-top: 20px;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 15px;
+  border: none;
+  background: #f7c427;
+  border-radius: 5%;
+  font-size: 17px;
+  text-transform: uppercase;
+  color: black;
+  transition: background 5s;
+}
+.home .banner .content_banner button:hover {
+  background: linear-gradient(265deg, #f7c427 27.42%, #ca0910 97.16%);
+}
+.home .banner .content_banner .footer_banner {
+  border-radius: 50%;
+  background-color: #282828;
+  z-index: 100;
+  position: relative;
+  top: 190px;
+  width: 50px;
+}
+.home .content {
+  padding-top: 80px;
+  background-image: url("../../../img/html/snapedit_1701874861222.png");
+  background-size: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding-bottom: 65px;
+}
+.home .content > h1 {
+  text-align: center;
+  font-size: 60px;
+  color: #f7c427;
+  margin-bottom: 40px;
+}
+.home .content .intro {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.home .content .intro .intro1 {
+  width: 85%;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(40, 40, 40, 0.8);
+  padding: 10px;
+  border-radius: 30px;
+  height: 500px;
+}
+.home .content .intro .intro1 .img {
+  width: 800px;
+  overflow: hidden;
+}
+.home .content .intro .intro1 .img img {
+  border-radius: 20px;
+  width: 100%;
+  height: 100%; /* Đảm bảo chiều cao bằng 100% của khối .img */
+  -o-object-fit: cover;
+     object-fit: cover; /* Cắt ảnh để nó vừa với kích thước của khối .img */
+  -o-object-position: center;
+     object-position: center; /* Đưa ảnh ra giữa khối .img */
+}
+.home .content .intro .intro1 .content_intro1 {
+  width: 100%;
+  margin-left: 60px;
+  flex-direction: column;
+}
+.home .content .intro .intro1 .content_intro1 h1 {
+  font-size: 60px;
+  color: #f7c427;
+  margin-bottom: 20px;
+}
+.home .content .intro .intro1 .content_intro1 p {
+  margin: 10px 0;
+  color: white;
+  width: 95%;
+  font-size: 35px;
+}
+.home .content .intro .intro1 .content_intro1 .button_intro1 {
+  margin-top: 20px;
+}
+.home .content .intro .intro1 .content_intro1 .button_intro1 button {
+  margin-right: 15px;
+  background-color: #f7c427;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 10px;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 15px;
+  transition: background-color 1s;
+}
+.home .content .intro .intro1 .content_intro1 .button_intro1 button:hover {
+  background-color: white;
+}
+.home .content .intro .intro2 {
+  width: 85%;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(40, 40, 40, 0.8);
+  padding: 10px;
+  border-radius: 30px;
+  margin-top: 30px;
+  height: 500px;
+}
+.home .content .intro .intro2 .img {
+  width: 800px;
+  overflow: hidden;
+}
+.home .content .intro .intro2 .img img {
+  border-radius: 20px;
+  width: 100%;
+  height: 100%; /* Đảm bảo chiều cao bằng 100% của khối .img */
+  -o-object-fit: cover;
+     object-fit: cover; /* Cắt ảnh để nó vừa với kích thước của khối .img */
+  -o-object-position: center;
+     object-position: center; /* Đưa ảnh ra giữa khối .img */
+}
+.home .content .intro .intro2 .content_intro2 {
+  width: 100%;
+  margin-left: 20px;
+  flex-direction: column;
+}
+.home .content .intro .intro2 .content_intro2 h1 {
+  font-size: 60px;
+  color: #f7c427;
+  margin-bottom: 20px;
+}
+.home .content .intro .intro2 .content_intro2 p {
+  margin: 10px 0;
+  color: white;
+  width: 95%;
+  font-size: 35px;
+}
+.home .content .intro .intro2 .content_intro2 .button_intro2 {
+  margin-top: 20px;
+}
+.home .content .intro .intro2 .content_intro2 .button_intro2 button {
+  margin-right: 15px;
+  background-color: #f7c427;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 10px;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 15px;
+  transition: background-color 1s;
+}
+.home .content .intro .intro2 .content_intro2 .button_intro2 button:hover {
+  background-color: white;
+}
+.home .content .three_icon_div {
+  background-image: none;
+  margin: 0 auto;
+  margin-top: 80px;
+  height: 500px;
+  display: flex;
+  width: 1200px;
+}
+.home .content .three_icon_div > img {
+  width: 50%;
+  border-radius: 5px;
+}
+.home .content .three_icon_div .content_certificate {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.home .content .three_icon_div .content_certificate > h1 {
+  text-align: center;
+  font-size: 60px;
+  margin-bottom: 40px;
+  color: #f7c427;
+}
+.home .content .three_icon_div .content_certificate .certificate {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.home .content .three_icon_div .content_certificate .certificate .content {
+  margin: 0 10px;
+  width: 27.5%;
+  background-image: none;
+  height: -moz-fit-content;
+  height: fit-content;
+  text-align: center;
+  padding: 15px 10px;
+  border: 1px solid white;
+  border-radius: 20px;
+}
+.home .content .three_icon_div .content_certificate .certificate .content img {
+  width: 80%;
+}
+.home .content .three_icon_div .content_certificate .certificate .content h2 {
+  margin-top: 25px;
+  color: white;
+  margin-bottom: 5px;
+}
+.home .content .three_icon_div .content_certificate .certificate .content p {
+  color: #a7aca1;
+}
+.home .content .three_icon_div .content_certificate .certificate .content:hover {
+  background-color: #f7c427;
+  border-color: transparent;
+}
+.home .content .three_icon_div .content_certificate .certificate .content:hover p {
+  color: white;
+}
+.home .content .Slideshow_Product {
+  display: flex;
+  width: 85%;
+  margin: 0 auto;
+  background-color: #969595;
+  height: 400px;
+  background-repeat: no-repeat;
+  background-image: none;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px;
+}
+.home .content .Slideshow_Product .content_pro {
+  background-color: white;
+  width: 250px;
+  border-radius: 15px;
+  height: 350px;
+  position: absolute;
+  transition: transform 0.5s ease-in-out;
+  margin-left: 25px;
+}
+.home .content .Slideshow_Product .content_pro h1 {
+  margin-bottom: 4px;
+  padding-left: 10px;
+}
+.home .content .Slideshow_Product .content_pro .description {
+  height: 60px;
+  overflow-x: auto;
+  padding-left: 10px;
+}
+.home .content .Slideshow_Product .content_pro h3 {
+  text-decoration: underline;
+  padding-left: 10px;
+  font-weight: normal;
+  margin: 5px 0;
+}
+.home .content .Slideshow_Product .content_pro img {
+  width: 100%;
+  border-radius: 15px 15px 0 0;
+  height: 200px;
+  text-align: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.home .content .Slideshow_Product .content_pro .button_div {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.home .content .Slideshow_Product .content_pro .button_div button {
+  padding: 7px;
+  background-color: #f7c427;
+  border-radius: 7%;
+  font-size: 12px;
+  text-transform: uppercase;
+  border: none;
+  color: black;
+}
+.home .content .choose_table {
+  background-image: url("../../img/html/snapedit_1701938281351.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 80px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.home .content .choose_table > h1 {
+  position: absolute;
+  top: 30px;
+  font-size: 60px;
+}
+.home .content .choose_table .pick_option {
+  width: 95%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.home .content .choose_table .pick_option input,
+.home .content .choose_table .pick_option select {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  font-size: 30px;
+}
+.home .content .choose_table .pick_option input:-webkit-autofill,
+.home .content .choose_table .pick_option input:-webkit-autofill:hover,
+.home .content .choose_table .pick_option input:-webkit-autofill:focus,
+.home .content .choose_table .pick_option input:-webkit-autofill:active {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #FFFFFF;
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
+  box-shadow: inset 0 0 20px 20px transparent;
+}
+.home .content .choose_table button {
+  margin-top: 30px;
+  padding: 15px;
+  font-size: 20px;
+  background-color: #f7c427;
+  border: none;
+}
+.home .content .lienhe {
+  margin: 0 auto;
+  margin-top: 80px;
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+.home .content .lienhe .nhap {
+  padding: 15px;
+  width: 70%;
+}
+.home .content .lienhe .nhap p {
+  font-size: 28px;
+  color: white;
+  margin-top: 10px;
+}
+.home .content .lienhe .nhap input {
+  font-size: 30px;
+  background-color: transparent;
+  border: 1px solid white;
+  width: 100%;
+  margin: 10px 0;
+}
+.home .content .lienhe .nhap input:focus {
+  color: white;
+}
+.home .content .lienhe .nhap input::-moz-placeholder {
+  font-size: 15px;
+  color: white;
+  opacity: 50%;
+  padding-left: 10px;
+}
+.home .content .lienhe .nhap input::placeholder {
+  font-size: 15px;
+  color: white;
+  opacity: 50%;
+  padding-left: 10px;
+}
+.home .content .lienhe .nhap button {
+  margin-top: 7px;
+  font-size: 20px;
+  background-color: #f7c427;
+  border: none;
+  padding: 10px;
+}
+.home .content .lienhe .info_shop {
+  background-color: rgba(100, 97, 97, 0.5);
+  padding: 15px;
+}
+.home .content .lienhe .info_shop h2 {
+  font-size: 40px;
+}
+.home .content .lienhe .info_shop p {
+  margin: 5px 0;
+}/*# sourceMappingURL=Home.css.map */

@@ -1,0 +1,256 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+html {
+  font-size: 14px;
+}
+
+.page {
+  width: 1470px;
+  height: 3012px;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 100%;
+  grid-template-areas: "main";
+  margin: 0 auto;
+}
+.page main {
+  width: 100%;
+  height: 100%;
+  background-color: var(--color);
+  grid-area: main;
+  display: flex;
+  padding: 2%;
+}
+.page main .aside {
+  width: 35%;
+  height: 100%;
+  padding: 5% 2%;
+  background-color: var(--color1);
+}
+.page main .aside .headerAside {
+  width: 100%;
+  height: 15%;
+}
+.page main .aside .headerAside .img {
+  width: 51%;
+  height: 50%;
+  border-radius: 100px;
+  margin-left: 26%;
+}
+.page main .aside .headerAside .img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 100px;
+}
+.page main .aside .headerAside .content {
+  margin-top: 5%;
+  width: 100%;
+  height: 30%;
+  border-bottom: 5px solid var(--color6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.page main .aside .headerAside .content h1 {
+  color: var(--color6);
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Bitter;
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.page main .aside .mainAside {
+  margin-top: 25%;
+  width: 100%;
+  height: 60%;
+}
+.page main .aside .mainAside ul {
+  width: 100%;
+  height: 100%;
+}
+.page main .aside .mainAside ul li {
+  list-style-type: none;
+  width: 100%;
+  height: 9%;
+  color: var(--color6);
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Bitter;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+  display: flex;
+  justify-content: space-between;
+}
+.page main .aside .mainAside ul li a {
+  color: var(--color6);
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Bitter;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+  text-decoration: none;
+}
+.page main .containerMain {
+  width: 65%;
+  height: 100%;
+  margin-left: 3%;
+  background-color: var(--color2);
+  padding: 5% 2%;
+}
+.page main .containerMain .headerMain {
+  width: 100%;
+  height: 5%;
+}
+.page main .containerMain .headerMain .titleMain {
+  width: 93%;
+  height: 60%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0 4%;
+}
+.page main .containerMain .headerMain .titleMain h1 {
+  color: var(--color6);
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Bitter;
+  font-size: 4.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.page main .containerMain .headerMain .search {
+  width: 100%;
+  height: 40%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+}
+.page main .containerMain .headerMain .search input {
+  width: 100%;
+  height: 80%;
+  border-radius: 30px;
+  background-color: var(--color6);
+  color: var(--color);
+  padding-left: 12%;
+  font-size: 1rem;
+}
+.page main .containerMain .headerMain .search input:-webkit-autofill,
+.page main .containerMain .headerMain .search input:-webkit-autofill:hover,
+.page main .containerMain .headerMain .search input:-webkit-autofill:focus,
+.page main .containerMain .headerMain .search input:-webkit-autofill:active {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #FFFFFF;
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
+  box-shadow: inset 0 0 20px 20px transparent;
+}
+.page main .containerMain .headerMain .search input:focus {
+  outline: none;
+}
+.page main .containerMain .headerMain .search .ti-search {
+  position: absolute;
+  font-size: 2rem;
+  color: var(--color);
+  top: 34%;
+  right: 3%;
+}
+.page main .containerMain .contentMain {
+  background-color: var(--color7);
+  width: 100%;
+  height: 95%;
+  margin-top: 5%;
+  overflow: auto;
+  padding: 2%;
+}
+.page main .containerMain .contentMain .contentComment {
+  width: 100%;
+  height: 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid var(--color6);
+  margin: 2% 0;
+}
+.page main .containerMain .contentMain .contentComment .product {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.page main .containerMain .contentMain .contentComment .product h1 {
+  color: var(--color6);
+  font-size: 1rem;
+}
+.page main .containerMain .contentMain .contentComment .product img {
+  width: 45%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.page main .containerMain .contentMain .contentComment .content {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.page main .containerMain .contentMain .contentComment .content input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-bottom: 3px solid var(--color6);
+  font-size: 1.2rem;
+  padding-left: 2%;
+  background-color: var(--color7);
+  color: var(--color6);
+}
+.page main .containerMain .contentMain .contentComment .content input:-webkit-autofill,
+.page main .containerMain .contentMain .contentComment .content input:-webkit-autofill:hover,
+.page main .containerMain .contentMain .contentComment .content input:-webkit-autofill:focus,
+.page main .containerMain .contentMain .contentComment .content input:-webkit-autofill:active {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #FFFFFF;
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
+  box-shadow: inset 0 0 20px 20px transparent;
+}
+.page main .containerMain .contentMain .contentComment .content input:focus {
+  outline: none;
+}
+.page main .containerMain .contentMain .contentComment .sendContent {
+  width: 10%;
+  height: 100%;
+}
+.page main .containerMain .contentMain .contentComment .sendContent input {
+  width: 100%;
+  height: 35%;
+  border: none;
+  font-size: 1rem;
+  background-color: var(--color5);
+  color: var(--color6);
+  margin: 13% 0;
+}
+.page main .containerMain .contentMain .contentComment .sendContent input:-webkit-autofill,
+.page main .containerMain .contentMain .contentComment .sendContent input:-webkit-autofill:hover,
+.page main .containerMain .contentMain .contentComment .sendContent input:-webkit-autofill:focus,
+.page main .containerMain .contentMain .contentComment .sendContent input:-webkit-autofill:active {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #FFFFFF;
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
+  box-shadow: inset 0 0 20px 20px transparent;
+}
+.page main .containerMain .contentMain .contentComment .sendContent input:hover {
+  background-color: var(--color3);
+  transition: 1s linear;
+}/*# sourceMappingURL=ListComment.css.map */

@@ -22,6 +22,7 @@ class BaseController
 
     protected function loadView($viePath, $data = null)
     {
+        // test(file_exists("./src/app/views/clients/eat_online/Home.php"));
         if (file_exists("./src/app/views/$viePath")) {
             ob_start();
             if ($data != null)
@@ -34,6 +35,7 @@ class BaseController
             include "./src/app/views/$this->layoutPath";
         else
             echo $this->view;
+        die();
     }
 
     protected function formatDate($date)

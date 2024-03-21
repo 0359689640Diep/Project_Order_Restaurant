@@ -1,4 +1,4 @@
-    <link rel="stylesheet" href="<?= $_ENV['clientsStyle'] ?>SideBar.css">
+    <link rel="stylesheet" href="<?= $_ENV['clientsStyleOnline'] ?>SideBar.css">
 
     <section class="asside">
         <section class="headerAsside">

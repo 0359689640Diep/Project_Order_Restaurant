@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 20, 2024 at 03:14 AM
+-- Generation Time: Mar 21, 2024 at 01:07 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -49,7 +49,7 @@ INSERT INTO `account` (`IdAccount`, `NameAccount`, `Gmail`, `Gender`, `Password`
 (8, 'Nguyen Trong Khoi', 'khointph36272@fpt.edu.vn', 0, 'khointph36272@fpt.edu.vn', 'z4419639034081_72f3de1996280290798889601b1c9568.jpg', 'NVPVB', 0, '2023-12-07 07:45:46'),
 (9, 'Hoang Hai Hieu', 'hieuhhph36272@fpt.edu.vn', 0, 'hieuhhph36272@fpt.edu.vn', 'z4419639034081_72f3de1996280290798889601b1c9568.jpg', 'NVPVB', 0, '0000-00-00 00:00:00'),
 (10, 'Mai Hong Anh', 'anhmhph36272@fpt.edu.vn', 0, 'anhmhph36272@fpt.edu.vn', 'z4419639034081_72f3de1996280290798889601b1c9568.jpg', 'NVPVB', 0, '0000-00-00 00:00:00'),
-(18, 'Vu Hong Diep', 'vudiep621@gmail.com', 0, 'vudiep621@gmail.com', 'banner2.jpg', 'KH', 0, '2024-02-16 23:46:34'),
+(18, 'Vu Hong Diep', 'vudiep621@gmail.com', 0, 'vudiep621@gmail.com', 'banner2.jpg', 'KH', 0, '2024-03-07 02:33:31'),
 (23, 'Vu Hong Diep', 'diepvhph36273@fpt.edu.vn', 0, 'diepvhph36273@fpt.edu.vn', 'banner2.jpg', 'NVTN', 0, '2024-02-07 13:37:26');
 
 -- --------------------------------------------------------
@@ -68,23 +68,22 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`IdCart`, `IdAccount`) VALUES
-(37, 18),
-(38, 18),
-(39, 18),
-(40, 18),
-(41, 18),
-(42, 18),
-(43, 18),
-(44, 18),
-(45, 18),
-(46, 18),
-(47, 18),
-(48, 18),
-(49, 18),
-(50, 18),
-(51, 18),
-(52, 18),
-(53, 18);
+(54, 18),
+(55, 18),
+(56, 18),
+(57, 18),
+(58, 18),
+(59, 18),
+(60, 18),
+(61, 18),
+(62, 18),
+(63, 18),
+(64, 18),
+(67, 18),
+(68, 18),
+(70, 18),
+(73, 18),
+(74, 18);
 
 -- --------------------------------------------------------
 
@@ -109,30 +108,6 @@ INSERT INTO `category` (`IdCategory`, `NameCategory`, `StatusCategory`) VALUES
 (9, 'Beefsteak ', 0),
 (10, 'Đồ tráng miệng', 0),
 (11, 'test', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `comment`
---
-
-CREATE TABLE `comment` (
-  `IdComment` int NOT NULL,
-  `IdTable` int DEFAULT NULL,
-  `IdAccount` int NOT NULL,
-  `IdProduct` int NOT NULL,
-  `Content` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `StatusComment` int DEFAULT '0',
-  `DateEditComment` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `comment`
---
-
-INSERT INTO `comment` (`IdComment`, `IdTable`, `IdAccount`, `IdProduct`, `Content`, `StatusComment`, `DateEditComment`) VALUES
-(6, NULL, 6, 9, 'Sản phẩm rất ngon', 0, '2024-02-16 00:47:36'),
-(7, NULL, 6, 9, 'Sản phẩm rất ngon', 0, '2023-12-05 15:57:00');
 
 -- --------------------------------------------------------
 
@@ -177,7 +152,8 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`IdOrder`, `IdAccount`, `NumberTables`, `NumberInPeople`, `PaymentMethod`, `SumPriceOrder`, `StatusOrders`, `OrderDate`) VALUES
-(54, 18, 24, 5, 0, NULL, 2, '2024-02-20 23:44:00');
+(143, 18, 31, 2, 2, 11659440, 8, '2024-03-15 01:01:00'),
+(145, 18, 31, 1, 2, 111000, 8, '2024-03-14 02:50:00');
 
 -- --------------------------------------------------------
 
@@ -202,9 +178,9 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`IdProduct`, `IdCategory`, `NameProduct`, `QuantityProduct`, `ImageProduct`, `ProductDetails`, `ProductDescription`, `StatusProduct`, `DateEditProduct`) VALUES
-(9, 8, 'Mì Ý sốt bò bằm', 19, 'anhdoi.jpg', 'Mì Ý sốt bò bằm là món ăn ngon và đậm đà hương vị Ý, thường được dùng trong các bữa tiệc hay ăn tối ', 'Mì ý sốt bò bằm bao gồm, mì, ướp thịt bò bằm và kết hợp với sốt cà chua đậm đà. Đó là một món ăn tuy', 0, '2024-02-03 02:06:04'),
-(10, 7, 'Bánh mì bơ tỏi', 10, 'anh02-bruschetta-768x512.jpg', 'Bánh mì bơ tỏi được xem là món ăn rất nhiều người yêu thích, không chỉ tiện lợi cho bữa sáng dinh dư', 'Từng miếng bánh thơm ngon, giòn rụm với hương vị thơm phức của bơ tỏi, thêm chút đậm đà của thịt xông khói', 0, '2024-01-29 16:08:54'),
-(11, 7, 'Bánh mì hoa cúc', 20, 'banh_mi_hoa_cuc.jpg', 'Bánh mì hoa cúc có xuất xứ từ nước Pháp, đất nước nổi tiếng với sự cổ kính, thanh lịch và lãng mạn. ', 'Bánh mì hoa cúc pháp Harrys Brioche thuộc dạng bánh mì ngọt, vô cùng thơm và mềm mại. Thớ bánh dai, ', 0, '2024-01-29 16:08:54'),
+(9, 8, 'Mì Ý sốt bò bằm', 16, 'anhdoi.jpg', 'Mì Ý sốt bò bằm là món ăn ngon và đậm đà hương vị Ý, thường được dùng trong các bữa tiệc hay ăn tối ', 'Mì ý sốt bò bằm bao gồm, mì, ướp thịt bò bằm và kết hợp với sốt cà chua đậm đà. Đó là một món ăn tuy', 0, '2024-03-14 01:01:40'),
+(10, 7, 'Bánh mì bơ tỏi', 6, 'anh02-bruschetta-768x512.jpg', 'Bánh mì bơ tỏi được xem là món ăn rất nhiều người yêu thích, không chỉ tiện lợi cho bữa sáng dinh dư', 'Từng miếng bánh thơm ngon, giòn rụm với hương vị thơm phức của bơ tỏi, thêm chút đậm đà của thịt xông khói', 0, '2024-03-14 00:56:49'),
+(11, 7, 'Bánh mì hoa cúc', 18, 'banh_mi_hoa_cuc.jpg', 'Bánh mì hoa cúc có xuất xứ từ nước Pháp, đất nước nổi tiếng với sự cổ kính, thanh lịch và lãng mạn. ', 'Bánh mì hoa cúc pháp Harrys Brioche thuộc dạng bánh mì ngọt, vô cùng thơm và mềm mại. Thớ bánh dai, ', 0, '2024-03-14 01:52:33'),
 (12, 7, ' Baguette', 10, 'Tortilla.jpeg', 'Bánh mì Pháp (Baguette) là loại bánh mì dài (có khi lên đến 1 mét), vỏ dày và giòn, ruột mềm', 'khi bánh mới ra lò, với hương thơm “nức mũi” của nó, bạn chẳng cần thêm phết gì cũng có thể ngấu ngh', 0, '2024-01-29 16:08:54'),
 (13, 7, 'Tortilla', 5, 'Tortilla.jpeg', 'Tortilla là loại bánh mì dạng dẹt được làm từ nguyên liệu chính là bột bắp', 'Tortilla là là sự kết hợp giữa bột sau khi hòa với nước sẽ được gia giảm gia vị rồi nướng vàng, ăn k', 0, '2024-01-29 16:08:54'),
 (14, 7, ' Doner kebab', 50, 'DonerKebab.jpeg', 'Bánh có hình tam giác, mềm, thường kẹp với các loại thịt như cừu, bò, gà... xiên khối và quay trên m', 'Khi nào khách đến mua thì người bán mới cắt thịt thành từng lát mỏng rồi nhồi vào bánh, ăn kèm salad', 0, '2024-01-29 16:08:54'),
@@ -403,23 +379,8 @@ CREATE TABLE `subcard` (
 --
 
 INSERT INTO `subcard` (`IdSubCart`, `IdCart`, `IdSubProduct`, `IdProduct`, `IdSize`, `QuantityCardProduct`, `QuantitySubCardProduct`, `Note`) VALUES
-(9, 37, 1, 39, 34, 1, 1, NULL),
-(10, 38, 2, 39, 34, 1, 1, NULL),
-(11, 39, 4, 39, 34, 1, 1, NULL),
-(12, 40, NULL, 39, 34, 1, NULL, NULL),
-(13, 41, NULL, 39, 34, 1, NULL, NULL),
-(14, 42, NULL, 39, 34, 1, NULL, NULL),
-(15, 43, NULL, 39, 34, 1, NULL, NULL),
-(16, 44, NULL, 39, 34, 1, NULL, NULL),
-(17, 45, NULL, 39, 34, 1, NULL, NULL),
-(18, 46, NULL, 39, 34, 1, NULL, NULL),
-(19, 47, NULL, 39, 34, 1, NULL, NULL),
-(20, 48, NULL, 39, 34, 1, NULL, NULL),
-(21, 49, NULL, 39, 34, 1, NULL, NULL),
-(22, 50, NULL, 39, 34, 1, NULL, NULL),
-(23, 51, NULL, 39, 34, 1, NULL, NULL),
-(24, 52, NULL, 39, 34, 1, NULL, NULL),
-(25, 53, NULL, 39, 34, 1, NULL, NULL);
+(35, 73, NULL, 9, 105, 3, NULL, NULL),
+(36, 74, NULL, 36, 43, 1, NULL, '');
 
 -- --------------------------------------------------------
 
@@ -447,13 +408,24 @@ CREATE TABLE `suborders` (
   `NameSubProduct` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `NameProduct` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `PriceProduct` int NOT NULL,
-  `PriceSubProduct` int NOT NULL,
+  `PriceSubProduct` int DEFAULT NULL,
   `NameSize` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `QuantitySubOrderSubProduct` int NOT NULL DEFAULT '0',
+  `QuantitySubOrderSubProduct` int DEFAULT NULL,
   `QuantitySubOrderProduct` int DEFAULT NULL,
+  `ImageProduct` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `ImageSubProduct` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `Note` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `StatusOrders` int DEFAULT '0',
-  `Note` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL
+  `Comment` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `suborders`
+--
+
+INSERT INTO `suborders` (`IdSubOrders`, `IdOrder`, `NameSubProduct`, `NameProduct`, `PriceProduct`, `PriceSubProduct`, `NameSize`, `QuantitySubOrderSubProduct`, `QuantitySubOrderProduct`, `ImageProduct`, `ImageSubProduct`, `Note`, `StatusOrders`, `Comment`) VALUES
+(90, 143, 'subproduct2', 'Mì Ý sốt bò bằm', 3500000, 2000, '3 người ăn', 2, 3, '3_Thăn phi lê.jpg', 'anh03-spaghetti-carbonara.jpg', 'chín vừa', 0, NULL),
+(91, 145, NULL, 'Bánh mì hoa cúc', 50000, NULL, '1 người ăn', NULL, 2, '1_Bánh mì hoa cúc.jpg', NULL, 'ít ngọt', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -483,12 +455,12 @@ INSERT INTO `subproduct` (`IdSubProduct`, `IdProduct`, `NameSubProduct`, `PriceS
 (5, 39, 'subproduct5', 5000, 2, '1_Tart.jpg', 0),
 (6, 39, 'subproduct6', 6000, 2, '1_Tart.jpg', 0),
 (7, 9, 'subproduct1', 1000, 2, 'anh03-spaghetti-carbonara.jpg', 1),
-(8, 9, 'subproduct2', 2000, 2, 'anh03-spaghetti-carbonara.jpg', 0),
+(8, 9, 'subproduct2', 2000, 0, 'anh03-spaghetti-carbonara.jpg', 0),
 (9, 10, 'subproduct3', 3000, 21, 'banner1.jpg', 1),
 (10, 9, 'subproduct4', 4000, 2, 'anh03-spaghetti-carbonara.jpg', 0),
 (11, 9, 'subproduct5', 5000, 2, 'anh03-spaghetti-carbonara.jpg', 0),
 (12, 9, 'subproduct6', 6000, 2, 'anh03-spaghetti-carbonara.jpg', 0),
-(13, 10, 'subproduct1', 1000, 2, 'anh02-bruschetta-768x512.jpg', 0),
+(13, 10, 'subproduct1', 1000, 0, 'anh02-bruschetta-768x512.jpg', 0),
 (14, 10, 'subproduct2', 2000, 2, 'anh02-bruschetta-768x512.jpg', 0),
 (15, 10, 'subproduct3', 3000, 2, 'anh02-bruschetta-768x512.jpg', 0),
 (16, 10, 'subproduct4', 4000, 2, 'anh02-bruschetta-768x512.jpg', 0),
@@ -688,7 +660,7 @@ INSERT INTO `tables` (`IdTables`, `NumberTable`, `NumberPeopleDefault`, `StatusT
 (14, 23, 20, 1),
 (15, 1, 5, 1),
 (16, 2, 7, 1),
-(17, 31, 2, 1);
+(17, 31, 2, 4);
 
 --
 -- Indexes for dumped tables
@@ -713,14 +685,6 @@ ALTER TABLE `cart`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`IdCategory`);
-
---
--- Indexes for table `comment`
---
-ALTER TABLE `comment`
-  ADD PRIMARY KEY (`IdComment`),
-  ADD KEY `IdAccount` (`IdAccount`),
-  ADD KEY `IdProduct` (`IdProduct`);
 
 --
 -- Indexes for table `email`
@@ -798,7 +762,8 @@ ALTER TABLE `subproduct`
 --
 ALTER TABLE `tables`
   ADD PRIMARY KEY (`IdTables`),
-  ADD UNIQUE KEY `NumberTable` (`NumberTable`);
+  ADD UNIQUE KEY `NumberTable` (`NumberTable`),
+  ADD UNIQUE KEY `NumberTable_2` (`NumberTable`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -814,19 +779,13 @@ ALTER TABLE `account`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `IdCart` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `IdCart` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
   MODIFY `IdCategory` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
---
--- AUTO_INCREMENT for table `comment`
---
-ALTER TABLE `comment`
-  MODIFY `IdComment` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `email`
@@ -838,7 +797,7 @@ ALTER TABLE `email`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `IdOrder` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `IdOrder` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=146;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -862,7 +821,7 @@ ALTER TABLE `sizedefault`
 -- AUTO_INCREMENT for table `subcard`
 --
 ALTER TABLE `subcard`
-  MODIFY `IdSubCart` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `IdSubCart` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `subcategories`
@@ -874,7 +833,7 @@ ALTER TABLE `subcategories`
 -- AUTO_INCREMENT for table `suborders`
 --
 ALTER TABLE `suborders`
-  MODIFY `IdSubOrders` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `IdSubOrders` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
 
 --
 -- AUTO_INCREMENT for table `subproduct`
@@ -899,13 +858,6 @@ ALTER TABLE `cart`
   ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`IdAccount`) REFERENCES `account` (`IdAccount`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
--- Constraints for table `comment`
---
-ALTER TABLE `comment`
-  ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`IdAccount`) REFERENCES `account` (`IdAccount`),
-  ADD CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`IdProduct`) REFERENCES `product` (`IdProduct`);
-
---
 -- Constraints for table `product`
 --
 ALTER TABLE `product`
@@ -925,7 +877,8 @@ ALTER TABLE `size`
 ALTER TABLE `subcard`
   ADD CONSTRAINT `subcard_ibfk_1` FOREIGN KEY (`IdProduct`) REFERENCES `product` (`IdProduct`),
   ADD CONSTRAINT `subcard_ibfk_2` FOREIGN KEY (`IdCart`) REFERENCES `cart` (`IdCart`),
-  ADD CONSTRAINT `subcard_ibfk_3` FOREIGN KEY (`IdSubProduct`) REFERENCES `subproduct` (`IdSubProduct`);
+  ADD CONSTRAINT `subcard_ibfk_3` FOREIGN KEY (`IdSubProduct`) REFERENCES `subproduct` (`IdSubProduct`),
+  ADD CONSTRAINT `subcard_ibfk_4` FOREIGN KEY (`IdSize`) REFERENCES `size` (`IdSize`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Constraints for table `subcategories`

@@ -1,0 +1,158 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+html {
+  font-size: 14px;
+}
+
+.page {
+  width: 1476px;
+  height: 732px;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 100%;
+  grid-template-areas: "main";
+}
+.page main {
+  width: 100%;
+  height: 100%;
+  grid-area: main;
+  padding: 2%;
+  background-image: url("../../../img/html/snapedit_1701874861222.png");
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.containerMain {
+  width: 80%;
+  height: 100%;
+  margin-left: 3%;
+  padding: 5% 0 0 2%;
+}
+.containerMain .headerMain {
+  width: 100%;
+  height: 5%;
+}
+.containerMain .headerMain h1 {
+  color: #FFFFFF;
+  font-size: 3.5rem;
+  font-weight: 700;
+  font-style: normal;
+  line-height: normal;
+  font-family: Bitter;
+  font-feature-settings: "clig" off, "liga" off;
+  text-align: left;
+}
+
+.ContainerMains {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 80%;
+}
+.ContainerMains .contentMain {
+  width: 60%;
+  height: 95%;
+  overflow: hidden;
+}
+.ContainerMains .contentImage {
+  width: 30%;
+  height: 90%;
+  display: flex;
+  align-items: center;
+}
+.ContainerMains .contentImage .itemContentMain {
+  width: 100%;
+  height: 40%;
+}
+.ContainerMains .contentImage .itemContentMain img {
+  width: 55%;
+  height: 100%;
+  border-radius: 100px;
+}
+
+.itemContentMain {
+  width: 100%;
+  height: 20%;
+  margin: 4% 0;
+  position: relative;
+}
+.itemContentMain label {
+  font-size: 2rem;
+  color: #FFFFFF;
+}
+.itemContentMain input {
+  width: 100%;
+  height: 50%;
+  margin: 2% 0;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #FFFFFF;
+  font-size: 1.5rem;
+  color: #FFFFFF;
+}
+.itemContentMain input:focus {
+  outline: none;
+}
+.itemContentMain input:-webkit-autofill,
+.itemContentMain input:-webkit-autofill:hover,
+.itemContentMain input:-webkit-autofill:focus,
+.itemContentMain input:-webkit-autofill:active {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #FFFFFF;
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
+  box-shadow: inset 0 0 20px 20px transparent;
+}
+.itemContentMain #icont {
+  right: 1%;
+  top: 60%;
+  color: #FFFFFF;
+  cursor: pointer;
+  position: absolute;
+}
+
+.itemContentMainGender {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 2px solid #FFFFFF;
+}
+.itemContentMainGender label {
+  font-size: 2rem;
+  color: #FFFFFF;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.itemContentMainGender label input {
+  width: 50%;
+  height: 45%;
+}
+
+.buttonSubmit {
+  width: 100%;
+  height: 10%;
+}
+.buttonSubmit button {
+  width: 20%;
+  height: 100%;
+  font-size: 2rem;
+  background-color: #F7C427;
+  color: #FFFFFF;
+  border: none;
+}
+.buttonSubmit button:hover {
+  background-color: #585353;
+  transition: all 1s;
+  border-radius: 20px;
+}/*# sourceMappingURL=PersonalPage.css.map */

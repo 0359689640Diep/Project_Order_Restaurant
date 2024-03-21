@@ -1,0 +1,113 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+html {
+  font-size: 14px;
+}
+
+footer {
+  margin: 0 auto;
+  width: 1470px;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding-top: 20px;
+  background-color: #282828;
+}
+footer .head_footer {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  margin-left: 20px !important;
+}
+footer .head_footer .email {
+  margin-right: 40px;
+}
+footer .head_footer .email h3 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+footer .head_footer .email form {
+  display: flex;
+}
+footer .head_footer .email form input {
+  background-color: transparent;
+  display: block;
+  border: 1px solid white;
+  padding: 10px;
+  width: 443px;
+  color: white;
+  font-size: 15px;
+}
+footer .head_footer .email form input:focus {
+  outline: none;
+}
+footer .head_footer .email form input::-moz-placeholder {
+  color: white;
+  font-size: 15px;
+}
+footer .head_footer .email form input::placeholder {
+  color: white;
+  font-size: 15px;
+}
+footer .head_footer .email form input:-webkit-autofill,
+footer .head_footer .email form input:-webkit-autofill:hover,
+footer .head_footer .email form input:-webkit-autofill:focus,
+footer .head_footer .email form input:-webkit-autofill:active {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #FFFFFF;
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
+  box-shadow: inset 0 0 20px 20px transparent;
+}
+footer .head_footer .email form button {
+  background-color: #F7C427;
+  font-size: 15px;
+  margin-left: 20px;
+  color: black;
+  padding: 10px;
+  border: none;
+}
+footer .head_footer .email p {
+  margin-top: 15px;
+  font-size: 14px;
+}
+footer .head_footer .logo_content {
+  width: 40%;
+  display: flex;
+  margin-left: 30px;
+  align-items: center;
+}
+footer .head_footer .logo_content img {
+  width: 40%;
+}
+footer .head_footer .logo_content .content {
+  margin-left: 60px;
+}
+footer .head_footer .logo_content .content h3 {
+  font-size: 40px;
+  margin-bottom: 40px;
+}
+footer .head_footer .logo_content .content .info {
+  margin: 20px 0;
+}
+footer .end_footer {
+  margin-top: 40px;
+  width: 100%;
+}
+footer .end_footer hr {
+  border: 0;
+  border-top: 1px dashed white;
+}
+footer .end_footer .content_end {
+  margin: 0 auto;
+  color: white;
+  margin-top: 30px;
+  width: 90%;
+}/*# sourceMappingURL=Footer.css.map */

@@ -3,7 +3,7 @@
 namespace App\src\app\routers\clients;
 
 use App\src\app\routers\Router;
-use App\src\app\controllers\clients\AuthController;
+use App\src\app\controllers\clients\eat_online\AuthController;
 
 class AuthRouter
 {
